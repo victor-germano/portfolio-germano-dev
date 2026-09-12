@@ -432,6 +432,26 @@ body.panel-open #fb-setup-banner{right:480px}
 .fbb-close{background:none;border:none!important;color:var(--gray-dark);cursor:pointer;font-size:1rem;padding:.1rem .35rem;flex-shrink:0;align-self:flex-start;transition:color .15s;margin-left:auto}
 .fbb-close:hover{color:var(--white)}
 @media(max-width:768px){#fb-setup-banner{top:auto;position:relative;flex-direction:column}.fbb-code{max-width:100%}}
+
+/* ── SPECIALTY CARDS (Sobre) ── */
+.spec-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:1rem;margin:1.5rem 0 3rem}
+.spec-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.6rem;transition:border-color .2s}
+.spec-card:hover{border-color:var(--border2)}
+.spec-icon{font-size:1.5rem;margin-bottom:.85rem;display:block;line-height:1}
+.spec-title{font-family:var(--title);font-size:.95rem;font-weight:700;color:var(--white);margin-bottom:.5rem;letter-spacing:-.015em}
+.spec-desc{font-family:var(--body);font-size:.82rem;font-weight:300;color:var(--gray);line-height:1.7}
+
+/* ── PRINCIPLES LIST (Sobre) ── */
+.princ-list{list-style:none;display:flex;flex-direction:column;gap:.5rem;margin:1rem 0 0;max-width:620px}
+.princ-item{font-family:var(--body);font-size:.88rem;font-weight:300;color:var(--gray);padding-left:1.4rem;position:relative;line-height:1.65}
+.princ-item::before{content:'—';position:absolute;left:0;color:rgba(255,255,255,.18)}
+
+/* ── EXPERIENCE SKILL TAGS ── */
+.exp-tags{display:flex;gap:.35rem;flex-wrap:wrap;margin-top:1rem}
+.exp-tag{font-family:var(--title);font-size:.58rem;font-weight:600;letter-spacing:.05em;padding:.15rem .5rem;border-radius:4px;background:rgba(255,255,255,.04);color:var(--gray);border:1px solid var(--border)}
+
+/* ── FORMAÇÃO SECTION ── */
+#formacao{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 </style>
 </head>
 <body>
@@ -444,9 +464,10 @@ body.panel-open #fb-setup-banner{right:480px}
   </a>
   <div class="nav-right">
     <ul class="nav-links">
-      <li><a href="#projetos">Projetos</a></li>
-      <li><a href="#experiencia">Experiência</a></li>
       <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#experiencia">Experiência</a></li>
+      <li><a href="#projetos">Projetos</a></li>
+      <li><a href="#formacao">Formação</a></li>
       <li><a href="#contato">Contato</a></li>
     </ul>
     <a href="https://github.com/victor-germano" target="_blank" rel="noopener" class="nav-icon" title="GitHub">
@@ -495,8 +516,9 @@ body.panel-open #fb-setup-banner{right:480px}
         <a href="https://wa.me/5511953570476?text=Ol%C3%A1!%20Tudo%20bem%3F%20Vi%20seus%20projetos%20e%20fiquei%20interessado%20no%20seu%20trabalho." target="_blank" class="btn-o">WhatsApp</a>
       </div>
       <div class="hero-quick-nav">
-        <a href="#projetos" class="btn-q"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Projetos</a>
+        <a href="#sobre" class="btn-q"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>Sobre</a>
         <a href="#experiencia" class="btn-q"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>Experiência</a>
+        <a href="#projetos" class="btn-q"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Projetos</a>
         <a href="https://www.linkedin.com/in/victor-germano-65787b2b1" target="_blank" rel="noopener" class="btn-q"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
         <a href="https://github.com/victor-germano" target="_blank" rel="noopener" class="btn-q"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>GitHub</a>
       </div>
@@ -513,6 +535,122 @@ body.panel-open #fb-setup-banner{right:480px}
     <span class="scroll-label">scroll</span>
   </div>
 </section>
+
+<!-- ABOUT -->
+<div id="sobre">
+  <div class="sw">
+    <div class="ey fade-el">Sobre mim</div>
+    <div class="hd fade-el delay-1">Quem eu sou</div>
+
+    <!-- Bio -->
+    <div class="sobre-bio fade-el delay-2">
+      <p>Sou <strong>Victor Germano</strong>, estudante de <strong>Engenharia de Software</strong> na Universidade Cruzeiro do Sul. Atuo em T.I corporativo e no desenvolvimento de produtos digitais com <strong>IA integrada</strong>.</p>
+      <p>Combino <strong>código de qualidade</strong> e ferramentas de <strong>inteligência artificial</strong> para construir aplicações, automações e agentes que entregam resultado real — do conceito à entrega final.</p>
+    </div>
+
+    <!-- Especialidades -->
+    <div class="ey fade-el">Especialidades</div>
+    <div class="spec-grid">
+      <div class="spec-card fade-el">
+        <span class="spec-icon">🤖</span>
+        <div class="spec-title">IA &amp; Agentes Inteligentes</div>
+        <p class="spec-desc">Desenvolvo agentes de IA com Claude, GPT e ferramentas de orquestração para automação de tarefas complexas e tomada de decisão autônoma.</p>
+      </div>
+      <div class="spec-card fade-el delay-1">
+        <span class="spec-icon">⚡</span>
+        <div class="spec-title">Automação &amp; Integrações</div>
+        <p class="spec-desc">Construo fluxos de automação com n8n, Make e APIs REST que conectam sistemas e eliminam processos manuais repetitivos com precisão.</p>
+      </div>
+      <div class="spec-card fade-el delay-2">
+        <span class="spec-icon">💻</span>
+        <div class="spec-title">Software &amp; Desenvolvimento Web</div>
+        <p class="spec-desc">Crio aplicações web com HTML, CSS, JavaScript e Python — de landing pages a sistemas com back-end e banco de dados em nuvem.</p>
+      </div>
+    </div>
+
+    <!-- O que me move -->
+    <div class="ey fade-el">O que me move</div>
+    <ul class="princ-list fade-el delay-1">
+      <li class="princ-item">Código limpo, documentado e mantível — nunca só "funciona"</li>
+      <li class="princ-item">IA usada de forma inteligente, integrada ao produto, não como enfeite</li>
+      <li class="princ-item">Foco em entregar resultado real, não apenas linhas de código</li>
+      <li class="princ-item">Aprendizado contínuo — tecnologia muda rápido, eu mudo mais rápido</li>
+    </ul>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<div id="experiencia">
+  <div class="sw">
+    <div class="ey fade-el">Trajetória</div>
+    <div class="hd fade-el delay-1">Experiência Profissional</div>
+
+    <div class="exp-timeline">
+
+      <div class="exp-card current fade-el">
+        <div class="exp-top">
+          <div class="exp-role">ControlDesk Junior</div>
+          <div class="exp-date">Set 2026 — Presente</div>
+        </div>
+        <div class="exp-company">Grupo Roveri · São Paulo, SP</div>
+        <div class="exp-promo">⬆ Promoção interna</div>
+        <ul class="exp-points">
+          <li>Monitoramento e controle centralizado de infraestrutura de T.I, garantindo disponibilidade contínua de sistemas.</li>
+          <li>Resposta ágil a incidentes com análise de causa-raiz e acionamento de equipes responsáveis.</li>
+          <li>Gestão de alertas e dashboards operacionais em ambiente corporativo de alta criticidade.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">T.I</span>
+          <span class="exp-tag">Infraestrutura</span>
+          <span class="exp-tag">Monitoramento</span>
+          <span class="exp-tag">Gestão de Incidentes</span>
+          <span class="exp-tag">Dashboards</span>
+        </div>
+      </div>
+
+      <div class="exp-card fade-el">
+        <div class="exp-top">
+          <div class="exp-role">Suporte Técnico de T.I — Helpdesk</div>
+          <div class="exp-date">Out 2024 — Set 2026</div>
+        </div>
+        <div class="exp-company">Grupo Roveri · São Paulo, SP</div>
+        <ul class="exp-points">
+          <li>Atendimento e resolução de chamados técnicos de hardware, software e redes em ambiente corporativo com SLA definido, reduzindo tempo de inatividade dos usuários.</li>
+          <li>Suporte de primeiro e segundo nível com taxa de resolução no primeiro atendimento acima de 80%, garantindo continuidade operacional.</li>
+          <li>Documentação de procedimentos e padronização de fluxos de suporte.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">Suporte L1/L2</span>
+          <span class="exp-tag">Hardware</span>
+          <span class="exp-tag">Software</span>
+          <span class="exp-tag">Redes</span>
+          <span class="exp-tag">SLA</span>
+          <span class="exp-tag">Windows</span>
+        </div>
+      </div>
+
+      <div class="exp-card fade-el">
+        <div class="exp-top">
+          <div class="exp-role">Auxiliar de T.I</div>
+          <div class="exp-date">Mai 2024 — Ago 2024</div>
+        </div>
+        <div class="exp-company">Poupatempo do Caminhão · São Paulo, SP</div>
+        <ul class="exp-points">
+          <li>Suporte técnico a 50+ usuários/dia com manutenção preventiva e corretiva de equipamentos em ambiente de alta demanda.</li>
+          <li>Diagnóstico e resolução de falhas de hardware, software e infraestrutura de redes com foco em reestabelecimento rápido do serviço.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">Suporte T.I</span>
+          <span class="exp-tag">Manutenção</span>
+          <span class="exp-tag">Hardware</span>
+          <span class="exp-tag">Redes</span>
+          <span class="exp-tag">Alta Demanda</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 <!-- PROJECTS -->
 <div class="sw" id="projetos">
@@ -544,56 +682,12 @@ body.panel-open #fb-setup-banner{right:480px}
   </a>
 </div>
 
-<!-- EXPERIENCE -->
-<div id="experiencia">
+<!-- FORMAÇÃO -->
+<div id="formacao">
   <div class="sw">
-    <div class="ey fade-el">Trajetória</div>
-    <div class="hd fade-el delay-1">Experiência Profissional</div>
+    <div class="ey fade-el">Formação &amp; Habilidades</div>
+    <div class="hd fade-el delay-1">Educação, Skills &amp; Cursos</div>
 
-    <div class="exp-timeline">
-
-      <div class="exp-card current fade-el">
-        <div class="exp-top">
-          <div class="exp-role">ControlDesk Junior</div>
-          <div class="exp-date">Set 2026 — Presente</div>
-        </div>
-        <div class="exp-company">Grupo Roveri · São Paulo, SP</div>
-        <div class="exp-promo">⬆ Promoção interna</div>
-        <ul class="exp-points">
-          <li>Monitoramento e controle centralizado de infraestrutura de T.I, garantindo disponibilidade contínua de sistemas.</li>
-          <li>Resposta ágil a incidentes com análise de causa-raiz e acionamento de equipes responsáveis.</li>
-          <li>Gestão de alertas e dashboards operacionais em ambiente corporativo de alta criticidade.</li>
-        </ul>
-      </div>
-
-      <div class="exp-card fade-el">
-        <div class="exp-top">
-          <div class="exp-role">Suporte Técnico de T.I — Helpdesk</div>
-          <div class="exp-date">Out 2024 — Set 2026</div>
-        </div>
-        <div class="exp-company">Grupo Roveri · São Paulo, SP</div>
-        <ul class="exp-points">
-          <li>Atendimento e resolução de chamados técnicos de hardware, software e redes em ambiente corporativo com SLA definido, reduzindo tempo de inatividade dos usuários.</li>
-          <li>Suporte de primeiro e segundo nível com taxa de resolução no primeiro atendimento acima de 80%, garantindo continuidade operacional.</li>
-          <li>Documentação de procedimentos e padronização de fluxos de suporte.</li>
-        </ul>
-      </div>
-
-      <div class="exp-card fade-el">
-        <div class="exp-top">
-          <div class="exp-role">Auxiliar de T.I</div>
-          <div class="exp-date">Mai 2024 — Ago 2024</div>
-        </div>
-        <div class="exp-company">Poupatempo do Caminhão · São Paulo, SP</div>
-        <ul class="exp-points">
-          <li>Suporte técnico a 50+ usuários/dia com manutenção preventiva e corretiva de equipamentos em ambiente de alta demanda.</li>
-          <li>Diagnóstico e resolução de falhas de hardware, software e infraestrutura de redes com foco em reestabelecimento rápido do serviço.</li>
-        </ul>
-      </div>
-
-    </div>
-
-    <div class="ey fade-el" style="margin-top:3rem">Formação</div>
     <div class="edu-grid">
       <div class="edu-card fade-el">
         <div class="edu-inst">Universidade Cruzeiro do Sul</div>
@@ -603,27 +697,11 @@ body.panel-open #fb-setup-banner{right:480px}
       <div class="edu-card fade-el">
         <div class="edu-inst">SENAI · Anthropic · Microsoft</div>
         <div class="edu-course">33 cursos em T.I, IA e Desenvolvimento</div>
-        <span class="edu-status">Ver seção Sobre</span>
+        <span class="edu-status">Contínuo</span>
       </div>
     </div>
 
-  </div>
-</div>
-
-<!-- ABOUT -->
-<div id="sobre">
-  <div class="sw">
-    <div class="ey fade-el">Sobre mim</div>
-    <div class="hd fade-el delay-1">Victor Germano</div>
-
-    <!-- Bio -->
-    <div class="sobre-bio fade-el delay-2">
-      <p>Sou <strong>Victor Germano</strong>, estudante de <strong>Engenharia de Software</strong> na Universidade Cruzeiro do Sul. Atuo com suporte de T.I e desenvolvimento de produtos digitais com <strong>IA integrada</strong>.</p>
-      <p>Combino <strong>código de qualidade</strong> e ferramentas de <strong>inteligência artificial</strong> para construir aplicações, automações e agentes que entregam resultado real.</p>
-    </div>
-
-    <!-- Skills Cards -->
-    <div class="ey fade-el" style="margin-bottom:1rem">Habilidades</div>
+    <div class="ey fade-el" style="margin-top:3rem;margin-bottom:1rem">Habilidades Técnicas</div>
     <div class="sobre-cards">
       <div class="sobre-card fade-el">
         <div class="tg"><div class="tgl">Tech Skills</div><div class="ts" id="skills-list"></div></div>
@@ -639,8 +717,7 @@ body.panel-open #fb-setup-banner{right:480px}
       </div>
     </div>
 
-    <!-- Courses -->
-    <div class="ey fade-el" style="margin-bottom:1rem">Cursos &amp; Certificações</div>
+    <div class="ey fade-el" style="margin-top:3rem;margin-bottom:1rem">Cursos &amp; Certificações</div>
     <div class="sobre-card fade-el" style="margin-bottom:0">
       <div class="tgl" style="margin-bottom:1rem">
         <span id="curso-count" style="font-weight:400;font-size:12px;color:var(--white-mid);letter-spacing:0;text-transform:none"></span>
@@ -659,6 +736,7 @@ body.panel-open #fb-setup-banner{right:480px}
     <p class="cs fade-el delay-2">Estou disponível para freelas, colaborações e novos projetos. Entre em contato e vamos construir juntos.</p>
     <div class="cr fade-el delay-3">
       <a href="https://wa.me/5511953570476?text=Ol%C3%A1!%20Tudo%20bem%3F%20Vi%20seus%20projetos%20e%20fiquei%20interessado%20no%20seu%20trabalho." target="_blank" class="btn-w">WhatsApp</a>
+      <a href="https://www.linkedin.com/in/victor-germano-65787b2b1" target="_blank" class="btn-o">LinkedIn ↗</a>
       <a href="https://instagram.com/germanoo.dev" target="_blank" class="btn-o">@germanoo.dev</a>
     </div>
   </div>
@@ -669,6 +747,8 @@ body.panel-open #fb-setup-banner{right:480px}
   <span>© 2026 — Germano Dev</span>
   <div class="fr">
     <a href="https://instagram.com/germanoo.dev" target="_blank">@germanoo.dev</a>
+    <span style="color:#1e1e1e">·</span>
+    <a href="https://github.com/victor-germano" target="_blank">GitHub</a>
     <span style="color:#1e1e1e">·</span>
     <span>São Paulo, Brasil</span>
   </div>
