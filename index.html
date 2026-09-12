@@ -74,7 +74,7 @@ body.panel-open nav{right:480px}
 
 .hero-grid{position:absolute;inset:0;pointer-events:none;opacity:.035;background-image:linear-gradient(var(--border2) 1px,transparent 1px),linear-gradient(90deg,var(--border2) 1px,transparent 1px);background-size:60px 60px}
 
-.hero-content{position:relative;max-width:820px;z-index:1}
+/* .hero-content is now inside .hero-inner — see hero layout block below */
 .hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.05);border:1px solid var(--border2);padding:.32rem .85rem;border-radius:100px;font-family:var(--title);font-size:.72rem;font-weight:500;color:var(--gray);margin-bottom:1.8rem;letter-spacing:.02em}
 .hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0;animation:pulse 2s infinite}
 
@@ -93,6 +93,60 @@ h1 .dim{color:var(--gray-dark);color:#333}
 .hero-scroll{position:absolute;bottom:2.5rem;left:3rem;display:flex;align-items:center;gap:.75rem;z-index:1}
 .scroll-line{width:36px;height:1px;background:var(--gray-dark)}
 .scroll-label{font-family:var(--body);font-size:.65rem;font-weight:300;letter-spacing:.15em;text-transform:uppercase;color:var(--gray-dark)}
+
+/* ── HERO INNER LAYOUT (content + polaroid) ── */
+.hero-inner{display:flex;align-items:center;justify-content:space-between;gap:4rem;width:100%;max-width:1100px;position:relative;z-index:1}
+.hero-content{position:relative;max-width:520px;flex:1}
+
+/* ── POLAROID ── */
+.polaroid-wrap{flex-shrink:0;position:relative;z-index:1}
+.polaroid{background:#f8f6f2;padding:12px 12px 52px;box-shadow:0 12px 48px rgba(0,0,0,.6),0 2px 10px rgba(0,0,0,.4);transform:rotate(2.5deg);transition:transform .35s ease;display:inline-block}
+.polaroid:hover{transform:rotate(0deg) scale(1.03)}
+.polaroid img{width:210px;height:270px;object-fit:cover;display:block;filter:saturate(.95)}
+.polaroid-caption{position:absolute;bottom:0;left:0;right:0;text-align:center;font-family:'Plus Jakarta Sans',sans-serif;font-size:.68rem;font-weight:700;color:#2a2a2a;letter-spacing:.04em;padding:8px 4px;line-height:1.35}
+.polaroid-caption span{display:block;font-weight:400;font-size:.6rem;letter-spacing:.08em;color:#666;text-transform:uppercase;margin-top:2px}
+
+/* ── QUICK NAV BUTTONS ── */
+.hero-quick-nav{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1.6rem}
+.btn-q{background:transparent;color:var(--white-mid);padding:.42rem 1rem;border-radius:100px;font-family:var(--title);font-size:.73rem;font-weight:500;text-decoration:none;border:1px solid var(--border);display:inline-flex;align-items:center;gap:.35rem;transition:all .2s;cursor:pointer;letter-spacing:.01em}
+.btn-q:hover{border-color:rgba(255,255,255,.3);color:var(--white);background:rgba(255,255,255,.05);transform:translateY(-1px)}
+.btn-q svg{flex-shrink:0;opacity:.7}
+
+/* ── EXPERIENCE SECTION ── */
+#experiencia .sw{padding-top:0}
+.exp-timeline{display:flex;flex-direction:column;gap:1.25rem;margin-top:2rem}
+.exp-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem 1.75rem;position:relative;overflow:hidden;transition:border-color .2s}
+.exp-card:hover{border-color:var(--border2)}
+.exp-card::after{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--border2);border-radius:14px 0 0 14px}
+.exp-card.current::after{background:var(--green)}
+.exp-top{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:.5rem}
+.exp-role{font-family:var(--title);font-size:1rem;font-weight:700;color:var(--white);letter-spacing:-.015em}
+.exp-date{font-family:var(--body);font-size:.72rem;color:var(--gray);white-space:nowrap;background:rgba(255,255,255,.05);padding:.18rem .7rem;border-radius:100px;border:1px solid var(--border);flex-shrink:0}
+.exp-company{font-family:var(--body);font-size:.82rem;color:var(--white-mid);margin-bottom:.85rem;display:flex;align-items:center;gap:.4rem}
+.exp-company::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--gray);flex-shrink:0}
+.exp-points{list-style:none;display:flex;flex-direction:column;gap:.35rem}
+.exp-points li{font-family:var(--body);font-size:.84rem;color:var(--gray);line-height:1.65;padding-left:1.1rem;position:relative}
+.exp-points li::before{content:'→';position:absolute;left:0;color:rgba(255,255,255,.2);font-size:.7rem;top:.05rem}
+.exp-promo{display:inline-flex;align-items:center;gap:.35rem;background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.2);color:var(--green);font-family:var(--title);font-size:.64rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.18rem .65rem;border-radius:100px;margin-bottom:.75rem}
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:1.25rem}
+.edu-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.4rem 1.6rem;transition:border-color .2s}
+.edu-card:hover{border-color:var(--border2)}
+.edu-inst{font-family:var(--title);font-size:.92rem;font-weight:700;color:var(--white);margin-bottom:.3rem}
+.edu-course{font-family:var(--body);font-size:.82rem;color:var(--white-mid);margin-bottom:.5rem}
+.edu-status{font-family:var(--body);font-size:.72rem;color:var(--gray);background:rgba(255,255,255,.04);border:1px solid var(--border);padding:.15rem .6rem;border-radius:100px;display:inline-block}
+
+/* ── NAV ICON LINKS ── */
+.nav-icon{display:flex;align-items:center;color:var(--gray);transition:color .2s;text-decoration:none}
+.nav-icon:hover{color:var(--white)}
+.nav-icon svg{width:17px;height:17px}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .hero-inner{flex-direction:column-reverse;gap:2rem}
+  .polaroid img{width:160px;height:205px}
+  .polaroid{padding:9px 9px 42px}
+  .edu-grid{grid-template-columns:1fr}
+}
 
 /* ── LAYOUT ── */
 .sw{max-width:1080px;margin:0 auto;padding:7rem 3rem}
@@ -384,9 +438,16 @@ body.panel-open #fb-setup-banner{right:480px}
   <div class="nav-right">
     <ul class="nav-links">
       <li><a href="#projetos">Projetos</a></li>
+      <li><a href="#experiencia">Experiência</a></li>
       <li><a href="#sobre">Sobre</a></li>
       <li><a href="#contato">Contato</a></li>
     </ul>
+    <a href="https://github.com/victor-germano" target="_blank" rel="noopener" class="nav-icon" title="GitHub">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+    </a>
+    <a href="https://www.linkedin.com/in/victor-germano-65787b2b1" target="_blank" rel="noopener" class="nav-icon" title="LinkedIn">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    </a>
     <span id="admin-badge">Admin</span>
     <button class="nav-demo-btn" onclick="openOv('ov-demo')">Demo</button>
     <a href="#contato" class="nav-cta">Entrar em contato</a>
@@ -417,13 +478,27 @@ body.panel-open #fb-setup-banner{right:480px}
 <section id="hero">
   <div class="hero-grid"></div>
   <div class="hero-parallax-layer" id="parallax-bg"></div>
-  <div class="hero-content">
-    <div class="hero-badge">Disponível para novos projetos</div>
-    <h1>Desenvolvedor<br><span class="dim">&amp; Designer.</span></h1>
-    <p class="hero-sub">Criando sites e aplicações modernas com <strong>código manual</strong>, design profissional e <strong>inteligência artificial</strong>. Baseado em São Paulo, Brasil.</p>
-    <div class="hero-actions">
-      <a href="#projetos" class="btn-w">Ver projetos <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.3" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      <a href="https://wa.me/5511953570476?text=Ol%C3%A1!%20Tudo%20bem%3F%20Vi%20seus%20projetos%20e%20fiquei%20interessado%20no%20seu%20trabalho." target="_blank" class="btn-o">WhatsApp</a>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">Disponível para novos projetos</div>
+      <h1>Tecnologia,<br><span class="dim">Desenvolvimento &amp; IA.</span></h1>
+      <p class="hero-sub">Construindo aplicações, automações e agentes de IA com <strong>código de qualidade</strong> e <strong>inteligência artificial</strong>. Baseado em São Paulo, Brasil.</p>
+      <div class="hero-actions">
+        <a href="#projetos" class="btn-w">Ver projetos <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.3" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="https://wa.me/5511953570476?text=Ol%C3%A1!%20Tudo%20bem%3F%20Vi%20seus%20projetos%20e%20fiquei%20interessado%20no%20seu%20trabalho." target="_blank" class="btn-o">WhatsApp</a>
+      </div>
+      <div class="hero-quick-nav">
+        <a href="#projetos" class="btn-q"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Projetos</a>
+        <a href="#experiencia" class="btn-q"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>Experiência</a>
+        <a href="https://www.linkedin.com/in/victor-germano-65787b2b1" target="_blank" rel="noopener" class="btn-q"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
+        <a href="https://github.com/victor-germano" target="_blank" rel="noopener" class="btn-q"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>GitHub</a>
+      </div>
+    </div>
+    <div class="polaroid-wrap">
+      <div class="polaroid">
+        <img src="assets/victor-aws.jpg" alt="Victor Germano — AWS Summit" onerror="this.style.background='linear-gradient(135deg,#1a1a2e,#16213e,#0f3460)';this.style.width='210px';this.style.height='270px'">
+        <div class="polaroid-caption">Victor Germano<span>AI · Software Engineering</span></div>
+      </div>
     </div>
   </div>
   <div class="hero-scroll">
@@ -460,6 +535,72 @@ body.panel-open #fb-setup-banner{right:480px}
       <span class="saas-badge">Produto lançado</span>
     </div>
   </a>
+</div>
+
+<!-- EXPERIENCE -->
+<div id="experiencia">
+  <div class="sw">
+    <div class="ey fade-el">Trajetória</div>
+    <div class="hd fade-el delay-1">Experiência Profissional</div>
+
+    <div class="exp-timeline">
+
+      <div class="exp-card current fade-el">
+        <div class="exp-top">
+          <div class="exp-role">ControlDesk Junior</div>
+          <div class="exp-date">Set 2026 — Presente</div>
+        </div>
+        <div class="exp-company">Grupo Roveri · São Paulo, SP</div>
+        <div class="exp-promo">⬆ Promoção interna</div>
+        <ul class="exp-points">
+          <li>Monitoramento e controle centralizado de infraestrutura de T.I, garantindo disponibilidade contínua de sistemas.</li>
+          <li>Resposta ágil a incidentes com análise de causa-raiz e acionamento de equipes responsáveis.</li>
+          <li>Gestão de alertas e dashboards operacionais em ambiente corporativo de alta criticidade.</li>
+        </ul>
+      </div>
+
+      <div class="exp-card fade-el">
+        <div class="exp-top">
+          <div class="exp-role">Suporte Técnico de T.I — Helpdesk</div>
+          <div class="exp-date">Out 2024 — Set 2026</div>
+        </div>
+        <div class="exp-company">Grupo Roveri · São Paulo, SP</div>
+        <ul class="exp-points">
+          <li>Atendimento e resolução de chamados técnicos de hardware, software e redes em ambiente corporativo com SLA definido, reduzindo tempo de inatividade dos usuários.</li>
+          <li>Suporte de primeiro e segundo nível com taxa de resolução no primeiro atendimento acima de 80%, garantindo continuidade operacional.</li>
+          <li>Documentação de procedimentos e padronização de fluxos de suporte.</li>
+        </ul>
+      </div>
+
+      <div class="exp-card fade-el">
+        <div class="exp-top">
+          <div class="exp-role">Auxiliar de T.I</div>
+          <div class="exp-date">Mai 2024 — Ago 2024</div>
+        </div>
+        <div class="exp-company">Poupatempo do Caminhão · São Paulo, SP</div>
+        <ul class="exp-points">
+          <li>Suporte técnico a 50+ usuários/dia com manutenção preventiva e corretiva de equipamentos em ambiente de alta demanda.</li>
+          <li>Diagnóstico e resolução de falhas de hardware, software e infraestrutura de redes com foco em reestabelecimento rápido do serviço.</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="ey fade-el" style="margin-top:3rem">Formação</div>
+    <div class="edu-grid">
+      <div class="edu-card fade-el">
+        <div class="edu-inst">Universidade Cruzeiro do Sul</div>
+        <div class="edu-course">Bacharelado em Engenharia de Software</div>
+        <span class="edu-status">Cursando</span>
+      </div>
+      <div class="edu-card fade-el">
+        <div class="edu-inst">SENAI · Anthropic · Microsoft</div>
+        <div class="edu-course">33 cursos em T.I, IA e Desenvolvimento</div>
+        <span class="edu-status">Ver seção Sobre</span>
+      </div>
+    </div>
+
+  </div>
 </div>
 
 <!-- ABOUT -->
