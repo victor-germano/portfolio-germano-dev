@@ -65,7 +65,7 @@ body.panel-open nav{right:480px}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
 
 /* ── HERO ── */
-#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:0 3rem;position:relative;overflow:hidden}
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:0 3rem 5rem;position:relative;overflow:hidden}
 
 .hero-parallax-layer{position:absolute;inset:-30%;pointer-events:none;will-change:transform;background:
   radial-gradient(ellipse 65% 55% at 20% 40%,rgba(255,255,255,.018) 0%,transparent 60%),
@@ -100,11 +100,11 @@ h1 .dim{color:var(--gray-dark);color:#333}
 
 /* ── POLAROID ── */
 .polaroid-wrap{flex-shrink:0;position:relative;z-index:1}
-.polaroid{background:#f8f6f2;padding:12px 12px 52px;box-shadow:0 12px 48px rgba(0,0,0,.6),0 2px 10px rgba(0,0,0,.4);transform:rotate(2.5deg);transition:transform .35s ease;display:inline-block}
-.polaroid:hover{transform:rotate(0deg) scale(1.03)}
-.polaroid img{width:210px;height:270px;object-fit:cover;display:block;filter:saturate(.95)}
-.polaroid-caption{position:absolute;bottom:0;left:0;right:0;text-align:center;font-family:'Plus Jakarta Sans',sans-serif;font-size:.68rem;font-weight:700;color:#2a2a2a;letter-spacing:.04em;padding:8px 4px;line-height:1.35}
-.polaroid-caption span{display:block;font-weight:400;font-size:.6rem;letter-spacing:.08em;color:#666;text-transform:uppercase;margin-top:2px}
+.polaroid{background:#f8f6f2;padding:12px 12px 56px;box-shadow:0 16px 56px rgba(0,0,0,.65),0 2px 10px rgba(0,0,0,.4);transform:rotate(2deg);transition:transform .35s ease;display:inline-block;position:relative}
+.polaroid:hover{transform:rotate(0deg) scale(1.02)}
+.polaroid img{width:200px;height:300px;object-fit:cover;object-position:top center;display:block;filter:saturate(.92) contrast(1.03)}
+.polaroid-caption{position:absolute;bottom:0;left:0;right:0;text-align:center;font-family:'Plus Jakarta Sans',sans-serif;font-size:.7rem;font-weight:700;color:#2a2a2a;letter-spacing:.04em;padding:10px 4px 8px;line-height:1.4}
+.polaroid-caption span{display:block;font-weight:400;font-size:.58rem;letter-spacing:.1em;color:#888;text-transform:uppercase;margin-top:3px}
 
 /* ── QUICK NAV BUTTONS ── */
 .hero-quick-nav{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1.6rem}
@@ -153,27 +153,27 @@ h1 .dim{color:var(--gray-dark);color:#333}
 .ey{font-family:var(--title);font-size:.65rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--gray);margin-bottom:.65rem}
 .hd{font-family:var(--title);font-size:clamp(1.9rem,3.5vw,2.9rem);font-weight:800;letter-spacing:-.04em;margin-bottom:3rem;line-height:1.05}
 
-/* ── PROJECTS ── */
-.pl{display:flex;flex-direction:column;gap:.6rem}
-.proj{background:var(--card);border:1px solid var(--border);border-radius:10px;display:grid;grid-template-columns:3rem 1fr auto;overflow:hidden;transition:border-color .3s,background .3s,transform .2s;position:relative}
+/* ── PROJECTS GRID ── */
+.pl{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.25rem}
+.proj{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.75rem;display:flex;flex-direction:column;gap:0;transition:border-color .25s,transform .22s,box-shadow .25s;position:relative;overflow:hidden}
+.proj::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.025) 0%,transparent 60%);pointer-events:none}
 .proj.admin-mode{cursor:default}
-.proj.admin-mode:hover{border-color:rgba(74,222,128,.2);background:#111811}
+.proj.admin-mode:hover{border-color:rgba(74,222,128,.25);box-shadow:0 0 0 1px rgba(74,222,128,.1)}
 .proj.normal-mode{cursor:pointer}
-.proj.normal-mode:hover{border-color:var(--border2);background:#161616;transform:translateX(3px)}
+.proj.normal-mode:hover{border-color:var(--border2);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.4)}
 .proj.active-edit{border-color:var(--green)!important;background:#0f1a10!important}
 
-.proj-num{padding:2rem 0 2rem 1.4rem;font-family:var(--title);font-size:.68rem;font-weight:700;color:var(--gray-dark);letter-spacing:.05em;border-right:1px solid var(--border);display:flex;align-items:flex-start;padding-top:2.1rem}
-.proj-body{padding:1.75rem 2rem}
-.proj-tags{display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:.65rem}
-.proj-tag{font-family:var(--title);font-size:.6rem;font-weight:600;letter-spacing:.06em;padding:.15rem .5rem;border-radius:4px;background:rgba(255,255,255,.04);color:var(--gray);border:1px solid var(--border)}
-.proj-title{font-family:var(--title);font-size:1.15rem;font-weight:700;margin-bottom:.45rem;letter-spacing:-.02em;color:var(--white)}
-.proj-desc{font-family:var(--body);font-size:.84rem;font-weight:300;color:var(--gray);line-height:1.7;max-width:560px}
-
-.proj-right{display:flex;flex-direction:column;align-items:flex-end;justify-content:space-between;padding:1.4rem 1.5rem 1.4rem 1rem;gap:.6rem;min-width:fit-content}
-.proj-arrow{color:var(--gray-dark);transition:color .2s,transform .2s;flex-shrink:0}
+.proj-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
+.proj-num{font-family:var(--title);font-size:.62rem;font-weight:700;color:var(--gray-dark);letter-spacing:.08em}
+.proj-arrow{color:var(--gray-dark);transition:color .2s,transform .2s;flex-shrink:0;display:flex}
 .proj.normal-mode:hover .proj-arrow{color:var(--white);transform:translate(3px,-3px)}
 
-.proj-adm-btns{display:none;gap:.4rem;flex-wrap:wrap;justify-content:flex-end}
+.proj-tags{display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:.7rem}
+.proj-tag{font-family:var(--title);font-size:.58rem;font-weight:600;letter-spacing:.06em;padding:.13rem .48rem;border-radius:4px;background:rgba(255,255,255,.04);color:var(--gray);border:1px solid var(--border)}
+.proj-title{font-family:var(--title);font-size:1.05rem;font-weight:700;margin-bottom:.5rem;letter-spacing:-.02em;color:var(--white);line-height:1.25}
+.proj-desc{font-family:var(--body);font-size:.82rem;font-weight:300;color:var(--gray);line-height:1.7;flex:1}
+.proj-footer{display:flex;align-items:center;justify-content:flex-end;margin-top:1.2rem;padding-top:1rem;border-top:1px solid var(--border)}
+.proj-adm-btns{display:none;gap:.4rem;flex-wrap:wrap}
 .proj-adm-btns.on{display:flex}
 .ab{font-family:var(--title);font-size:.6rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:.28rem .65rem;border-radius:5px;border:1px solid var(--border2);background:transparent;color:var(--gray);cursor:pointer;transition:all .18s;white-space:nowrap}
 .ab:hover{color:var(--white);border-color:rgba(255,255,255,.3)}
@@ -183,16 +183,23 @@ h1 .dim{color:var(--gray-dark);color:#333}
 
 /* ── ABOUT ── */
 #sobre{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.ag{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.sobre-bio{max-width:680px;margin-bottom:3rem}
 #sobre p{font-family:var(--body);font-weight:300;color:var(--gray);margin-bottom:1rem;font-size:.9rem;line-height:1.8}
 #sobre p strong{color:var(--white-mid);font-weight:500}
-.tg{margin-bottom:1.75rem}
-.tgl{font-family:var(--title);font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gray);margin-bottom:.65rem}
+.sobre-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem;margin-bottom:3rem}
+.sobre-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem 1.6rem}
+.tg{margin:0}
+.tgl{font-family:var(--title);font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gray);margin-bottom:.85rem;display:flex;align-items:center;gap:.5rem}
+.tgl::before{content:'';width:14px;height:2px;background:var(--border2);border-radius:2px;flex-shrink:0}
 .ts{display:flex;flex-wrap:wrap;gap:.4rem}
 .tg-tag{font-family:var(--body);font-size:.72rem;font-weight:400;padding:.26rem .7rem;border-radius:5px;background:rgba(255,255,255,.04);border:1px solid var(--border2);color:var(--white-mid)}
+/* courses */
+.sobre-courses-wrap{margin-top:0}
 .cl{list-style:none}
 .cl-item{font-family:var(--body);font-size:.84rem;font-weight:300;color:var(--gray);padding:.55rem 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
 .cl-item span{color:#444;font-size:.74rem}
+/* ag kept for legacy compatibility */
+.ag{display:flex;flex-direction:column;gap:0}
 
 /* ── CONTACT ── */
 #contato{}
@@ -607,24 +614,39 @@ body.panel-open #fb-setup-banner{right:480px}
 <div id="sobre">
   <div class="sw">
     <div class="ey fade-el">Sobre mim</div>
-    <div class="ag">
-      <div class="fade-el delay-1">
-        <div class="hd" style="margin-bottom:1.4rem">Victor Germano</div>
-        <p>Sou <strong>Victor Germano</strong>, estudante de <strong>Engenharia de Software</strong> na Universidade Cruzeiro do Sul. Tenho experiência prática em T.I e no desenvolvimento de interfaces modernas.</p>
-        <p>Combino <strong>código manual</strong> e ferramentas de <strong>IA</strong> para construir produtos digitais que se destacam — do conceito à entrega final.</p>
-        <p>Meu objetivo é atuar como <strong>Desenvolvedor Júnior</strong>, colaborando com equipes e entregando soluções de qualidade.</p>
-        <div class="tg" style="margin-top:1.75rem">
-          <div class="tgl">Cursos &amp; Certificações <span id="curso-count" style="font-weight:400;font-size:14px;color:var(--white-mid);letter-spacing:0"></span></div>
-          <ul class="cl" id="curso-list"></ul>
-          <p id="curso-empty" style="color:var(--gray);font-size:.82rem;display:none">Nenhum curso adicionado ainda.</p>
-        </div>
-      </div>
-      <div class="fade-el delay-2">
+    <div class="hd fade-el delay-1">Victor Germano</div>
+
+    <!-- Bio -->
+    <div class="sobre-bio fade-el delay-2">
+      <p>Sou <strong>Victor Germano</strong>, estudante de <strong>Engenharia de Software</strong> na Universidade Cruzeiro do Sul. Atuo com suporte de T.I e desenvolvimento de produtos digitais com <strong>IA integrada</strong>.</p>
+      <p>Combino <strong>código de qualidade</strong> e ferramentas de <strong>inteligência artificial</strong> para construir aplicações, automações e agentes que entregam resultado real.</p>
+    </div>
+
+    <!-- Skills Cards -->
+    <div class="ey fade-el" style="margin-bottom:1rem">Habilidades</div>
+    <div class="sobre-cards">
+      <div class="sobre-card fade-el">
         <div class="tg"><div class="tgl">Tech Skills</div><div class="ts" id="skills-list"></div></div>
+      </div>
+      <div class="sobre-card fade-el delay-1">
         <div class="tg"><div class="tgl">Engenharia de Prompt &amp; IA</div><div class="ts" id="prompt-list"></div></div>
+      </div>
+      <div class="sobre-card fade-el delay-2">
         <div class="tg"><div class="tgl">Ferramentas</div><div class="ts" id="tools-list"></div></div>
+      </div>
+      <div class="sobre-card fade-el delay-3">
         <div class="tg"><div class="tgl">Soft Skills</div><div class="ts"><span class="tg-tag">Comunicativo</span><span class="tg-tag">Adaptabilidade</span><span class="tg-tag">Pensamento criativo</span><span class="tg-tag">Falar em público</span><span class="tg-tag">Gestão de tempo</span><span class="tg-tag">Autoconfiança</span></div></div>
       </div>
+    </div>
+
+    <!-- Courses -->
+    <div class="ey fade-el" style="margin-bottom:1rem">Cursos &amp; Certificações</div>
+    <div class="sobre-card fade-el" style="margin-bottom:0">
+      <div class="tgl" style="margin-bottom:1rem">
+        <span id="curso-count" style="font-weight:400;font-size:12px;color:var(--white-mid);letter-spacing:0;text-transform:none"></span>
+      </div>
+      <ul class="cl" id="curso-list"></ul>
+      <p id="curso-empty" style="color:var(--gray);font-size:.82rem;display:none">Nenhum curso adicionado ainda.</p>
     </div>
   </div>
 </div>
@@ -637,7 +659,7 @@ body.panel-open #fb-setup-banner{right:480px}
     <p class="cs fade-el delay-2">Estou disponível para freelas, colaborações e novos projetos. Entre em contato e vamos construir juntos.</p>
     <div class="cr fade-el delay-3">
       <a href="https://wa.me/5511953570476?text=Ol%C3%A1!%20Tudo%20bem%3F%20Vi%20seus%20projetos%20e%20fiquei%20interessado%20no%20seu%20trabalho." target="_blank" class="btn-w">WhatsApp</a>
-      <a href="https://instagram.com/v_.germano" target="_blank" class="btn-o">@v_.germano</a>
+      <a href="https://instagram.com/germanoo.dev" target="_blank" class="btn-o">@germanoo.dev</a>
     </div>
   </div>
 </div>
@@ -646,7 +668,7 @@ body.panel-open #fb-setup-banner{right:480px}
 <footer>
   <span>© 2026 — Germano Dev</span>
   <div class="fr">
-    <a href="https://instagram.com/v_.germano" target="_blank">@v_.germano</a>
+    <a href="https://instagram.com/germanoo.dev" target="_blank">@germanoo.dev</a>
     <span style="color:#1e1e1e">·</span>
     <span>São Paulo, Brasil</span>
   </div>
@@ -1154,16 +1176,16 @@ function render(){
     el.style.transitionDelay = `${i * 0.06}s`;
     el.dataset.id = p.id;
     el.innerHTML = `
-      <div class="proj-num">${num}</div>
-      <div class="proj-body">
-        <div class="proj-tags">${tags}</div>
-        <div class="proj-title">${x(p.name)}</div>
-        <p class="proj-desc">${x(p.desc)}</p>
-      </div>
-      <div class="proj-right">
+      <div class="proj-header">
+        <span class="proj-num">${num}</span>
         <div class="proj-arrow">
-          <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
         </div>
+      </div>
+      <div class="proj-tags">${tags}</div>
+      <div class="proj-title">${x(p.name)}</div>
+      <p class="proj-desc">${x(p.desc)}</p>
+      <div class="proj-footer">
         <div class="proj-adm-btns${admin?' on':''}">
           <button class="ab edit-btn" data-id="${p.id}">✏️ Editar</button>
           <button class="ab del-btn"  data-id="${p.id}">🗑 Excluir</button>
