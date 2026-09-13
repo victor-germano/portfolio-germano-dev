@@ -168,7 +168,7 @@ h1 .dim{color:var(--gray-dark);color:#333}
   .sw{padding:4rem 1.25rem}
 
   /* HERO */
-  #hero{padding:0 1.25rem 4rem;min-height:100svh}
+  #hero{padding:0 1.25rem 5rem;min-height:100svh}
   .hero-inner{flex-direction:column-reverse;gap:1.75rem;align-items:center;text-align:center}
   .hero-content{max-width:100%}
   .hero-sub{margin-left:auto;margin-right:auto}
@@ -467,21 +467,21 @@ body.panel-open #fab-group{right:496px}
 #toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(12px);z-index:900;background:var(--white);color:var(--bg);font-family:var(--title);font-size:.76rem;font-weight:700;padding:.62rem 1.1rem;border-radius:7px;opacity:0;pointer-events:none;transition:all .28s;box-shadow:0 4px 20px rgba(0,0,0,.45);white-space:nowrap}
 #toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
 
-/* ── RESPONSIVE ── */
+/* ── RESPONSIVE (admin / demo panel overrides) ── */
 @media(max-width:768px){
-  nav{padding:1rem 1.2rem}
-  .nav-links,.nav-cta{display:none}
-  .sw{padding:4rem 1.2rem}
-  #hero{padding:0 1.2rem}
-  h1{font-size:2.6rem}
-  .ag{grid-template-columns:1fr;gap:2.5rem}
-  footer{padding:1.25rem 1.2rem;flex-direction:column;gap:.5rem;text-align:center}
-  .proj{grid-template-columns:2.5rem 1fr auto}
+  /* hero — garante padding inferior para nunca encostar no #sobre */
+  #hero{padding-bottom:5rem}
+  /* sobre — remove bordas horizontais que cortam o conteúdo */
+  #sobre{border-top:none!important;border-bottom:none!important}
+  /* admin panel — fullscreen no mobile */
   body.panel-open{margin-right:0}
   body.panel-open nav{right:0}
+  body.panel-open #fab-group{right:1.25rem}
   #editor-panel{width:100%;right:-100%}
   body.panel-open #fab{display:none!important}
+  /* demo stats */
   .demo-stats{grid-template-columns:1fr 1fr}
+  /* hero scroll indicator — esconde no mobile */
   .hero-scroll{display:none}
 }
 
