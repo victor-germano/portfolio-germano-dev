@@ -65,7 +65,8 @@ body.panel-open nav{right:480px}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
 
 /* ── HERO ── */
-#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:0 3rem 5rem;position:relative;overflow:hidden}
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:0 3rem 5rem;position:relative}
+.hero-bg{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
 
 .hero-parallax-layer{position:absolute;inset:-30%;pointer-events:none;will-change:transform;background:
   radial-gradient(ellipse 65% 55% at 20% 40%,rgba(255,255,255,.018) 0%,transparent 60%),
@@ -112,7 +113,7 @@ h1 .dim{color:var(--gray-dark);color:#333}
 .btn-q svg{flex-shrink:0;opacity:.7}
 
 /* ── EXPERIENCE SECTION ── */
-#experiencia .sw{padding-top:0}
+#experiencia .sw{padding-top:5rem}
 #experiencia .hd{margin-bottom:1.5rem;padding-left:1rem;border-left:3px solid var(--border2)}
 #experiencia .ey{padding-left:1.25rem}
 .exp-timeline{display:flex;flex-direction:column;gap:1.25rem;margin-top:0}
@@ -130,6 +131,14 @@ h1 .dim{color:var(--gray-dark);color:#333}
 .exp-points li::before{content:'→';position:absolute;left:0;color:rgba(255,255,255,.2);font-size:.7rem;top:.05rem}
 .exp-promo{display:inline-flex;align-items:center;gap:.35rem;background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.2);color:var(--green);font-family:var(--title);font-size:.64rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.18rem .65rem;border-radius:100px;margin-bottom:.75rem}
 .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:1.25rem}
+/* ── EDU LOGOS ── */
+.edu-logo{width:42px;height:42px;object-fit:contain;border-radius:8px;margin-bottom:.85rem;background:rgba(255,255,255,.07);padding:5px;display:block}
+.edu-logos-row{display:flex;gap:.5rem;margin-bottom:.85rem;flex-wrap:wrap}
+.edu-logo-sm{width:34px;height:34px;object-fit:contain;border-radius:6px;background:rgba(255,255,255,.07);padding:4px}
+/* ── COURSE LIST LOGOS ── */
+.cl-item-left{display:flex;align-items:center;gap:.65rem;flex:1;min-width:0;overflow:hidden}
+.cl-logo{width:22px;height:22px;object-fit:contain;border-radius:4px;flex-shrink:0;background:rgba(255,255,255,.07);padding:2px}
+.cl-logo-init{width:22px;height:22px;border-radius:4px;background:var(--border2);display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:700;color:var(--gray);flex-shrink:0;font-family:var(--title)}
 .edu-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.4rem 1.6rem;transition:border-color .2s}
 .edu-card:hover{border-color:var(--border2)}
 .edu-inst{font-family:var(--title);font-size:.92rem;font-weight:700;color:var(--white);margin-bottom:.3rem}
@@ -498,8 +507,10 @@ body.panel-open #fb-setup-banner{right:480px}
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-grid"></div>
-  <div class="hero-parallax-layer" id="parallax-bg"></div>
+  <div class="hero-bg">
+    <div class="hero-grid"></div>
+    <div class="hero-parallax-layer" id="parallax-bg"></div>
+  </div>
   <div class="hero-inner">
     <div class="hero-content">
       <div class="hero-badge">Disponível para novos projetos</div>
@@ -680,11 +691,17 @@ body.panel-open #fb-setup-banner{right:480px}
 
     <div class="edu-grid">
       <div class="edu-card fade-el">
+        <img class="edu-logo" src="https://logo.clearbit.com/unicsul.edu.br" alt="Cruzeiro do Sul" onerror="this.style.display='none'">
         <div class="edu-inst">Universidade Cruzeiro do Sul</div>
         <div class="edu-course">Bacharelado em Engenharia de Software</div>
         <span class="edu-status">Cursando</span>
       </div>
       <div class="edu-card fade-el">
+        <div class="edu-logos-row">
+          <img class="edu-logo-sm" src="https://logo.clearbit.com/senai.br" alt="SENAI" onerror="this.style.display='none'">
+          <img class="edu-logo-sm" src="https://logo.clearbit.com/anthropic.com" alt="Anthropic" onerror="this.style.display='none'">
+          <img class="edu-logo-sm" src="https://logo.clearbit.com/microsoft.com" alt="Microsoft" onerror="this.style.display='none'">
+        </div>
         <div class="edu-inst">SENAI · Anthropic · Microsoft</div>
         <div class="edu-course">33 cursos em T.I, IA e Desenvolvimento</div>
         <span class="edu-status">Contínuo</span>
@@ -1292,6 +1309,24 @@ function render(){
 /* ══════════════════════════════════════
    RENDER COURSES
 ══════════════════════════════════════ */
+/* logo lookup by institution name */
+function getInstLogo(inst){
+  if(!inst) return null;
+  const k=inst.toLowerCase();
+  const map={
+    'senai':'senai.br','anthropic':'anthropic.com','microsoft':'microsoft.com',
+    'google':'google.com','aws':'aws.amazon.com','amazon':'amazon.com',
+    'udemy':'udemy.com','alura':'alura.com.br','rocketseat':'rocketseat.com.br',
+    'cruzeiro':'unicsul.edu.br','unicsul':'unicsul.edu.br','dio':'dio.me',
+    'coursera':'coursera.org','linkedin':'linkedin.com','youtube':'youtube.com',
+    'oracle':'oracle.com','cisco':'cisco.com','ibm':'ibm.com','github':'github.com',
+  };
+  for(const[key,domain] of Object.entries(map)){
+    if(k.includes(key)) return `https://logo.clearbit.com/${domain}`;
+  }
+  return null;
+}
+
 function renderCourses(){
   const list  = document.getElementById('curso-list');
   const empty = document.getElementById('curso-empty');
@@ -1305,9 +1340,17 @@ function renderCourses(){
     const li = document.createElement('li');
     li.className = `cl-item${admin ? ' admin-mode' : ''}`;
     li.dataset.id = c.id;
+    const logo = getInstLogo(c.inst);
+    const init = (c.inst||'?').trim().charAt(0).toUpperCase();
+    const logoHtml = logo
+      ? `<img class="cl-logo" src="${logo}" alt="" onerror="this.outerHTML='<div class=cl-logo-init>${init}</div>'">`
+      : `<div class="cl-logo-init">${init}</div>`;
     li.innerHTML = `
-      <span>${x(c.name)}</span>
-      <div style="display:flex;align-items:center;gap:.5rem">
+      <div class="cl-item-left">
+        ${logoHtml}
+        <span>${x(c.name)}</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:.5rem;flex-shrink:0">
         <span>${x(c.inst)}</span>
         <div class="cl-adm-btns${admin ? ' on' : ''}">
           <button class="cl-ab edit" data-id="${c.id}">✏️</button>
