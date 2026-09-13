@@ -99,12 +99,12 @@ h1 .dim{color:var(--gray-dark);color:#333}
 .hero-inner{display:flex;align-items:center;justify-content:space-between;gap:4rem;width:100%;max-width:1100px;position:relative;z-index:1}
 .hero-content{position:relative;max-width:520px;flex:1}
 
-/* ── POLAROID ── */
+/* ── PHOTO CARD ── */
 .polaroid-wrap{flex-shrink:0;position:relative;z-index:1}
-.polaroid{background:#f5f3ef;padding:14px 14px 64px;box-shadow:0 20px 60px rgba(0,0,0,.55),0 2px 12px rgba(0,0,0,.3);transform:rotate(0deg);display:inline-block;position:relative}
-.polaroid img{width:310px;height:450px;object-fit:cover;object-position:top center;display:block;filter:saturate(.92) contrast(1.03)}
-.polaroid-caption{position:absolute;bottom:0;left:0;right:0;text-align:center;font-family:'Plus Jakarta Sans',sans-serif;font-size:.7rem;font-weight:700;color:#2a2a2a;letter-spacing:.04em;padding:10px 4px 8px;line-height:1.4}
-.polaroid-caption span{display:block;font-weight:400;font-size:.58rem;letter-spacing:.1em;color:#888;text-transform:uppercase;margin-top:3px}
+.polaroid{background:#f5f3ef;border-radius:14px;overflow:hidden;box-shadow:0 28px 60px rgba(0,0,0,.42),0 0 0 1px rgba(255,255,255,.08);display:inline-block;position:relative}
+.polaroid img{width:310px;height:420px;object-fit:cover;object-position:top center;display:block;filter:saturate(.92) contrast(1.03)}
+.polaroid-caption{position:static;display:flex;justify-content:space-between;align-items:center;padding:11px 14px 10px;border-top:1px solid rgba(0,0,0,.07);font-family:'Plus Jakarta Sans',sans-serif;font-size:.72rem;font-weight:700;color:#1a1a1a;letter-spacing:.02em;line-height:1.4;background:#f5f3ef}
+.polaroid-caption em{font-style:italic;font-weight:400;font-size:.62rem;color:#888;letter-spacing:0}
 
 /* ── QUICK NAV BUTTONS ── */
 .hero-quick-nav{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1.6rem}
@@ -153,8 +153,7 @@ h1 .dim{color:var(--gray-dark);color:#333}
 /* ── RESPONSIVE ── */
 @media(max-width:768px){
   .hero-inner{flex-direction:column-reverse;gap:2rem}
-  .polaroid img{width:210px;height:300px}
-  .polaroid{padding:10px 10px 50px}
+  .polaroid img{width:230px;height:300px}
   .edu-grid{grid-template-columns:1fr}
 }
 
@@ -165,24 +164,22 @@ h1 .dim{color:var(--gray-dark);color:#333}
 
 /* ── PROJECTS GRID ── */
 .pl{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.25rem}
-.proj{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.75rem;display:flex;flex-direction:column;gap:0;transition:border-color .25s,transform .22s,box-shadow .25s;position:relative;overflow:hidden}
-.proj::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.025) 0%,transparent 60%);pointer-events:none}
+.proj{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.6rem 1.75rem;display:flex;flex-direction:column;gap:0;transition:border-color .25s,transform .2s,box-shadow .25s}
 .proj.admin-mode{cursor:default}
 .proj.admin-mode:hover{border-color:rgba(74,222,128,.25);box-shadow:0 0 0 1px rgba(74,222,128,.1)}
 .proj.normal-mode{cursor:pointer}
-.proj.normal-mode:hover{border-color:var(--border2);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.4)}
+.proj.normal-mode:hover{border-color:var(--border2);transform:translateY(-3px);box-shadow:0 14px 36px rgba(0,0,0,.35)}
 .proj.active-edit{border-color:var(--green)!important;background:#0f1a10!important}
 
-.proj-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
-.proj-num{font-family:var(--title);font-size:.62rem;font-weight:700;color:var(--gray-dark);letter-spacing:.08em}
-.proj-arrow{color:var(--gray-dark);transition:color .2s,transform .2s;flex-shrink:0;display:flex}
-.proj.normal-mode:hover .proj-arrow{color:var(--white);transform:translate(3px,-3px)}
-
-.proj-tags{display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:.7rem}
-.proj-tag{font-family:var(--title);font-size:.58rem;font-weight:600;letter-spacing:.06em;padding:.13rem .48rem;border-radius:4px;background:rgba(255,255,255,.04);color:var(--gray);border:1px solid var(--border)}
-.proj-title{font-family:var(--title);font-size:1.05rem;font-weight:700;margin-bottom:.5rem;letter-spacing:-.02em;color:var(--white);line-height:1.25}
-.proj-desc{font-family:var(--body);font-size:.82rem;font-weight:300;color:var(--gray);line-height:1.7;flex:1}
-.proj-footer{display:flex;align-items:center;justify-content:flex-end;margin-top:1.2rem;padding-top:1rem;border-top:1px solid var(--border)}
+.proj-tags{display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:1rem}
+.proj-tag{font-family:var(--title);font-size:.57rem;font-weight:600;letter-spacing:.06em;padding:.12rem .48rem;border-radius:4px;background:rgba(255,255,255,.05);color:var(--gray);border:1px solid var(--border)}
+.proj-title{font-family:var(--title);font-size:1.05rem;font-weight:700;margin-bottom:.55rem;letter-spacing:-.02em;color:var(--white);line-height:1.25}
+.proj-desc{font-family:var(--body);font-size:.82rem;font-weight:300;color:var(--gray);line-height:1.72;flex:1}
+.proj-footer{display:flex;align-items:center;justify-content:space-between;margin-top:1.25rem;padding-top:1rem;border-top:1px solid var(--border)}
+.proj-link{font-family:var(--title);font-size:.72rem;font-weight:600;color:var(--white-mid);text-decoration:none;display:inline-flex;align-items:center;gap:.3rem;letter-spacing:.01em;transition:color .2s}
+.proj-link:hover{color:var(--white)}
+.proj-link svg{flex-shrink:0;transition:transform .18s}
+.proj-link:hover svg{transform:translate(2px,-2px)}
 .proj-adm-btns{display:none;gap:.4rem;flex-wrap:wrap}
 .proj-adm-btns.on{display:flex}
 .ab{font-family:var(--title);font-size:.6rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:.28rem .65rem;border-radius:5px;border:1px solid var(--border2);background:transparent;color:var(--gray);cursor:pointer;transition:all .18s;white-space:nowrap}
@@ -530,7 +527,7 @@ body.panel-open #fb-setup-banner{right:480px}
     <div class="polaroid-wrap">
       <div class="polaroid">
         <img src="assets/victor-aws.jpg" alt="Victor Germano — AWS Summit" onerror="this.style.background='linear-gradient(135deg,#1a1a2e,#16213e,#0f3460)';this.style.width='210px';this.style.height='270px'">
-        <div class="polaroid-caption">Victor Germano<span>AI · Software Engineering</span></div>
+        <div class="polaroid-caption">Victor Germano<em>AI · Software Engineering</em></div>
       </div>
     </div>
   </div>
@@ -1263,16 +1260,11 @@ function render(){
     el.style.transitionDelay = `${i * 0.06}s`;
     el.dataset.id = p.id;
     el.innerHTML = `
-      <div class="proj-header">
-        <span class="proj-num">${num}</span>
-        <div class="proj-arrow">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
-        </div>
-      </div>
       <div class="proj-tags">${tags}</div>
       <div class="proj-title">${x(p.name)}</div>
       <p class="proj-desc">${x(p.desc)}</p>
       <div class="proj-footer">
+        ${p.link && !admin ? `<a class="proj-link" href="${p.link}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Ver projeto <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg></a>` : '<span></span>'}
         <div class="proj-adm-btns${admin?' on':''}">
           <button class="ab edit-btn" data-id="${p.id}">✏️ Editar</button>
           <button class="ab del-btn"  data-id="${p.id}">🗑 Excluir</button>
