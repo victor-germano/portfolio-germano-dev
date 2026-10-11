@@ -1043,16 +1043,20 @@ body.panel-open #fb-setup-banner{right:480px}
       <p class="demo-text">Cada projeto é construído do zero — sem templates genéricos. Do design à entrega, com foco em performance e identidade visual.</p>
       <div class="demo-proj-list">
         <div class="demo-proj-item">
-          <div class="demo-proj-name">Automação de Leads</div>
-          <div class="demo-proj-tags">Automação · Make · CRM</div>
+          <div class="demo-proj-name">Jarvis — Assistente de IA por Voz</div>
+          <div class="demo-proj-tags">Python · Claude API · Voz · IA</div>
+        </div>
+        <div class="demo-proj-item">
+          <div class="demo-proj-name">Projeto Pringles</div>
+          <div class="demo-proj-tags">Experimental · IA · Interativo</div>
         </div>
         <div class="demo-proj-item">
           <div class="demo-proj-name">Academia Agits</div>
           <div class="demo-proj-tags">Institucional · UI/UX · Conversão</div>
         </div>
         <div class="demo-proj-item">
-          <div class="demo-proj-name">CRM Energia Solar</div>
-          <div class="demo-proj-tags">React · Supabase · CRM · B2B</div>
+          <div class="demo-proj-name">Verificador de Vulnerabilidade</div>
+          <div class="demo-proj-tags">Python · Claude API · OWASP · Segurança</div>
         </div>
       </div>
       <div class="demo-nav">
@@ -1118,7 +1122,7 @@ body.panel-open #fb-setup-banner{right:480px}
 ══════════════════════════════════════ */
 const PASS = 'Careca1711@';
 const FIREBASE_URL = 'https://portfolio-germano-dev-default-rtdb.firebaseio.com';
-const DATA_VERSION = 19;
+const DATA_VERSION = 20;
 
 /* ── Firebase REST helpers ── */
 async function fbGet(){
@@ -1139,30 +1143,15 @@ async function fbSet(data){
 }
 
 const DEFAULTS = [
-  {id:'d10',name:'GNX Growth — Plataforma SaaS',tags:['React','Firebase','TypeScript','IA','Growth Marketing'],
-   desc:'Plataforma SaaS de growth marketing desenvolvida do zero com React, Firebase e IA integrada — lançada em produção para o mercado brasileiro, com painel admin, autenticação e gestão de campanhas.',
-   img:'',link:'https://gnxgrowth.com.br'},
-  {id:'d11',name:'CRM Energia Solar — Prospecção B2B',tags:['React','TypeScript','Supabase','PostgreSQL','Vercel','CRM'],
-   desc:'CRM de prospecção B2B para venda de energia por assinatura a condomínios e administradoras, construído com React, TypeScript e Supabase (PostgreSQL), com deploy na Vercel. Enriquecimento automático de CNPJ via Receita Federal com importação CSV/XLSX anti-duplicidade, pipeline Kanban de 9 etapas com cálculo automático de economia ao anexar a fatura, disparo de scripts comerciais via WhatsApp em 1 clique e geração de proposta em PDF com projeção de economia em 1/3/5 anos.',
-   img:'',link:''},
-  {id:'d1',name:'Automação de Leads',tags:['Automação','Make','CRM'],
-   desc:'Fluxo de automação completo para captação e nutrição de leads com Make. Integração com CRM, disparo de e-mails e notificações automáticas por WhatsApp.',
-   img:'',link:''},
-  {id:'d2',name:'Academia Agits',tags:['Institucional','UI/UX','Conversão'],
-   desc:'Site institucional para academia com foco em conversão e apresentação de serviços. Experiência clara, objetiva e orientada a resultados.',
-   img:'',link:'https://academiaagits.com.br/'},
-{id:'d5',name:'Projeto Pringles',tags:['Experimental','IA','Interativo'],
-   desc:'Projeto experimental com design moderno e interativo utilizando inteligência artificial. Explora os limites entre criatividade e tecnologia.',
-   img:'',link:'https://projetopringles-teste.lovable.app/'},
-  {id:'d7',name:'Segundo Cérebro',tags:['Obsidian','PKM','Gestão do Conhecimento'],
-   desc:'Sistema pessoal de gestão do conhecimento com Obsidian — organização de notas, conexões entre ideias e fluxo de aprendizado contínuo.',
-   img:'',link:''},
-  {id:'d8',name:'Agente de IA — Emissor NF-e',tags:['Claude Code','Python','API NF-e','Automação'],
-   desc:'Agente de IA que automatiza 100% o processo de emissão de nota fiscal eletrônica (NF-e). Emissão em até 3 segundos, validação automática de dados, integração com API SEFAZ, geração de XML/PDF e envio ao destinatário. Desenvolvido com Claude Code — elimina N8N, Python manual e Node.js. Aplicável a empresas de tecnologia, medicina e qualquer segmento que precise escalar emissão fiscal sem erros humanos.',
-   img:'',link:'https://github.com/victor-germano/agente-de-emissao-NF-e'},
   {id:'d6',name:'Jarvis — Assistente de IA por Voz',tags:['Python','Claude API','Voz','IA'],
    desc:'Assistente pessoal com voz bidirecional inspirado no J.A.R.V.I.S. do Homem de Ferro. Ouve comandos de voz, raciocina com Claude e responde em ~1 segundo. Integrado ao VS Code, Spotify, Google Calendar, Gmail e GitHub. Memória persistente entre sessões e roteamento automático entre modelos de IA.',
    img:'',link:'https://github.com/victor-germano/Programador-por-voz---Jarvis'},
+  {id:'d5',name:'Projeto Pringles',tags:['Experimental','IA','Interativo'],
+   desc:'Projeto experimental com design moderno e interativo utilizando inteligência artificial. Explora os limites entre criatividade e tecnologia.',
+   img:'',link:'https://projetopringles-teste.lovable.app/'},
+  {id:'d2',name:'Academia Agits',tags:['Institucional','UI/UX','Conversão'],
+   desc:'Site institucional para academia com foco em conversão e apresentação de serviços. Experiência clara, objetiva e orientada a resultados.',
+   img:'',link:'https://academiaagits.com.br/'},
   {id:'d9',name:'Verificador de Vulnerabilidade de Código',tags:['Python','Claude API','Segurança','OWASP'],
    desc:'Ferramenta de análise de segurança que usa a Claude API (Anthropic) para inspecionar código-fonte e detectar vulnerabilidades críticas — SQL Injection, XSS, autenticação insegura, exposição de dados sensíveis e outros padrões OWASP. Gera relatório detalhado com nível de severidade (crítico, alto, médio, baixo) e sugestões de correção para cada vulnerabilidade encontrada. Suporta múltiplas linguagens de programação.',
    img:'',link:'https://github.com/victor-germano/Verificador-de-vulnerabilidade-de-codigo-'}
@@ -1204,6 +1193,18 @@ const DEFAULT_COURSES = [
 const DEFAULT_SKILLS  = ['HTML','CSS','JavaScript','TypeScript','React','Node.js','Python','PHP','Firebase','Supabase','MySQL','Git'];
 const DEFAULT_PROMPT  = ['Lovable','Base44','Stitch','Figma Make','Claude Code','Bolt.AI','Replit','N8N'];
 const DEFAULT_TOOLS   = ['Figma','Pacote Office','Canva','Claude Design','Krea.AI','Runway ML','IdeaMap.AI','Gamma'];
+
+/* ── localStorage fallback ── */
+function lsSet(data){
+  try {
+    if (data.projects  != null) localStorage.setItem('gd_v4',          JSON.stringify(data.projects));
+    if (data.courses   != null) localStorage.setItem('gd_courses_v1',  JSON.stringify(data.courses));
+    if (data.skills    != null) localStorage.setItem('gd_skills',       JSON.stringify(data.skills));
+    if (data.prompt    != null) localStorage.setItem('gd_prompt',       JSON.stringify(data.prompt));
+    if (data.tools     != null) localStorage.setItem('gd_tools',        JSON.stringify(data.tools));
+    return true;
+  } catch { return false; }
+}
 
 /* ══════════════════════════════════════
    STATE
@@ -1784,18 +1785,22 @@ async function saveProject(){
   const db = await fbGet() || {projects:projs,courses,skills,prompt:promptTags,tools:toolTags};
   if (editId){
     const updProjs = (db.projects||projs).map(p=>p.id===editId?{...p,name,tags,desc,img,link}:p);
-    if (!(await fbSet({...db,projects:updProjs}))){ toast('❌ Erro ao salvar.'); resetBtn(); return; }
+    const dbFull = {...db, projects:updProjs};
+    const saved  = await fbSet(dbFull);
+    if (!saved) lsSet(dbFull);
     const i=projs.findIndex(p=>p.id===editId); if(i!==-1) projs[i]={...projs[i],name,tags,desc,img,link};
     render();
     setTimeout(()=>{ const card=document.querySelector(`.proj[data-id="${editId}"]`); if(card) card.classList.add('active-edit'); },50);
-    toast('✓ Projeto atualizado e publicado!');
+    toast(saved ? '✓ Projeto atualizado e publicado!' : '💾 Atualizado localmente (Firebase offline)');
   } else {
     const newId='p'+Date.now();
     const updProjs=[{id:newId,name,tags,desc,img,link},...(db.projects||projs)];
-    if (!(await fbSet({...db,projects:updProjs}))){ toast('❌ Erro ao salvar.'); resetBtn(); return; }
+    const dbFull = {...db, projects:updProjs};
+    const saved  = await fbSet(dbFull);
+    if (!saved) lsSet(dbFull);
     projs.unshift({id:newId,name,tags,desc,img,link});
     render(); closePanel();
-    toast('✓ Projeto adicionado ao portfólio!');
+    toast(saved ? '✓ Projeto adicionado ao portfólio!' : '💾 Adicionado localmente (Firebase offline)');
   }
   resetBtn();
 }
@@ -1810,10 +1815,12 @@ async function confirmDelete(){
   if (!confirm(`Excluir "${p.name}" permanentemente?`)) return;
   const db = await fbGet() || {projects:projs,courses,skills,prompt:promptTags,tools:toolTags};
   const updProjs = (db.projects||projs).filter(p=>p.id!==editId);
-  if (!(await fbSet({...db,projects:updProjs}))){ toast('❌ Erro ao excluir. Verifique o banco de dados.'); return; }
+  const dbFull   = {...db, projects:updProjs};
+  const saved    = await fbSet(dbFull);
+  if (!saved) lsSet(dbFull);
   projs = projs.filter(p=>p.id!==editId);
   render(); closePanel();
-  toast('🗑 Projeto excluído');
+  toast(saved ? '🗑 Projeto excluído' : '🗑 Excluído localmente (Firebase offline)');
 }
 
 /* ══════════════════════════════════════
@@ -1860,15 +1867,19 @@ async function saveCourse(){
   const db = await fbGet() || {projects:projs,courses,skills,prompt:promptTags,tools:toolTags};
   if (editCourseId){
     const updCourses=(db.courses||courses).map(c=>c.id===editCourseId?{...c,name,inst}:c);
-    if (!(await fbSet({...db,courses:updCourses}))){ toast('❌ Erro ao salvar.'); resetBtn(); return; }
+    const dbFull = {...db, courses:updCourses};
+    const saved  = await fbSet(dbFull);
+    if (!saved) lsSet(dbFull);
     const i=courses.findIndex(c=>c.id===editCourseId); if(i!==-1) courses[i]={...courses[i],name,inst};
-    renderCourses(); toast('✓ Curso atualizado!');
+    renderCourses(); toast(saved ? '✓ Curso atualizado!' : '💾 Atualizado localmente (Firebase offline)');
   } else {
     const newId='c'+Date.now();
     const updCourses=[...(db.courses||courses),{id:newId,name,inst}];
-    if (!(await fbSet({...db,courses:updCourses}))){ toast('❌ Erro ao salvar.'); resetBtn(); return; }
+    const dbFull = {...db, courses:updCourses};
+    const saved  = await fbSet(dbFull);
+    if (!saved) lsSet(dbFull);
     courses.push({id:newId,name,inst});
-    renderCourses(); closePanel(); toast('✓ Curso adicionado à lista!');
+    renderCourses(); closePanel(); toast(saved ? '✓ Curso adicionado à lista!' : '💾 Adicionado localmente (Firebase offline)');
   }
   resetBtn();
 }
@@ -1883,9 +1894,11 @@ async function confirmDeleteCourse(){
   if (!confirm(`Excluir "${c.name}" permanentemente?`)) return;
   const db = await fbGet() || {projects:projs,courses,skills,prompt:promptTags,tools:toolTags};
   const updCourses=(db.courses||courses).filter(c=>c.id!==editCourseId);
-  if (!(await fbSet({...db,courses:updCourses}))){ toast('❌ Erro ao excluir.'); return; }
+  const dbFull   = {...db, courses:updCourses};
+  const saved    = await fbSet(dbFull);
+  if (!saved) lsSet(dbFull);
   courses=courses.filter(c=>c.id!==editCourseId);
-  renderCourses(); closePanel(); toast('🗑 Curso excluído');
+  renderCourses(); closePanel(); toast(saved ? '🗑 Curso excluído' : '🗑 Excluído localmente (Firebase offline)');
 }
 
 /* ══════════════════════════════════════
