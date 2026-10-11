@@ -565,8 +565,8 @@ body.panel-open #fb-setup-banner{right:480px}
   </div>
   <pre class="fbb-code">{
   "rules": {
-    ".read": "now &lt; 1781665200000",
-    ".write": "now &lt; 1781665200000"
+    ".read": true,
+    ".write": true
   }
 }</pre>
   <div class="fbb-acts">
@@ -1051,8 +1051,8 @@ body.panel-open #fb-setup-banner{right:480px}
           <div class="demo-proj-tags">Institucional · UI/UX · Conversão</div>
         </div>
         <div class="demo-proj-item">
-          <div class="demo-proj-name">Alma Estudos Visuais</div>
-          <div class="demo-proj-tags">Artístico · Identidade Visual</div>
+          <div class="demo-proj-name">CRM Energia Solar</div>
+          <div class="demo-proj-tags">React · Supabase · CRM · B2B</div>
         </div>
       </div>
       <div class="demo-nav">
@@ -1118,7 +1118,7 @@ body.panel-open #fb-setup-banner{right:480px}
 ══════════════════════════════════════ */
 const PASS = 'Careca1711@';
 const FIREBASE_URL = 'https://portfolio-germano-dev-default-rtdb.firebaseio.com';
-const DATA_VERSION = 18;
+const DATA_VERSION = 19;
 
 /* ── Firebase REST helpers ── */
 async function fbGet(){
@@ -1151,9 +1151,6 @@ const DEFAULTS = [
   {id:'d2',name:'Academia Agits',tags:['Institucional','UI/UX','Conversão'],
    desc:'Site institucional para academia com foco em conversão e apresentação de serviços. Experiência clara, objetiva e orientada a resultados.',
    img:'',link:'https://academiaagits.com.br/'},
-  {id:'d3',name:'Alma Estudos Visuais',tags:['Artístico','Minimalista','Identidade Visual'],
-   desc:'Site artístico minimalista com foco em identidade visual e experiência do usuário. Estética refinada a serviço da expressão criativa.',
-   img:'',link:'https://almaestudosvisuais.com.br/'},
 {id:'d5',name:'Projeto Pringles',tags:['Experimental','IA','Interativo'],
    desc:'Projeto experimental com design moderno e interativo utilizando inteligência artificial. Explora os limites entre criatividade e tecnologia.',
    img:'',link:'https://projetopringles-teste.lovable.app/'},
@@ -1932,7 +1929,7 @@ function closeOv(id){
 function hideFbBanner(){ document.getElementById('fb-setup-banner').classList.remove('on'); }
 
 function copyFbRules(){
-  const rules = '{\n  "rules": {\n    ".read": "now < 1781665200000",\n    ".write": "now < 1781665200000"\n  }\n}';
+  const rules = '{\n  "rules": {\n    ".read": true,\n    ".write": true\n  }\n}';
   navigator.clipboard.writeText(rules)
     .then(()=>toast('✓ Regras copiadas! Cole no Firebase Console → Publicar'))
     .catch(()=>toast('Copie o código manualmente no painel acima'));
@@ -1970,7 +1967,7 @@ async function syncCVToFirebase(){
   const db = await fbGet();
   if (!db) return;
   // Sincroniza se o banco não tiver os cursos mais recentes do CV (verifica c11 = Claude 101)
-  const needsSync = !db.courses || !db.courses.some(c => c.id === 'c11');
+  const needsSync = !db.courses || !db.courses.some(c => c.id === 'c33');
   if (!needsSync) return;
   const ok = await fbSet({
     ...db,
