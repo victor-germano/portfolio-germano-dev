@@ -1043,20 +1043,16 @@ body.panel-open #fb-setup-banner{right:480px}
       <p class="demo-text">Cada projeto é construído do zero — sem templates genéricos. Do design à entrega, com foco em performance e identidade visual.</p>
       <div class="demo-proj-list">
         <div class="demo-proj-item">
+          <div class="demo-proj-name">GNX Growth — SaaS</div>
+          <div class="demo-proj-tags">React · Firebase · IA · Growth</div>
+        </div>
+        <div class="demo-proj-item">
           <div class="demo-proj-name">Jarvis — Assistente de IA por Voz</div>
           <div class="demo-proj-tags">Python · Claude API · Voz · IA</div>
         </div>
         <div class="demo-proj-item">
-          <div class="demo-proj-name">Projeto Pringles</div>
-          <div class="demo-proj-tags">Experimental · IA · Interativo</div>
-        </div>
-        <div class="demo-proj-item">
           <div class="demo-proj-name">Academia Agits</div>
           <div class="demo-proj-tags">Institucional · UI/UX · Conversão</div>
-        </div>
-        <div class="demo-proj-item">
-          <div class="demo-proj-name">Verificador de Vulnerabilidade</div>
-          <div class="demo-proj-tags">Python · Claude API · OWASP · Segurança</div>
         </div>
       </div>
       <div class="demo-nav">
@@ -1122,7 +1118,7 @@ body.panel-open #fb-setup-banner{right:480px}
 ══════════════════════════════════════ */
 const PASS = 'Careca1711@';
 const FIREBASE_URL = 'https://portfolio-germano-dev-default-rtdb.firebaseio.com';
-const DATA_VERSION = 20;
+const DATA_VERSION = 21;
 
 /* ── Firebase REST helpers ── */
 async function fbGet(){
@@ -1143,17 +1139,32 @@ async function fbSet(data){
 }
 
 const DEFAULTS = [
-  {id:'d6',name:'Jarvis — Assistente de IA por Voz',tags:['Python','Claude API','Voz','IA'],
-   desc:'Assistente pessoal com voz bidirecional inspirado no J.A.R.V.I.S. do Homem de Ferro. Ouve comandos de voz, raciocina com Claude e responde em ~1 segundo. Integrado ao VS Code, Spotify, Google Calendar, Gmail e GitHub. Memória persistente entre sessões e roteamento automático entre modelos de IA.',
-   img:'',link:'https://github.com/victor-germano/Programador-por-voz---Jarvis'},
-  {id:'d5',name:'Projeto Pringles',tags:['Experimental','IA','Interativo'],
-   desc:'Projeto experimental com design moderno e interativo utilizando inteligência artificial. Explora os limites entre criatividade e tecnologia.',
-   img:'',link:'https://projetopringles-teste.lovable.app/'},
+  {id:'d10',name:'GNX Growth — Plataforma SaaS',tags:['React','Firebase','TypeScript','IA','Growth Marketing'],
+   desc:'Plataforma SaaS de growth marketing desenvolvida do zero com React, Firebase e IA integrada — lançada em produção para o mercado brasileiro, com painel admin, autenticação e gestão de campanhas.',
+   img:'',link:'https://gnxgrowth.com.br'},
+  {id:'d11',name:'CRM Energia Solar — Prospecção B2B',tags:['React','TypeScript','Supabase','PostgreSQL','Vercel','CRM'],
+   desc:'CRM de prospecção B2B para venda de energia por assinatura a condomínios e administradoras, construído com React, TypeScript e Supabase (PostgreSQL), com deploy na Vercel. Enriquecimento automático de CNPJ via Receita Federal com importação CSV/XLSX anti-duplicidade, pipeline Kanban de 9 etapas com cálculo automático de economia ao anexar a fatura, disparo de scripts comerciais via WhatsApp em 1 clique e geração de proposta em PDF com projeção de economia em 1/3/5 anos.',
+   img:'',link:''},
+  {id:'d1',name:'Automação de Leads',tags:['Automação','Make','CRM'],
+   desc:'Fluxo de automação completo para captação e nutrição de leads com Make. Integração com CRM, disparo de e-mails e notificações automáticas por WhatsApp.',
+   img:'',link:''},
   {id:'d2',name:'Academia Agits',tags:['Institucional','UI/UX','Conversão'],
    desc:'Site institucional para academia com foco em conversão e apresentação de serviços. Experiência clara, objetiva e orientada a resultados.',
    img:'',link:'https://academiaagits.com.br/'},
+  {id:'d5',name:'Projeto Pringles',tags:['Experimental','IA','Interativo'],
+   desc:'Projeto experimental com design moderno e interativo utilizando inteligência artificial. Explora os limites entre criatividade e tecnologia.',
+   img:'',link:'https://projetopringles-teste.lovable.app/'},
+  {id:'d7',name:'Segundo Cérebro',tags:['Obsidian','PKM','Gestão do Conhecimento'],
+   desc:'Sistema pessoal de gestão do conhecimento com Obsidian — organização de notas, conexões entre ideias e fluxo de aprendizado contínuo.',
+   img:'',link:''},
+  {id:'d8',name:'Agente de IA — Emissor NF-e',tags:['Claude Code','Python','API NF-e','Automação'],
+   desc:'Agente de IA que automatiza 100% o processo de emissão de nota fiscal eletrônica (NF-e). Emissão em até 3 segundos, validação automática de dados, integração com API SEFAZ, geração de XML/PDF e envio ao destinatário. Desenvolvido com Claude Code — elimina N8N, Python manual e Node.js. Aplicável a empresas de tecnologia, medicina e qualquer segmento que precise escalar emissão fiscal sem erros humanos.',
+   img:'',link:'https://github.com/victor-germano/agente-de-emissao-NF-e'},
+  {id:'d6',name:'Jarvis — Assistente de IA por Voz',tags:['Python','Claude API','Voz','IA'],
+   desc:'Assistente pessoal com voz bidirecional inspirado no J.A.R.V.I.S. do Homem de Ferro. Ouve comandos de voz, raciocina com Claude e responde em ~1 segundo. Integrado ao VS Code, Spotify, Google Calendar, Gmail e GitHub. Memória persistente entre sessões e roteamento automático entre modelos de IA.',
+   img:'',link:'https://github.com/victor-germano/Programador-por-voz---Jarvis'},
   {id:'d9',name:'Verificador de Vulnerabilidade de Código',tags:['Python','Claude API','Segurança','OWASP'],
-   desc:'Ferramenta de análise de segurança que usa a Claude API (Anthropic) para inspecionar código-fonte e detectar vulnerabilidades críticas — SQL Injection, XSS, autenticação insegura, exposição de dados sensíveis e outros padrões OWASP. Gera relatório detalhado com nível de severidade (crítico, alto, médio, baixo) e sugestões de correção para cada vulnerabilidade encontrada. Suporta múltiplas linguagens de programação.',
+   desc:'Ferramenta de análise de segurança que usa a Claude API (Anthropic) para inspecionar código-fonte e detecta vulnerabilidades críticas — SQL Injection, XSS, autenticação insegura, exposição de dados sensíveis e outros padrões OWASP. Gera relatório detalhado com nível de severidade (crítico, alto, médio, baixo) e sugestões de correção para cada vulnerabilidade encontrada. Suporta múltiplas linguagens de programação.',
    img:'',link:'https://github.com/victor-germano/Verificador-de-vulnerabilidade-de-codigo-'}
 ];
 
