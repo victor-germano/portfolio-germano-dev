@@ -100,7 +100,7 @@ Supabase é um backend open-source que oferece banco de dados PostgreSQL, autent
 
 ```bash
 # 1. Clone o repositório
-git clone https://github.com/vgermano1711/portfolio-germano-dev.git
+git clone https://github.com/victor-germano/portfolio-germano-dev.git
 cd portfolio-germano-dev
 ```
 
