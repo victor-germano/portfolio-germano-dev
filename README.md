@@ -2,13 +2,13 @@
 
 # Germano Dev — Portfolio Pessoal
 
-> Site de portfolio pessoal com painel admin dinâmico, banco de dados Supabase e deploy automático no Netlify.
+> Site de portfolio pessoal com painel admin dinâmico, banco de dados Firebase Realtime Database e deploy automático.
 
 [![Deploy](https://img.shields.io/badge/Ver_ao_vivo-germanodev--portfolio.netlify.app-00C7B7?style=for-the-badge)](https://germanodev-portfolio.netlify.app/)
 [![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
 [![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
-[![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)](https://supabase.com)
+[![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)](https://firebase.google.com)
 [![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](https://netlify.com)
 
 </div>
@@ -51,8 +51,9 @@ O diferencial deste portfolio é o painel administrativo integrado: projetos e c
 | HTML5 | Estrutura semântica de toda a página |
 | CSS3 | Estilização, animações, variáveis CSS e responsividade |
 | JavaScript (Vanilla) | Lógica do painel admin, autenticação e manipulação do DOM |
-| Supabase | Backend as a Service — banco de dados PostgreSQL + autenticação |
-| Netlify | Hospedagem e deploy contínuo via GitHub |
+| Firebase Realtime Database | Persistência do conteúdo editado no painel, acessada pela API REST do Firebase |
+| localStorage | Cópia local do conteúdo, usada quando o banco está indisponível |
+| Netlify e GitHub Pages | Hospedagem com deploy contínuo a partir deste repositório |
 
 Vanilla JS foi uma escolha intencional para demonstrar domínio dos fundamentos do JavaScript sem depender de frameworks. A lógica de CRUD, autenticação e renderização dinâmica foi implementada manualmente.
 
@@ -62,75 +63,51 @@ Vanilla JS foi uma escolha intencional para demonstrar domínio dos fundamentos 
 
 ```
 portfolio-germano-dev/
-├── index.html           # Aplicação completa (HTML + CSS + JS em um arquivo)
-│                         # Inclui: layout, estilos, lógica do admin e integração Supabase
-├── supabase-setup.sql    # Script SQL para configurar o banco de dados no Supabase
-│                         # Cria as tabelas: projetos, cursos e configurações
-├── .gitignore
+├── index.html              # Aplicação completa (HTML + CSS + JS em um arquivo):
+│                           # layout, estilos, painel admin e integração com o Firebase
+├── cv.html                 # Currículo em página web
+├── carta_apresentacao.html # Carta de apresentação
+├── tabela_precos.html      # Tabela de preços de serviços
+├── database.rules.json     # Regras de acesso do Firebase Realtime Database
+├── assets/                 # Imagens
+├── .github/workflows/      # Deploy no GitHub Pages
 ├── LICENSE
 └── README.md
 ```
 
 ---
 
-## Estrutura do Banco de Dados (Supabase)
+## Persistência (Firebase Realtime Database)
 
-O arquivo `supabase-setup.sql` cria as seguintes tabelas:
+O conteúdo gerenciado pelo painel (projetos, cursos, skills e ferramentas) é salvo como um único documento JSON no Firebase Realtime Database, lido e gravado pela API REST com `fetch`, sem SDK.
 
-```sql
--- Tabela de projetos
-projetos (id, nome, descricao, imagem_url, link, tags, criado_em)
+Na carga da página, o site tenta buscar esse documento. Se o banco estiver indisponível, usa a cópia guardada no `localStorage` e, na falta dela, os dados padrão definidos no próprio `index.html`. Assim a página nunca fica vazia.
 
--- Tabela de cursos
-cursos (id, nome, instituicao, criado_em)
-```
-
-Supabase é um backend open-source que oferece banco de dados PostgreSQL, autenticação e API REST automática. Funciona como alternativa ao Firebase, mas com SQL.
+As regras de acesso ficam em `database.rules.json`.
 
 ---
 
 ## Como Rodar Localmente
 
-### Pré-requisitos
-
-- Navegador moderno
-- Conta no [Supabase](https://supabase.com) (gratuito)
-
-### Passo a passo
-
 ```bash
-# 1. Clone o repositório
 git clone https://github.com/victor-germano/portfolio-germano-dev.git
 cd portfolio-germano-dev
+python -m http.server 8000
+# abra http://localhost:8000
 ```
 
-```bash
-# 2. Configure o Supabase
-# - Crie um projeto em supabase.com
-# - Vá em SQL Editor e execute o conteúdo de supabase-setup.sql
-# - Copie a URL e a chave anon do projeto
-```
-
-```bash
-# 3. Abra o index.html e insira suas credenciais do Supabase
-# Procure por: supabaseUrl e supabaseKey no início do script
-```
-
-```bash
-# 4. Abra o index.html no navegador
-open index.html
-```
+Para usar o seu próprio banco, crie um Realtime Database no [console do Firebase](https://console.firebase.google.com), publique as regras de `database.rules.json` e troque o valor de `FIREBASE_URL` no início do script em `index.html`.
 
 ---
 
-## Deploy (Netlify)
+## Deploy
 
-O projeto está hospedado no Netlify com deploy automático a partir deste repositório.
+O projeto está publicado no Netlify e no GitHub Pages ([victor-germano.github.io/portfolio-germano-dev](https://victor-germano.github.io/portfolio-germano-dev/)), ambos com deploy automático a partir deste repositório.
 
-A cada `git push` na branch `main`, o Netlify detecta a mudança e publica automaticamente, sem intervenção manual.
+A cada `git push` na branch `main`, as duas hospedagens publicam a nova versão automaticamente, sem intervenção manual.
 
 ```
-GitHub push → Netlify detecta → Build automático → Site atualizado
+GitHub push → deploy automático → site atualizado
 ```
 
 ---
