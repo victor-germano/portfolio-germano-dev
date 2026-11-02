@@ -1275,6 +1275,10 @@ body.panel-open #fb-setup-banner{right:480px}
 <div id="toast"></div>
 
 <script>
+/* Sempre abre no topo — desativa restauração de scroll do browser */
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+window.scrollTo(0, 0);
+
 /* ══════════════════════════════════════
    CONFIG
 ══════════════════════════════════════ */
