@@ -1118,7 +1118,7 @@ body.panel-open #fb-setup-banner{right:480px}
 ══════════════════════════════════════ */
 const PASS = 'Careca1711@';
 const FIREBASE_URL = 'https://portfolio-germano-dev-default-rtdb.firebaseio.com';
-const DATA_VERSION = 21;
+const DATA_VERSION = 22;
 
 /* ── Firebase REST helpers ── */
 async function fbGet(){
@@ -1151,6 +1151,9 @@ const DEFAULTS = [
   {id:'d2',name:'Academia Agits',tags:['Institucional','UI/UX','Conversão'],
    desc:'Site institucional para academia com foco em conversão e apresentação de serviços. Experiência clara, objetiva e orientada a resultados.',
    img:'',link:'https://academiaagits.com.br/'},
+  {id:'d12',name:'Tech N — Software House',tags:['Institucional','React','TypeScript','UI/UX','SEO'],
+   desc:'Site institucional desenvolvido para software house especializada em desenvolvimento de sistemas sob medida. Apresentação de serviços, portfólio de soluções e posicionamento de marca — design responsivo com identidade visual própria, copywriting orientado a conversão e otimização para SEO.',
+   img:'',link:'https://technsoftwares.com.br'},
   {id:'d5',name:'Projeto Pringles',tags:['Experimental','IA','Interativo'],
    desc:'Projeto experimental com design moderno e interativo utilizando inteligência artificial. Explora os limites entre criatividade e tecnologia.',
    img:'',link:'https://projetopringles-teste.lovable.app/'},
@@ -1262,7 +1265,8 @@ async function loadData(){
     // initialized=true significa que o Firebase já foi semeado ao menos uma vez.
     // Sem essa flag, arrays vazios (ex: todos os projetos excluídos) cairiam nos defaults.
     const needsReset = db.version !== DATA_VERSION ||
-      (db.projects && db.projects.some(p => p.name === 'Bolsa Pro'));
+      (db.projects && db.projects.some(p => p.name === 'Bolsa Pro')) ||
+      (db.projects && db.projects.some(p => p.name && p.name.toLowerCase().includes('alma')));
     if (needsReset) {
       projs = clone(DEFAULTS); courses = clone(DEFAULT_COURSES);
       skills = [...DEFAULT_SKILLS]; promptTags = [...DEFAULT_PROMPT]; toolTags = [...DEFAULT_TOOLS];
