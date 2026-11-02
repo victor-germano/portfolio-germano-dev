@@ -60,80 +60,68 @@ body.panel-open nav{right:480px}
 .nav-cta{background:var(--white);color:#000;padding:.42rem 1.1rem;font-family:var(--title);font-size:.72rem;font-weight:700;letter-spacing:.04em;text-decoration:none;transition:opacity .2s}
 .nav-cta:hover{opacity:.85}
 
-#admin-badge{font-family:var(--title);font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(74,222,128,.1);color:var(--green);border:1px solid rgba(74,222,128,.2);padding:.2rem .6rem;border-radius:100px;display:none}
+#admin-badge{font-family:var(--title);font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(255,255,255,.07);color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.14);padding:.2rem .6rem;border-radius:100px;display:none}
 #admin-badge.on{display:inline-flex;align-items:center;gap:.35rem}
-#admin-badge::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+#admin-badge::before{content:'';width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.6);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
 
-/* ── HERO (Abbas-style) ── */
-#hero{min-height:100vh;position:relative;background:#000;overflow:hidden;display:block;border-bottom:1px solid var(--border)}
+/* ── HERO (full-bleed parallax) ── */
+#hero{min-height:100vh;position:relative;background:url('assets/victor-aws.jpg') top center / cover no-repeat fixed;display:flex;align-items:flex-end;border-bottom:none}
 
-/* Photo — fills right 58% of viewport, bleeds top */
-.hero-photo-wrap{position:absolute;right:0;top:0;bottom:0;width:58%;z-index:0;pointer-events:none}
-.hero-photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:top center;filter:grayscale(1) contrast(1.1) brightness(.7)}
-.hero-photo-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,#000 0%,#000 22%,rgba(0,0,0,.82) 42%,rgba(0,0,0,.35) 65%,rgba(0,0,0,.05) 100%)}
+/* Gradient overlay — fades to pure black at bottom for seamless parallax transition */
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.28) 0%,rgba(0,0,0,.42) 38%,rgba(0,0,0,.76) 72%,#000 100%);z-index:1}
 
-/* Big name — top left, constrained so it never bleeds into the panel area */
-.hero-name-block{position:absolute;top:6.5rem;left:3rem;z-index:2;max-width:52vw}
-.hero-firstname{font-family:var(--title);font-size:clamp(1.4rem,2.4vw,2.8rem);font-weight:300;color:rgba(255,255,255,.45);letter-spacing:.22em;text-transform:uppercase;line-height:1}
-.hero-lastname{font-family:var(--title);font-size:clamp(3rem,7vw,8rem);font-weight:800;color:#fff;letter-spacing:-.025em;line-height:.9;margin-top:.1rem}
-.hero-role-line{font-family:var(--title);font-size:.66rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:1.4rem;display:flex;align-items:center;gap:.75rem}
-.hero-role-line::before{content:'';width:24px;height:1px;background:rgba(255,255,255,.3)}
+/* Content wrapper — bottom-left aligned */
+.hero-body{position:relative;z-index:2;width:100%;max-width:1100px;margin:0 auto;padding:0 3rem 5rem;display:flex;flex-direction:column;gap:1.6rem}
 
-/* Left info panel — bottom left, clear of name block */
-.hero-left-panel{position:absolute;bottom:3.5rem;left:3rem;z-index:3;background:rgba(6,6,6,.9);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(16px);padding:1.4rem 1.6rem;width:min(250px,36vw)}
-.hlp-label{font-family:var(--title);font-size:.55rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:.9rem}
-.hlp-row{margin-bottom:.6rem}
-.hlp-company{font-family:var(--body);font-size:.72rem;color:rgba(255,255,255,.4);letter-spacing:.04em;margin-bottom:.1rem}
-.hlp-role{font-family:var(--title);font-size:.82rem;font-weight:700;color:#fff}
-.hlp-divider{height:1px;background:rgba(255,255,255,.08);margin:.75rem 0}
-.hlp-actions{display:flex;flex-direction:column;gap:.45rem;margin-top:1rem}
+/* Role line above name */
+.hero-eyebrow{font-family:var(--title);font-size:.6rem;font-weight:600;letter-spacing:.36em;text-transform:uppercase;color:rgba(255,255,255,.32);display:flex;align-items:center;gap:.85rem}
+.hero-eyebrow::before{content:'';width:26px;height:1px;background:rgba(255,255,255,.2);flex-shrink:0}
+
+/* Name block */
+.hero-name{display:flex;flex-direction:column;line-height:1;gap:0}
+.hero-fn{font-family:var(--title);font-size:clamp(1.6rem,2.8vw,3.2rem);font-weight:300;color:rgba(255,255,255,.38);letter-spacing:.2em;text-transform:uppercase}
+.hero-ln{font-family:var(--title);font-size:clamp(4rem,9.5vw,10.5rem);font-weight:800;color:#ffffff;letter-spacing:-.035em;line-height:.88}
+
+/* Info row — Posição atual / Formação / Local */
+.hero-info-row{display:flex;align-items:center;gap:2rem;flex-wrap:wrap}
+.hero-info-item{display:flex;flex-direction:column;gap:.22rem}
+.hii-label{font-family:var(--title);font-size:.48rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.26)}
+.hii-value{font-family:var(--body);font-size:.8rem;font-weight:500;color:rgba(255,255,255,.68)}
+.hero-info-sep{width:1px;height:26px;background:rgba(255,255,255,.1);flex-shrink:0}
+
+/* CTA buttons */
+.hero-cta-row{display:flex;gap:.75rem;flex-wrap:wrap}
 .btn-w{background:var(--white);color:#000;padding:.65rem 1.4rem;font-family:var(--title);font-size:.7rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:.45rem;transition:opacity .2s}
 .btn-w:hover{opacity:.85}
 .btn-o{background:transparent;color:var(--white);padding:.65rem 1.4rem;font-family:var(--title);font-size:.7rem;font-weight:500;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,.18);display:inline-flex;align-items:center;gap:.45rem;transition:all .2s}
 .btn-o:hover{border-color:rgba(255,255,255,.38);background:rgba(255,255,255,.04)}
 
-/* Right stats panel — bottom right, above the panel */
-.hero-right-panel{position:absolute;bottom:3.5rem;right:3.5rem;z-index:3;display:flex;flex-direction:column;gap:.5rem;align-items:flex-end}
-.hrp-stat{text-align:right}
-.hrp-num{font-family:var(--title);font-size:2rem;font-weight:800;color:#fff;letter-spacing:-.04em;line-height:1}
-.hrp-label{font-family:var(--title);font-size:.55rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4)}
-.hrp-sep{width:30px;height:1px;background:rgba(255,255,255,.12);margin-left:auto;margin:.4rem 0}
-
-/* Quick nav hidden — main nav already has these links */
-.hero-quick-nav{display:none}
-.btn-q{background:transparent;color:rgba(255,255,255,.45);padding:.32rem .8rem;font-family:var(--title);font-size:.58rem;font-weight:600;text-decoration:none;border:1px solid rgba(255,255,255,.12);display:inline-flex;align-items:center;gap:.3rem;transition:all .2s;cursor:pointer;letter-spacing:.06em;text-transform:uppercase}
-.btn-q:hover{border-color:rgba(255,255,255,.3);color:var(--white)}
-.btn-q svg{flex-shrink:0;opacity:.6}
+/* Stats row */
+.hero-stats-row{display:flex;align-items:center;gap:2.5rem;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,.07)}
+.hsr-item{display:flex;flex-direction:column;gap:.2rem}
+.hsr-num{font-family:var(--title);font-size:1.6rem;font-weight:800;color:#fff;letter-spacing:-.04em;line-height:1}
+.hsr-label{font-family:var(--title);font-size:.48rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.3)}
+.hsr-sep{width:1px;height:30px;background:rgba(255,255,255,.09);flex-shrink:0}
 
 /* Scroll indicator */
-.hero-scroll{position:absolute;bottom:3rem;right:3rem;z-index:3;display:flex;align-items:center;gap:.6rem;writing-mode:vertical-lr;transform:rotate(180deg)}
-.scroll-line{width:1px;height:32px;background:var(--gray-dark)}
-.scroll-label{font-family:var(--body);font-size:.55rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gray)}
+.hero-scroll{position:absolute;bottom:2.5rem;right:3rem;z-index:3;display:flex;align-items:center;gap:.6rem;writing-mode:vertical-lr;transform:rotate(180deg)}
+.scroll-line{width:1px;height:32px;background:rgba(255,255,255,.18)}
+.scroll-label{font-family:var(--body);font-size:.53rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.28)}
 
-/* legacy — keep for JS compat */
-.hero-bg{display:none}
-.hero-parallax-layer{display:none}
-.hero-grid{display:none}
-.hero-inner{display:none}
-.hero-content{display:none}
-.hero-overline{display:none}
-.hero-badge{display:none}
-.hero-rule{display:none}
-.hero-sub{display:none}
-.hero-actions{display:none}
-.polaroid-wrap{display:none}
+/* legacy + old hero classes — hidden */
+.hero-bg,.hero-parallax-layer,.hero-grid,.hero-inner,.hero-content,.hero-overline,.hero-badge,.hero-rule,.hero-sub,.hero-actions,.polaroid-wrap,.hero-photo-wrap,.hero-left-panel,.hero-right-panel,.hero-quick-nav,.hero-name-block{display:none}
+.btn-q{display:none}
 
 /* Responsive */
 @media(max-width:768px){
-  .hero-photo-wrap{width:100%;opacity:.5}
-  .hero-photo-wrap::after{background:linear-gradient(to bottom,rgba(0,0,0,.7) 0%,rgba(0,0,0,.4) 100%)}
-  .hero-name-block{top:4rem;left:1.25rem;right:1.25rem}
-  .hero-firstname{font-size:clamp(2rem,8vw,3.5rem)}
-  .hero-lastname{font-size:clamp(3.5rem,14vw,6rem)}
-  .hero-left-panel{left:1.25rem;right:1.25rem;bottom:1.5rem;width:auto}
-  .hero-right-panel{display:none}
-  .hero-quick-nav{top:.75rem;right:1.25rem;gap:.3rem}
+  #hero{background-attachment:scroll}
+  .hero-body{padding:0 1.25rem 4rem}
+  .hero-fn{font-size:clamp(1.4rem,5.5vw,2.2rem)}
+  .hero-ln{font-size:clamp(3rem,13vw,6rem)}
+  .hero-info-row{gap:1.2rem}
+  .hero-info-sep{display:none}
+  .hero-cta-row .btn-w,.hero-cta-row .btn-o{width:100%;max-width:320px;justify-content:center}
   .hero-scroll{display:none}
 }
 
@@ -159,7 +147,7 @@ body.panel-open nav{right:480px}
 .exp-points{list-style:none;display:flex;flex-direction:column;gap:.3rem;margin-top:.5rem;padding-left:.25rem}
 .exp-points li{font-family:var(--body);font-size:.78rem;color:rgba(255,255,255,.45);line-height:1.65;padding-left:.9rem;position:relative}
 .exp-points li::before{content:'-';position:absolute;left:0;color:rgba(255,255,255,.2)}
-.exp-promo{display:inline-flex;align-items:center;font-family:var(--title);font-size:.55rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:.35rem}
+.exp-promo{display:inline-flex;align-items:center;font-family:var(--title);font-size:.55rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:.35rem}
 .edu-grid{display:flex;flex-direction:column;gap:.75rem;margin-top:0}
 /* ── EDU LOGOS ── */
 .edu-logo{width:36px;height:36px;object-fit:contain;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);padding:4px;flex-shrink:0;display:block;filter:brightness(.75)}
@@ -173,7 +161,7 @@ body.panel-open nav{right:480px}
 .edu-card{padding:1rem 1.25rem;display:flex;align-items:flex-start;gap:.85rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07)}
 .edu-inst{font-family:var(--title);font-size:.85rem;font-weight:700;color:#fff;margin-bottom:.25rem;letter-spacing:-.01em}
 .edu-course{font-family:var(--body);font-size:.76rem;color:rgba(255,255,255,.5);margin-bottom:.4rem}
-.edu-status{font-family:var(--title);font-size:.52rem;font-weight:700;color:var(--green);background:transparent;border:1px solid rgba(74,222,128,.2);padding:.1rem .5rem;display:inline-block;letter-spacing:.08em;text-transform:uppercase}
+.edu-status{font-family:var(--title);font-size:.52rem;font-weight:700;color:rgba(255,255,255,.55);background:transparent;border:1px solid rgba(255,255,255,.14);padding:.1rem .5rem;display:inline-block;letter-spacing:.08em;text-transform:uppercase}
 
 /* ── NAV ICON LINKS ── */
 .nav-icon{display:flex;align-items:center;color:var(--gray);transition:color .2s;text-decoration:none}
@@ -263,11 +251,11 @@ body.panel-open nav{right:480px}
 
 /* ── PANEL MIXIN ── */
 .panel{background:rgba(8,8,8,.88);border:1px solid rgba(255,255,255,.09);backdrop-filter:blur(16px)}
-.panel-label{font-family:var(--title);font-size:.58rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:1.1rem}
+.panel-label{font-family:var(--title);font-size:.58rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:1.1rem}
 
 /* ── LAYOUT ── */
 .sw{max-width:1100px;margin:0 auto;padding:6rem 3rem}
-.ey{font-family:var(--title);font-size:.58rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:1rem}
+.ey{font-family:var(--title);font-size:.58rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:1rem}
 .hd{font-family:var(--title);font-size:clamp(2rem,3.5vw,3rem);font-weight:800;letter-spacing:-.04em;margin-bottom:2.5rem;line-height:1}
 .sec-num{display:none}
 
@@ -280,7 +268,7 @@ body.panel-open nav{right:480px}
 .proj.normal-mode:hover{border-color:rgba(255,255,255,.2);background:rgba(14,14,14,.95)}
 .proj.active-edit{border-color:var(--green)!important;background:rgba(8,20,10,.9)!important}
 
-.proj-num{font-family:var(--title);font-size:.55rem;font-weight:700;color:var(--green);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.6rem}
+.proj-num{font-family:var(--title);font-size:.55rem;font-weight:700;color:rgba(255,255,255,.32);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.6rem}
 .proj-body{display:flex;flex-direction:column;gap:.4rem;flex:1}
 .proj-tags{display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:.2rem}
 .proj-tag{font-family:var(--title);font-size:.52rem;font-weight:600;letter-spacing:.08em;padding:.1rem .4rem;background:rgba(255,255,255,.04);color:rgba(255,255,255,.4);border:1px solid rgba(255,255,255,.08);text-transform:uppercase}
@@ -309,7 +297,7 @@ body.panel-open nav{right:480px}
 .sobre-cards{display:flex;flex-direction:column;gap:1rem;margin-bottom:0}
 .sobre-card{background:rgba(8,8,8,.88);border:1px solid rgba(255,255,255,.09);padding:1.4rem 1.5rem}
 .tg{margin:0}
-.tgl{font-family:var(--title);font-size:.56rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:.9rem}
+.tgl{font-family:var(--title);font-size:.56rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:.9rem}
 .ts{display:flex;flex-wrap:wrap;gap:.35rem}
 .tg-tag{font-family:var(--body);font-size:.7rem;font-weight:500;padding:.2rem .6rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);color:rgba(255,255,255,.7)}
 /* courses */
@@ -623,61 +611,58 @@ body.panel-open #fb-setup-banner{right:480px}
 <!-- HERO -->
 <section id="hero">
 
-  <!-- Full-bleed photo (right side) -->
-  <div class="hero-photo-wrap">
-    <img src="assets/victor-aws.jpg" alt="Victor Germano" onerror="this.style.background='#111'">
-  </div>
+  <!-- Gradient overlay — pure black at bottom for seamless flow into next section -->
+  <div class="hero-overlay"></div>
 
-  <!-- Quick nav pills (top right) -->
-  <div class="hero-quick-nav">
-    <a href="#experiencia" class="btn-q">Experiência</a>
-    <a href="#projetos" class="btn-q">Projetos</a>
-    <a href="https://www.linkedin.com/in/victor-germano-65787b2b1" target="_blank" rel="noopener" class="btn-q">LinkedIn ↗</a>
-    <a href="https://github.com/victor-germano" target="_blank" rel="noopener" class="btn-q">GitHub ↗</a>
-  </div>
+  <!-- Main body — no floating cards, info as clean text rows -->
+  <div class="hero-body">
 
-  <!-- Giant name (top left) -->
-  <div class="hero-name-block">
-    <div class="hero-firstname">VICTOR</div>
-    <div class="hero-lastname">GERMANO</div>
-    <div class="hero-role-line">Desenvolvedor · Designer · IA</div>
-  </div>
+    <div class="hero-eyebrow">Desenvolvedor · Designer · Inteligência Artificial</div>
 
-  <!-- Left info panel (bottom left) -->
-  <div class="hero-left-panel">
-    <div class="hlp-label">● Disponível para projetos</div>
-    <div class="hlp-row">
-      <div class="hlp-company">Grupo Roveri · Atual</div>
-      <div class="hlp-role">ControlDesk Junior</div>
+    <div class="hero-name">
+      <div class="hero-fn">VICTOR</div>
+      <div class="hero-ln">GERMANO</div>
     </div>
-    <div class="hlp-divider"></div>
-    <div class="hlp-row">
-      <div class="hlp-company">Universidade Cruzeiro do Sul</div>
-      <div class="hlp-role">Eng. de Software · Cursando</div>
+
+    <div class="hero-info-row">
+      <div class="hero-info-item">
+        <span class="hii-label">Posição atual</span>
+        <span class="hii-value">ControlDesk Jr · Grupo Roveri</span>
+      </div>
+      <div class="hero-info-sep"></div>
+      <div class="hero-info-item">
+        <span class="hii-label">Formação</span>
+        <span class="hii-value">Eng. Software · Cruzeiro do Sul</span>
+      </div>
+      <div class="hero-info-sep"></div>
+      <div class="hero-info-item">
+        <span class="hii-label">Localização</span>
+        <span class="hii-value">São Paulo, SP</span>
+      </div>
     </div>
-    <div class="hlp-divider"></div>
-    <div class="hlp-actions">
+
+    <div class="hero-cta-row">
       <a href="#projetos" class="btn-w">Ver projetos →</a>
-      <a href="https://wa.me/5511953570476" target="_blank" class="btn-o">WhatsApp</a>
+      <a href="https://wa.me/5511953570476" target="_blank" class="btn-o">Conversar</a>
     </div>
-  </div>
 
-  <!-- Right stats panel -->
-  <div class="hero-right-panel">
-    <div class="hrp-stat">
-      <div class="hrp-num">10+</div>
-      <div class="hrp-label">Projetos</div>
+    <div class="hero-stats-row">
+      <div class="hsr-item">
+        <div class="hsr-num">10+</div>
+        <div class="hsr-label">Projetos</div>
+      </div>
+      <div class="hsr-sep"></div>
+      <div class="hsr-item">
+        <div class="hsr-num">3+</div>
+        <div class="hsr-label">Anos</div>
+      </div>
+      <div class="hsr-sep"></div>
+      <div class="hsr-item">
+        <div class="hsr-num">SP</div>
+        <div class="hsr-label">Brasil</div>
+      </div>
     </div>
-    <div class="hrp-sep"></div>
-    <div class="hrp-stat">
-      <div class="hrp-num">3+</div>
-      <div class="hrp-label">Anos</div>
-    </div>
-    <div class="hrp-sep"></div>
-    <div class="hrp-stat">
-      <div class="hrp-num">SP</div>
-      <div class="hrp-label">Brasil</div>
-    </div>
+
   </div>
 
   <!-- Scroll indicator -->
