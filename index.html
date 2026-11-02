@@ -135,7 +135,9 @@ body.panel-open nav{right:480px}
 /* ── EXPERIENCE SECTION ── */
 #experiencia .sw{padding-top:6rem}
 #experiencia .hd{margin-bottom:1.5rem}
-.exp-layout{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;align-items:start}
+.exp-resumo-row{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+.exp-resumo-stats,.exp-resumo-focus{margin:0}
+.exp-layout{display:flex;flex-direction:column;gap:0}
 .exp-panel{background:rgba(8,8,8,.88);border:1px solid rgba(255,255,255,.09);padding:1.75rem}
 .exp-timeline{display:flex;flex-direction:column;gap:0}
 .exp-card{padding:1rem 0;border-bottom:1px solid rgba(255,255,255,.06);transition:none}
@@ -221,8 +223,7 @@ body.panel-open nav{right:480px}
 
   /* GRIDS */
   .sobre-cards{grid-template-columns:1fr}
-  .sobre-layout{grid-template-columns:1fr}
-  .exp-layout{grid-template-columns:1fr}
+  .exp-resumo-row{grid-template-columns:1fr}
 
   /* EDUCATION + SKILLS + COURSES */
   /* formação blocks — less vertical padding on mobile */
@@ -320,7 +321,7 @@ body.panel-open nav{right:480px}
 
 /* ── ABOUT ── */
 #sobre{border-top:none;border-bottom:none}
-.sobre-layout{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;align-items:start}
+.sobre-layout{display:flex;flex-direction:column;gap:0}
 .sobre-bio{margin-bottom:0}
 #sobre p{font-family:var(--body);font-weight:400;color:rgba(255,255,255,.6);margin-bottom:.9rem;font-size:.9rem;line-height:1.85}
 #sobre p strong{color:#fff;font-weight:700}
@@ -715,35 +716,41 @@ body.panel-open #fb-setup-banner{right:480px}
     <div class="ey fade-el">Sobre mim</div>
     <div class="hd fade-el delay-1">Quem eu sou</div>
     <div class="sobre-layout">
-      <!-- Left: bio + principles -->
-      <div>
-        <div class="sobre-bio fade-el">
+
+      <!-- Bloco 1: Bio -->
+      <div class="form-block fade-el">
+        <div class="sobre-bio">
           <p>Sou <strong>Victor Germano</strong>, estudante de <strong>Engenharia de Software</strong> na Universidade Cruzeiro do Sul. Atuo em T.I corporativo e no desenvolvimento de produtos digitais com <strong>IA integrada</strong>.</p>
           <p>Combino <strong>código de qualidade</strong> e ferramentas de <strong>inteligência artificial</strong> para construir aplicações, automações e agentes que entregam resultado real — do conceito à entrega final.</p>
         </div>
-        <div class="ey fade-el" style="margin-top:2.5rem">O que me move</div>
-        <ul class="princ-list fade-el">
+        <div class="ey" style="margin-top:2.5rem;margin-bottom:.75rem">O que me move</div>
+        <ul class="princ-list">
           <li class="princ-item">Código limpo, documentado e mantível — nunca só "funciona"</li>
           <li class="princ-item">IA usada de forma inteligente, integrada ao produto, não como enfeite</li>
           <li class="princ-item">Foco em entregar resultado real, não apenas linhas de código</li>
           <li class="princ-item">Aprendizado contínuo — tecnologia muda rápido, eu mudo mais rápido</li>
         </ul>
       </div>
-      <!-- Right: specialty panels -->
-      <div style="display:flex;flex-direction:column;gap:1rem">
-        <div class="sobre-card fade-el">
-          <div class="tgl">IA &amp; Agentes Inteligentes</div>
-          <p style="font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.75">Desenvolvo agentes de IA com Claude, GPT e ferramentas de orquestração para automação de tarefas complexas e tomada de decisão autônoma.</p>
-        </div>
-        <div class="sobre-card fade-el delay-1">
-          <div class="tgl">Automação &amp; Integrações</div>
-          <p style="font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.75">Construo fluxos de automação com n8n, Make e APIs REST que conectam sistemas e eliminam processos manuais repetitivos com precisão.</p>
-        </div>
-        <div class="sobre-card fade-el delay-2">
-          <div class="tgl">Software &amp; Desenvolvimento Web</div>
-          <p style="font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.75">Crio aplicações web com HTML, CSS, JavaScript e Python — de landing pages a sistemas com back-end e banco de dados em nuvem.</p>
+
+      <!-- Bloco 2: Especialidades -->
+      <div class="form-block fade-el delay-1">
+        <div class="panel-label" style="margin-bottom:1.25rem">Especialidades</div>
+        <div class="sobre-cards">
+          <div class="sobre-card">
+            <div class="tgl">IA &amp; Agentes Inteligentes</div>
+            <p style="font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.75;margin-top:.5rem">Desenvolvo agentes de IA com Claude, GPT e ferramentas de orquestração para automação de tarefas complexas e tomada de decisão autônoma.</p>
+          </div>
+          <div class="sobre-card">
+            <div class="tgl">Automação &amp; Integrações</div>
+            <p style="font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.75;margin-top:.5rem">Construo fluxos de automação com n8n, Make e APIs REST que conectam sistemas e eliminam processos manuais repetitivos com precisão.</p>
+          </div>
+          <div class="sobre-card">
+            <div class="tgl">Software &amp; Desenvolvimento Web</div>
+            <p style="font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.75;margin-top:.5rem">Crio aplicações web com HTML, CSS, JavaScript e Python — de landing pages a sistemas com back-end e banco de dados em nuvem.</p>
+          </div>
         </div>
       </div>
+
     </div>
   </div>
 </div>
@@ -754,130 +761,134 @@ body.panel-open #fb-setup-banner{right:480px}
     <div class="ey fade-el">Trajetória</div>
     <div class="hd fade-el delay-1">Experiência Profissional</div>
     <div class="exp-layout">
-      <!-- Left: timeline panel -->
-      <div class="exp-panel fade-el">
-        <div class="panel-label">Posições</div>
-        <div class="exp-timeline">
+      <!-- Bloco 1: Posições -->
+      <div class="form-block fade-el">
+        <div class="panel-label" style="margin-bottom:1.25rem">Posições</div>
+        <div class="exp-panel">
+          <div class="exp-timeline">
 
-          <div class="exp-card current">
-            <div class="exp-top">
-              <div class="exp-left">
-                <div class="exp-logo-wrap">
-                  <img class="exp-logo" src="https://logo.clearbit.com/gruporoveri.com.br" alt="Grupo Roveri" onerror="this.parentElement.outerHTML='<div class=exp-logo-init>GR</div>'">
+            <div class="exp-card current">
+              <div class="exp-top">
+                <div class="exp-left">
+                  <div class="exp-logo-wrap">
+                    <img class="exp-logo" src="https://logo.clearbit.com/gruporoveri.com.br" alt="Grupo Roveri" onerror="this.parentElement.outerHTML='<div class=exp-logo-init>GR</div>'">
+                  </div>
+                  <div class="exp-info">
+                    <div class="exp-role">ControlDesk Junior</div>
+                    <div class="exp-company">Grupo Roveri · São Paulo, SP</div>
+                  </div>
                 </div>
-                <div class="exp-info">
-                  <div class="exp-role">ControlDesk Junior</div>
-                  <div class="exp-company">Grupo Roveri · São Paulo, SP</div>
-                </div>
+                <div class="exp-date">Set 2026 — Presente</div>
               </div>
-              <div class="exp-date">Set 2026 — Presente</div>
-            </div>
-            <div class="exp-promo">⬆ Promoção interna</div>
-            <ul class="exp-points">
-              <li>Monitoramento e controle centralizado de infraestrutura de T.I, garantindo disponibilidade contínua de sistemas.</li>
-              <li>Resposta ágil a incidentes com análise de causa-raiz e acionamento de equipes responsáveis.</li>
-              <li>Gestão de alertas e dashboards operacionais em ambiente corporativo de alta criticidade.</li>
-            </ul>
-            <div class="exp-tags">
-              <span class="exp-tag">T.I</span>
-              <span class="exp-tag">Infraestrutura</span>
-              <span class="exp-tag">Monitoramento</span>
-              <span class="exp-tag">Gestão de Incidentes</span>
-              <span class="exp-tag">Dashboards</span>
-            </div>
-          </div>
-
-          <div class="exp-card">
-            <div class="exp-top">
-              <div class="exp-left">
-                <div class="exp-logo-wrap">
-                  <img class="exp-logo" src="https://logo.clearbit.com/gruporoveri.com.br" alt="Grupo Roveri" onerror="this.parentElement.outerHTML='<div class=exp-logo-init>GR</div>'">
-                </div>
-                <div class="exp-info">
-                  <div class="exp-role">Suporte Técnico de T.I — Helpdesk</div>
-                  <div class="exp-company">Grupo Roveri · São Paulo, SP</div>
-                </div>
+              <div class="exp-promo">⬆ Promoção interna</div>
+              <ul class="exp-points">
+                <li>Monitoramento e controle centralizado de infraestrutura de T.I, garantindo disponibilidade contínua de sistemas.</li>
+                <li>Resposta ágil a incidentes com análise de causa-raiz e acionamento de equipes responsáveis.</li>
+                <li>Gestão de alertas e dashboards operacionais em ambiente corporativo de alta criticidade.</li>
+              </ul>
+              <div class="exp-tags">
+                <span class="exp-tag">T.I</span>
+                <span class="exp-tag">Infraestrutura</span>
+                <span class="exp-tag">Monitoramento</span>
+                <span class="exp-tag">Gestão de Incidentes</span>
+                <span class="exp-tag">Dashboards</span>
               </div>
-              <div class="exp-date">Out 2024 — Set 2026</div>
             </div>
-            <ul class="exp-points">
-              <li>Atendimento e resolução de chamados técnicos de hardware, software e redes em ambiente corporativo com SLA definido, reduzindo tempo de inatividade dos usuários.</li>
-              <li>Suporte de primeiro e segundo nível com taxa de resolução no primeiro atendimento acima de 80%, garantindo continuidade operacional.</li>
-              <li>Documentação de procedimentos e padronização de fluxos de suporte.</li>
-            </ul>
-            <div class="exp-tags">
-              <span class="exp-tag">Suporte L1/L2</span>
-              <span class="exp-tag">Hardware</span>
-              <span class="exp-tag">Software</span>
-              <span class="exp-tag">Redes</span>
-              <span class="exp-tag">SLA</span>
-              <span class="exp-tag">Windows</span>
-            </div>
-          </div>
 
-          <div class="exp-card">
-            <div class="exp-top">
-              <div class="exp-left">
-                <div class="exp-logo-wrap">
-                  <img class="exp-logo" src="https://logo.clearbit.com/poupatempo.sp.gov.br" alt="Poupatempo" onerror="this.parentElement.outerHTML='<div class=exp-logo-init>PC</div>'">
+            <div class="exp-card">
+              <div class="exp-top">
+                <div class="exp-left">
+                  <div class="exp-logo-wrap">
+                    <img class="exp-logo" src="https://logo.clearbit.com/gruporoveri.com.br" alt="Grupo Roveri" onerror="this.parentElement.outerHTML='<div class=exp-logo-init>GR</div>'">
+                  </div>
+                  <div class="exp-info">
+                    <div class="exp-role">Suporte Técnico de T.I — Helpdesk</div>
+                    <div class="exp-company">Grupo Roveri · São Paulo, SP</div>
+                  </div>
                 </div>
-                <div class="exp-info">
-                  <div class="exp-role">Auxiliar de T.I</div>
-                  <div class="exp-company">Poupatempo do Caminhão · São Paulo, SP</div>
-                </div>
+                <div class="exp-date">Out 2024 — Set 2026</div>
               </div>
-              <div class="exp-date">Mai 2024 — Ago 2024</div>
+              <ul class="exp-points">
+                <li>Atendimento e resolução de chamados técnicos de hardware, software e redes em ambiente corporativo com SLA definido, reduzindo tempo de inatividade dos usuários.</li>
+                <li>Suporte de primeiro e segundo nível com taxa de resolução no primeiro atendimento acima de 80%, garantindo continuidade operacional.</li>
+                <li>Documentação de procedimentos e padronização de fluxos de suporte.</li>
+              </ul>
+              <div class="exp-tags">
+                <span class="exp-tag">Suporte L1/L2</span>
+                <span class="exp-tag">Hardware</span>
+                <span class="exp-tag">Software</span>
+                <span class="exp-tag">Redes</span>
+                <span class="exp-tag">SLA</span>
+                <span class="exp-tag">Windows</span>
+              </div>
             </div>
-            <ul class="exp-points">
-              <li>Suporte técnico a 50+ usuários/dia com manutenção preventiva e corretiva de equipamentos em ambiente de alta demanda.</li>
-              <li>Diagnóstico e resolução de falhas de hardware, software e infraestrutura de redes com foco em reestabelecimento rápido do serviço.</li>
-            </ul>
-            <div class="exp-tags">
-              <span class="exp-tag">Suporte T.I</span>
-              <span class="exp-tag">Manutenção</span>
-              <span class="exp-tag">Hardware</span>
-              <span class="exp-tag">Redes</span>
-              <span class="exp-tag">Alta Demanda</span>
-            </div>
-          </div>
 
-        </div>
-      </div>
-      <!-- Right: summary panels -->
-      <div style="display:flex;flex-direction:column;gap:1rem">
-        <div class="exp-panel fade-el delay-1">
-          <div class="panel-label">Números</div>
-          <div style="display:flex;flex-direction:column;gap:1.25rem">
-            <div>
-              <div style="font-family:var(--title);font-size:2.5rem;font-weight:800;color:#fff;letter-spacing:-.04em;line-height:1">3+</div>
-              <div style="font-family:var(--title);font-size:.55rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:.3rem">Anos de Experiência</div>
+            <div class="exp-card">
+              <div class="exp-top">
+                <div class="exp-left">
+                  <div class="exp-logo-wrap">
+                    <img class="exp-logo" src="https://logo.clearbit.com/poupatempo.sp.gov.br" alt="Poupatempo" onerror="this.parentElement.outerHTML='<div class=exp-logo-init>PC</div>'">
+                  </div>
+                  <div class="exp-info">
+                    <div class="exp-role">Auxiliar de T.I</div>
+                    <div class="exp-company">Poupatempo do Caminhão · São Paulo, SP</div>
+                  </div>
+                </div>
+                <div class="exp-date">Mai 2024 — Ago 2024</div>
+              </div>
+              <ul class="exp-points">
+                <li>Suporte técnico a 50+ usuários/dia com manutenção preventiva e corretiva de equipamentos em ambiente de alta demanda.</li>
+                <li>Diagnóstico e resolução de falhas de hardware, software e infraestrutura de redes com foco em reestabelecimento rápido do serviço.</li>
+              </ul>
+              <div class="exp-tags">
+                <span class="exp-tag">Suporte T.I</span>
+                <span class="exp-tag">Manutenção</span>
+                <span class="exp-tag">Hardware</span>
+                <span class="exp-tag">Redes</span>
+                <span class="exp-tag">Alta Demanda</span>
+              </div>
             </div>
-            <div style="height:1px;background:rgba(255,255,255,.07)"></div>
-            <div>
-              <div style="font-family:var(--title);font-size:2.5rem;font-weight:800;color:#fff;letter-spacing:-.04em;line-height:1">3</div>
-              <div style="font-family:var(--title);font-size:.55rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:.3rem">Empresas</div>
-            </div>
-            <div style="height:1px;background:rgba(255,255,255,.07)"></div>
-            <div>
-              <div style="font-family:var(--title);font-size:1rem;font-weight:700;color:#fff">São Paulo, Brasil</div>
-              <div style="font-family:var(--title);font-size:.55rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:.3rem">Localização</div>
-            </div>
-          </div>
-        </div>
-        <div class="exp-panel fade-el delay-2">
-          <div class="panel-label">Foco Técnico</div>
-          <div class="ts" style="gap:.4rem">
-            <span class="tg-tag">T.I Corporativo</span>
-            <span class="tg-tag">Infraestrutura</span>
-            <span class="tg-tag">Automação</span>
-            <span class="tg-tag">Suporte N1/N2</span>
-            <span class="tg-tag">Monitoramento</span>
-            <span class="tg-tag">Gestão de Incidentes</span>
-            <span class="tg-tag">Dashboards</span>
-            <span class="tg-tag">Redes</span>
+
           </div>
         </div>
       </div>
+
+      <!-- Bloco 2: Resumo -->
+      <div class="form-block fade-el delay-1">
+        <div class="exp-resumo-row">
+          <div class="exp-panel exp-resumo-stats">
+            <div class="panel-label">Números</div>
+            <div style="display:flex;gap:2.5rem;align-items:flex-start;flex-wrap:wrap">
+              <div>
+                <div style="font-family:var(--title);font-size:2.5rem;font-weight:800;color:#fff;letter-spacing:-.04em;line-height:1">3+</div>
+                <div style="font-family:var(--title);font-size:.55rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:.3rem">Anos de Experiência</div>
+              </div>
+              <div>
+                <div style="font-family:var(--title);font-size:2.5rem;font-weight:800;color:#fff;letter-spacing:-.04em;line-height:1">3</div>
+                <div style="font-family:var(--title);font-size:.55rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:.3rem">Empresas</div>
+              </div>
+              <div>
+                <div style="font-family:var(--title);font-size:1rem;font-weight:700;color:#fff">São Paulo, Brasil</div>
+                <div style="font-family:var(--title);font-size:.55rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:.3rem">Localização</div>
+              </div>
+            </div>
+          </div>
+          <div class="exp-panel exp-resumo-focus">
+            <div class="panel-label">Foco Técnico</div>
+            <div class="ts" style="gap:.4rem">
+              <span class="tg-tag">T.I Corporativo</span>
+              <span class="tg-tag">Infraestrutura</span>
+              <span class="tg-tag">Automação</span>
+              <span class="tg-tag">Suporte N1/N2</span>
+              <span class="tg-tag">Monitoramento</span>
+              <span class="tg-tag">Gestão de Incidentes</span>
+              <span class="tg-tag">Dashboards</span>
+              <span class="tg-tag">Redes</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
