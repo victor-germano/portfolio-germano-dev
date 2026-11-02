@@ -65,52 +65,77 @@ body.panel-open nav{right:480px}
 #admin-badge::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
 
-/* ── HERO ── */
-#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 3rem 5rem;position:relative;border-bottom:1px solid var(--border)}
-.hero-bg{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
-.hero-parallax-layer{position:absolute;inset:-30%;pointer-events:none;will-change:transform}
-.hero-grid{display:none}
+/* ── HERO (Abbas-style) ── */
+#hero{min-height:100vh;position:relative;background:#000;overflow:hidden;display:block;border-bottom:1px solid var(--border)}
 
-.hero-overline{font-family:var(--body);font-size:.65rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--white-mid);margin-bottom:1.5rem;display:flex;align-items:center;gap:.75rem}
-.hero-overline::before{content:'';width:24px;height:1px;background:var(--white-mid)}
+/* Photo — fills right ~65% of viewport, bleeds top */
+.hero-photo-wrap{position:absolute;right:0;top:0;bottom:0;width:65%;z-index:0;pointer-events:none}
+.hero-photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:top center;filter:grayscale(1) contrast(1.08) brightness(.65)}
+.hero-photo-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,#000 0%,rgba(0,0,0,.55) 38%,rgba(0,0,0,.08) 100%)}
 
-.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:transparent;border:none;padding:0;font-family:var(--body);font-size:.65rem;font-weight:600;color:var(--white-mid);margin-bottom:1.5rem;letter-spacing:.2em;text-transform:uppercase}
-.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0;animation:pulse 2s infinite}
+/* Big name — top left */
+.hero-name-block{position:absolute;top:5.5rem;left:3rem;z-index:2}
+.hero-firstname{font-family:var(--title);font-size:clamp(2.5rem,6vw,5.5rem);font-weight:300;color:rgba(255,255,255,.55);letter-spacing:.1em;text-transform:uppercase;line-height:1}
+.hero-lastname{font-family:var(--title);font-size:clamp(5rem,13vw,12rem);font-weight:800;color:#fff;letter-spacing:-.02em;line-height:.88;margin-top:-.1rem}
+.hero-role-line{font-family:var(--title);font-size:.68rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-top:1.1rem;display:flex;align-items:center;gap:.75rem}
+.hero-role-line::before{content:'';width:20px;height:1px;background:rgba(255,255,255,.35)}
 
-h1{font-family:var(--title);font-size:clamp(4rem,9vw,9rem);font-weight:800;line-height:.95;letter-spacing:-.05em;margin-bottom:0}
-h1 .dim{color:var(--gray-dark)}
-
-.hero-rule{width:100%;height:1px;background:var(--border2);margin:2rem 0}
-
-.hero-sub{font-family:var(--body);font-size:.88rem;font-weight:400;color:var(--white-mid);max-width:380px;margin-bottom:2rem;line-height:1.75;letter-spacing:.01em}
-.hero-sub strong{color:var(--white);font-weight:600}
-
-.hero-actions{display:flex;gap:.75rem;flex-wrap:wrap}
-.btn-w{background:var(--white);color:#000;padding:.72rem 1.5rem;font-family:var(--title);font-size:.75rem;font-weight:700;letter-spacing:.04em;text-decoration:none;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:.5rem;transition:opacity .2s}
+/* Left info panel (Experience quick view) — bottom left */
+.hero-left-panel{position:absolute;bottom:3rem;left:3rem;z-index:3;background:rgba(10,10,10,.82);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(12px);padding:1.4rem 1.6rem;width:min(260px,38vw)}
+.hlp-label{font-family:var(--title);font-size:.55rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:.9rem}
+.hlp-row{margin-bottom:.6rem}
+.hlp-company{font-family:var(--body);font-size:.72rem;color:rgba(255,255,255,.4);letter-spacing:.04em;margin-bottom:.1rem}
+.hlp-role{font-family:var(--title);font-size:.82rem;font-weight:700;color:#fff}
+.hlp-divider{height:1px;background:rgba(255,255,255,.08);margin:.75rem 0}
+.hlp-actions{display:flex;flex-direction:column;gap:.45rem;margin-top:1rem}
+.btn-w{background:var(--white);color:#000;padding:.65rem 1.4rem;font-family:var(--title);font-size:.7rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:.45rem;transition:opacity .2s}
 .btn-w:hover{opacity:.85}
-.btn-o{background:transparent;color:var(--white);padding:.72rem 1.5rem;font-family:var(--title);font-size:.75rem;font-weight:500;letter-spacing:.04em;text-decoration:none;border:1px solid var(--border2);display:inline-flex;align-items:center;gap:.5rem;transition:all .2s}
-.btn-o:hover{border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.04)}
+.btn-o{background:transparent;color:var(--white);padding:.65rem 1.4rem;font-family:var(--title);font-size:.7rem;font-weight:500;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,.18);display:inline-flex;align-items:center;gap:.45rem;transition:all .2s}
+.btn-o:hover{border-color:rgba(255,255,255,.38);background:rgba(255,255,255,.04)}
 
-.hero-scroll{position:absolute;bottom:2rem;left:3rem;display:flex;align-items:center;gap:.75rem;z-index:1}
-.scroll-line{width:32px;height:1px;background:var(--gray-dark)}
-.scroll-label{font-family:var(--body);font-size:.6rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gray)}
+/* Right stats panel — middle right */
+.hero-right-panel{position:absolute;top:50%;right:3rem;transform:translateY(-50%);z-index:3;display:flex;flex-direction:column;gap:.5rem;align-items:flex-end}
+.hrp-stat{text-align:right}
+.hrp-num{font-family:var(--title);font-size:2rem;font-weight:800;color:#fff;letter-spacing:-.04em;line-height:1}
+.hrp-label{font-family:var(--title);font-size:.55rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.hrp-sep{width:30px;height:1px;background:rgba(255,255,255,.12);margin-left:auto;margin:.4rem 0}
 
-/* ── HERO INNER LAYOUT ── */
-.hero-inner{display:flex;align-items:flex-end;justify-content:space-between;gap:4rem;width:100%;max-width:1200px;position:relative;z-index:1}
-.hero-content{position:relative;flex:1}
-
-/* ── PHOTO FRAME ── */
-.polaroid-wrap{flex-shrink:0;position:relative;z-index:1}
-.polaroid{overflow:hidden;display:inline-block;position:relative;border:1px solid var(--border)}
-.polaroid img{width:280px;height:380px;object-fit:cover;object-position:top center;display:block;filter:grayscale(1) contrast(1.1)}
-.polaroid-caption{position:static;display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-top:1px solid var(--border);font-family:var(--title);font-size:.65rem;font-weight:600;color:var(--white-mid);letter-spacing:.06em;text-transform:uppercase;background:#000}
-.polaroid-caption em{font-style:normal;font-weight:400;font-size:.6rem;color:var(--gray);letter-spacing:.04em}
-
-/* ── QUICK NAV BUTTONS ── */
-.hero-quick-nav{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:1.5rem}
-.btn-q{background:transparent;color:var(--white-mid);padding:.38rem .9rem;font-family:var(--title);font-size:.65rem;font-weight:600;text-decoration:none;border:1px solid var(--border);display:inline-flex;align-items:center;gap:.35rem;transition:all .2s;cursor:pointer;letter-spacing:.04em;text-transform:uppercase}
-.btn-q:hover{border-color:var(--border2);color:var(--white)}
+/* Quick nav */
+.hero-quick-nav{position:absolute;top:1.1rem;right:3rem;z-index:3;display:flex;gap:.5rem}
+.btn-q{background:transparent;color:rgba(255,255,255,.45);padding:.32rem .8rem;font-family:var(--title);font-size:.58rem;font-weight:600;text-decoration:none;border:1px solid rgba(255,255,255,.12);display:inline-flex;align-items:center;gap:.3rem;transition:all .2s;cursor:pointer;letter-spacing:.06em;text-transform:uppercase}
+.btn-q:hover{border-color:rgba(255,255,255,.3);color:var(--white)}
 .btn-q svg{flex-shrink:0;opacity:.6}
+
+/* Scroll indicator */
+.hero-scroll{position:absolute;bottom:3rem;right:3rem;z-index:3;display:flex;align-items:center;gap:.6rem;writing-mode:vertical-lr;transform:rotate(180deg)}
+.scroll-line{width:1px;height:32px;background:var(--gray-dark)}
+.scroll-label{font-family:var(--body);font-size:.55rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gray)}
+
+/* legacy — keep for JS compat */
+.hero-bg{display:none}
+.hero-parallax-layer{display:none}
+.hero-grid{display:none}
+.hero-inner{display:none}
+.hero-content{display:none}
+.hero-overline{display:none}
+.hero-badge{display:none}
+.hero-rule{display:none}
+.hero-sub{display:none}
+.hero-actions{display:none}
+.polaroid-wrap{display:none}
+
+/* Responsive */
+@media(max-width:768px){
+  .hero-photo-wrap{width:100%;opacity:.5}
+  .hero-photo-wrap::after{background:linear-gradient(to bottom,rgba(0,0,0,.7) 0%,rgba(0,0,0,.4) 100%)}
+  .hero-name-block{top:4rem;left:1.25rem;right:1.25rem}
+  .hero-firstname{font-size:clamp(2rem,8vw,3.5rem)}
+  .hero-lastname{font-size:clamp(3.5rem,14vw,6rem)}
+  .hero-left-panel{left:1.25rem;right:1.25rem;bottom:1.5rem;width:auto}
+  .hero-right-panel{display:none}
+  .hero-quick-nav{top:.75rem;right:1.25rem;gap:.3rem}
+  .hero-scroll{display:none}
+}
 
 /* ── EXPERIENCE SECTION ── */
 #experiencia .sw{padding-top:5rem}
@@ -586,37 +611,70 @@ body.panel-open #fb-setup-banner{right:480px}
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-bg">
-    <div class="hero-parallax-layer" id="parallax-bg"></div>
+
+  <!-- Full-bleed photo (right side) -->
+  <div class="hero-photo-wrap">
+    <img src="assets/victor-aws.jpg" alt="Victor Germano" onerror="this.style.background='#111'">
   </div>
-  <div class="hero-inner">
-    <div class="hero-content">
-      <div class="hero-overline">Disponível para novos projetos</div>
-      <h1>Victor<br>Germano</h1>
-      <div class="hero-rule"></div>
-      <p class="hero-sub">Desenvolvedor &amp; designer especializado em <strong>IA, automações</strong> e <strong>aplicações web</strong>. São Paulo, Brasil.</p>
-      <div class="hero-actions">
-        <a href="#projetos" class="btn-w">Ver projetos <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.3" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        <a href="https://wa.me/5511953570476?text=Ol%C3%A1!%20Tudo%20bem%3F%20Vi%20seus%20projetos%20e%20fiquei%20interessado%20no%20seu%20trabalho." target="_blank" class="btn-o">WhatsApp</a>
-      </div>
-      <div class="hero-quick-nav">
-        <a href="#experiencia" class="btn-q">Experiência</a>
-        <a href="#projetos" class="btn-q">Projetos</a>
-        <a href="https://www.linkedin.com/in/victor-germano-65787b2b1" target="_blank" rel="noopener" class="btn-q">LinkedIn ↗</a>
-        <a href="https://github.com/victor-germano" target="_blank" rel="noopener" class="btn-q">GitHub ↗</a>
-      </div>
+
+  <!-- Quick nav pills (top right) -->
+  <div class="hero-quick-nav">
+    <a href="#experiencia" class="btn-q">Experiência</a>
+    <a href="#projetos" class="btn-q">Projetos</a>
+    <a href="https://www.linkedin.com/in/victor-germano-65787b2b1" target="_blank" rel="noopener" class="btn-q">LinkedIn ↗</a>
+    <a href="https://github.com/victor-germano" target="_blank" rel="noopener" class="btn-q">GitHub ↗</a>
+  </div>
+
+  <!-- Giant name (top left) -->
+  <div class="hero-name-block">
+    <div class="hero-firstname">VICTOR</div>
+    <div class="hero-lastname">GERMANO</div>
+    <div class="hero-role-line">Desenvolvedor · Designer · IA</div>
+  </div>
+
+  <!-- Left info panel (bottom left) -->
+  <div class="hero-left-panel">
+    <div class="hlp-label">● Disponível para projetos</div>
+    <div class="hlp-row">
+      <div class="hlp-company">Grupo Roveri · Atual</div>
+      <div class="hlp-role">ControlDesk Junior</div>
     </div>
-    <div class="polaroid-wrap">
-      <div class="polaroid">
-        <img src="assets/victor-aws.jpg" alt="Victor Germano — AWS Summit" onerror="this.style.background='#111';this.style.width='280px';this.style.height='380px'">
-        <div class="polaroid-caption">Victor Germano<em>SP · 2025</em></div>
-      </div>
+    <div class="hlp-divider"></div>
+    <div class="hlp-row">
+      <div class="hlp-company">Universidade Cruzeiro do Sul</div>
+      <div class="hlp-role">Eng. de Software · Cursando</div>
+    </div>
+    <div class="hlp-divider"></div>
+    <div class="hlp-actions">
+      <a href="#projetos" class="btn-w">Ver projetos →</a>
+      <a href="https://wa.me/5511953570476" target="_blank" class="btn-o">WhatsApp</a>
     </div>
   </div>
+
+  <!-- Right stats panel -->
+  <div class="hero-right-panel">
+    <div class="hrp-stat">
+      <div class="hrp-num">10+</div>
+      <div class="hrp-label">Projetos</div>
+    </div>
+    <div class="hrp-sep"></div>
+    <div class="hrp-stat">
+      <div class="hrp-num">3+</div>
+      <div class="hrp-label">Anos</div>
+    </div>
+    <div class="hrp-sep"></div>
+    <div class="hrp-stat">
+      <div class="hrp-num">SP</div>
+      <div class="hrp-label">Brasil</div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
   <div class="hero-scroll">
     <div class="scroll-line"></div>
     <span class="scroll-label">scroll</span>
   </div>
+
 </section>
 
 <!-- ABOUT -->
