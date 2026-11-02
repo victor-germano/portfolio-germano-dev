@@ -24,8 +24,8 @@
   --title:'Plus Jakarta Sans',sans-serif;
   --body:'Plus Jakarta Sans',sans-serif;
 }
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--white);font-family:var(--body);font-weight:400;line-height:1.6;-webkit-font-smoothing:antialiased;transition:margin-right .4s}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--bg);color:var(--white);font-family:var(--body);font-weight:400;line-height:1.6;-webkit-font-smoothing:antialiased;transition:margin-right .4s;overflow-x:hidden}
 body.panel-open{margin-right:480px}
 ::-webkit-scrollbar{width:2px}
 ::-webkit-scrollbar-track{background:#000}
@@ -66,11 +66,11 @@ body.panel-open nav{right:480px}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
 
 /* ── HERO (full-bleed fixed parallax) ── */
-#hero{min-height:100vh;position:relative;display:flex;align-items:flex-end;border-bottom:none;background:#000}
+#hero{min-height:100vh;position:relative;display:flex;align-items:flex-end;border-bottom:none}
 
 /* Photo layer — fixed so it stays still while content scrolls */
 .hero-photo-layer{position:fixed;inset:0;z-index:0;pointer-events:none}
-.hero-photo-layer img{width:100%;height:100%;object-fit:cover;object-position:center 52%;filter:grayscale(1) contrast(1.1) brightness(.42);display:block}
+.hero-photo-layer img{width:100%;height:100%;object-fit:cover;object-position:center 52%;filter:grayscale(1) contrast(1.05) brightness(.45);display:block}
 
 /* Gradient: darkened top for nav, open window for face+logo, fade to black at bottom */
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.6) 0%,rgba(0,0,0,.15) 20%,rgba(0,0,0,.12) 62%,rgba(0,0,0,.8) 82%,#000 100%);z-index:1}
@@ -225,11 +225,30 @@ body.panel-open nav{right:480px}
   .exp-layout{grid-template-columns:1fr}
   .form-layout{grid-template-columns:1fr}
 
-  /* EDUCATION */
-  .edu-card{padding:.85rem 1rem;gap:.7rem}
-  .edu-inst{font-size:.82rem}
-  .edu-course{font-size:.74rem}
-  .form-panel{padding:1.5rem}
+  /* EDUCATION + SKILLS + COURSES */
+  /* edu cards — logo tucks to flex-start, text has no overflow */
+  .edu-card{padding:1rem;gap:.75rem;align-items:flex-start}
+  .edu-inst{font-size:.84rem}
+  .edu-course{font-size:.74rem;word-break:break-word}
+  .edu-logos-row{flex-direction:row;gap:.35rem;flex-wrap:wrap}
+  /* course panel */
+  .form-panel{padding:1.25rem 1rem;overflow:hidden}
+  /* course list items: stack vertically so long names don't push date off screen */
+  .cl-item{flex-direction:column;align-items:flex-start;gap:.2rem;padding:.65rem 0}
+  .cl-item-left{width:100%;min-width:0;overflow:hidden}
+  .cl-item-left > span{white-space:normal;word-break:break-word;font-size:.78rem;line-height:1.4}
+  .cl-item > span{font-size:.64rem;letter-spacing:.04em;color:rgba(255,255,255,.3)}
+  #curso-list .cl-item{flex-direction:column;align-items:flex-start;gap:.3rem;padding:.75rem 0}
+  #curso-list .cl-item .cl-item-left{width:100%;overflow:hidden}
+  #curso-list .cl-item .cl-item-left > span{font-size:.86rem;color:#fff;white-space:normal;word-break:break-word;line-height:1.4}
+  #curso-list .cl-item > div:last-child{flex-shrink:1;min-width:0}
+  #curso-list .cl-item > div:last-child > span{font-size:.68rem;color:rgba(255,255,255,.38)}
+  .cl-adm-btns{flex-shrink:0;margin-top:.3rem}
+  /* skill cards */
+  .sobre-card{padding:1.1rem 1.1rem}
+  .tg-tag{font-size:.68rem;padding:.18rem .5rem}
+  .tgl{font-size:.52rem;margin-bottom:.65rem}
+  .ts{gap:.3rem}
 
   /* CONTACT */
   .contact-panel{padding:2rem 1.5rem}
@@ -264,7 +283,7 @@ body.panel-open nav{right:480px}
 .panel-label{font-family:var(--title);font-size:.58rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:1.1rem}
 
 /* ── LAYOUT ── */
-.sw{max-width:1100px;margin:0 auto;padding:6rem 3rem;position:relative;z-index:1}
+.sw{max-width:1100px;margin:0 auto;padding:6rem 3rem}
 .ey{font-family:var(--title);font-size:.58rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:1rem}
 .hd{font-family:var(--title);font-size:clamp(2rem,3.5vw,3rem);font-weight:800;letter-spacing:-.04em;margin-bottom:2.5rem;line-height:1}
 .sec-num{display:none}
