@@ -68,20 +68,20 @@ body.panel-open nav{right:480px}
 /* ── HERO (Abbas-style) ── */
 #hero{min-height:100vh;position:relative;background:#000;overflow:hidden;display:block;border-bottom:1px solid var(--border)}
 
-/* Photo — fills right ~65% of viewport, bleeds top */
-.hero-photo-wrap{position:absolute;right:0;top:0;bottom:0;width:65%;z-index:0;pointer-events:none}
-.hero-photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:top center;filter:grayscale(1) contrast(1.08) brightness(.65)}
-.hero-photo-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,#000 0%,rgba(0,0,0,.55) 38%,rgba(0,0,0,.08) 100%)}
+/* Photo — fills right 58% of viewport, bleeds top */
+.hero-photo-wrap{position:absolute;right:0;top:0;bottom:0;width:58%;z-index:0;pointer-events:none}
+.hero-photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:top center;filter:grayscale(1) contrast(1.1) brightness(.7)}
+.hero-photo-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,#000 0%,#000 22%,rgba(0,0,0,.82) 42%,rgba(0,0,0,.35) 65%,rgba(0,0,0,.05) 100%)}
 
-/* Big name — top left */
-.hero-name-block{position:absolute;top:5.5rem;left:3rem;z-index:2}
-.hero-firstname{font-family:var(--title);font-size:clamp(2.5rem,6vw,5.5rem);font-weight:300;color:rgba(255,255,255,.55);letter-spacing:.1em;text-transform:uppercase;line-height:1}
-.hero-lastname{font-family:var(--title);font-size:clamp(5rem,13vw,12rem);font-weight:800;color:#fff;letter-spacing:-.02em;line-height:.88;margin-top:-.1rem}
-.hero-role-line{font-family:var(--title);font-size:.68rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-top:1.1rem;display:flex;align-items:center;gap:.75rem}
-.hero-role-line::before{content:'';width:20px;height:1px;background:rgba(255,255,255,.35)}
+/* Big name — top left, constrained so it never bleeds into the panel area */
+.hero-name-block{position:absolute;top:6.5rem;left:3rem;z-index:2;max-width:52vw}
+.hero-firstname{font-family:var(--title);font-size:clamp(1.4rem,2.4vw,2.8rem);font-weight:300;color:rgba(255,255,255,.45);letter-spacing:.22em;text-transform:uppercase;line-height:1}
+.hero-lastname{font-family:var(--title);font-size:clamp(3rem,7vw,8rem);font-weight:800;color:#fff;letter-spacing:-.025em;line-height:.9;margin-top:.1rem}
+.hero-role-line{font-family:var(--title);font-size:.66rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:1.4rem;display:flex;align-items:center;gap:.75rem}
+.hero-role-line::before{content:'';width:24px;height:1px;background:rgba(255,255,255,.3)}
 
-/* Left info panel (Experience quick view) — bottom left */
-.hero-left-panel{position:absolute;bottom:3rem;left:3rem;z-index:3;background:rgba(10,10,10,.82);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(12px);padding:1.4rem 1.6rem;width:min(260px,38vw)}
+/* Left info panel — bottom left, clear of name block */
+.hero-left-panel{position:absolute;bottom:3.5rem;left:3rem;z-index:3;background:rgba(6,6,6,.9);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(16px);padding:1.4rem 1.6rem;width:min(250px,36vw)}
 .hlp-label{font-family:var(--title);font-size:.55rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:.9rem}
 .hlp-row{margin-bottom:.6rem}
 .hlp-company{font-family:var(--body);font-size:.72rem;color:rgba(255,255,255,.4);letter-spacing:.04em;margin-bottom:.1rem}
@@ -93,15 +93,15 @@ body.panel-open nav{right:480px}
 .btn-o{background:transparent;color:var(--white);padding:.65rem 1.4rem;font-family:var(--title);font-size:.7rem;font-weight:500;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,.18);display:inline-flex;align-items:center;gap:.45rem;transition:all .2s}
 .btn-o:hover{border-color:rgba(255,255,255,.38);background:rgba(255,255,255,.04)}
 
-/* Right stats panel — middle right */
-.hero-right-panel{position:absolute;top:50%;right:3rem;transform:translateY(-50%);z-index:3;display:flex;flex-direction:column;gap:.5rem;align-items:flex-end}
+/* Right stats panel — bottom right, above the panel */
+.hero-right-panel{position:absolute;bottom:3.5rem;right:3.5rem;z-index:3;display:flex;flex-direction:column;gap:.5rem;align-items:flex-end}
 .hrp-stat{text-align:right}
 .hrp-num{font-family:var(--title);font-size:2rem;font-weight:800;color:#fff;letter-spacing:-.04em;line-height:1}
 .hrp-label{font-family:var(--title);font-size:.55rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4)}
 .hrp-sep{width:30px;height:1px;background:rgba(255,255,255,.12);margin-left:auto;margin:.4rem 0}
 
-/* Quick nav */
-.hero-quick-nav{position:absolute;top:1.1rem;right:3rem;z-index:3;display:flex;gap:.5rem}
+/* Quick nav hidden — main nav already has these links */
+.hero-quick-nav{display:none}
 .btn-q{background:transparent;color:rgba(255,255,255,.45);padding:.32rem .8rem;font-family:var(--title);font-size:.58rem;font-weight:600;text-decoration:none;border:1px solid rgba(255,255,255,.12);display:inline-flex;align-items:center;gap:.3rem;transition:all .2s;cursor:pointer;letter-spacing:.06em;text-transform:uppercase}
 .btn-q:hover{border-color:rgba(255,255,255,.3);color:var(--white)}
 .btn-q svg{flex-shrink:0;opacity:.6}
