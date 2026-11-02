@@ -119,13 +119,16 @@ body.panel-open nav{right:480px}
 
 /* Responsive */
 @media(max-width:768px){
-  .hero-photo-layer{position:absolute}
-  .hero-body{padding:0 1.25rem 4rem}
-  .hero-fn{font-size:clamp(1.4rem,5.5vw,2.2rem)}
-  .hero-ln{font-size:clamp(3rem,13vw,6rem)}
-  .hero-info-row{gap:1.2rem}
+  .hero-body{padding:0 1.5rem 5rem}
+  .hero-fn{font-size:clamp(1.2rem,4.5vw,1.8rem)}
+  .hero-ln{font-size:clamp(3.2rem,14vw,6rem)}
+  .hero-info-row{flex-direction:column;align-items:flex-start;gap:1rem}
+  .hero-info-item{flex-direction:row;align-items:center;gap:.6rem}
+  .hii-label{min-width:78px;flex-shrink:0}
   .hero-info-sep{display:none}
-  .hero-cta-row .btn-w,.hero-cta-row .btn-o{width:100%;max-width:320px;justify-content:center}
+  .hero-cta-row{flex-direction:column;gap:.65rem}
+  .hero-cta-row .btn-w,.hero-cta-row .btn-o{width:100%;max-width:340px;justify-content:center;padding:.75rem 1.4rem}
+  .hero-stats-row{gap:1.8rem}
   .hero-scroll{display:none}
 }
 
@@ -183,40 +186,55 @@ body.panel-open nav{right:480px}
   .logo-text{display:none}
 
   /* LAYOUT */
-  .sw{padding:4rem 1.25rem}
+  .sw{padding:5rem 1.5rem}
 
   /* HERO */
   #hero{min-height:100svh}
   .hero-body{padding-top:6rem}
 
-  /* SECTION DIVIDERS — remove visual noise on mobile */
+  /* SECTION DIVIDERS */
   #sobre{border-top:none;border-bottom:none;border-radius:0}
+
+  /* HEADINGS */
+  .hd{font-size:clamp(1.8rem,7vw,2.6rem);margin-bottom:2rem}
+  .ey{margin-bottom:.65rem}
 
   /* EXPERIENCE */
   #experiencia .sw{padding-top:4rem}
   #experiencia .hd{border-left:none;padding-left:0}
   #experiencia .ey{padding-left:0}
-  .exp-card{padding:1.25rem}
+  .exp-panel{padding:1.5rem}
+  .exp-card{padding:1.1rem 0}
   .exp-card::after{display:none}
-  .exp-top{flex-wrap:wrap;gap:.6rem}
-  .exp-left{min-width:0;flex:1 1 100%}
-  .exp-date{align-self:flex-start;font-size:.68rem}
-  .exp-role{font-size:.92rem}
-  .exp-points li{font-size:.8rem}
+  .exp-top{flex-wrap:wrap;gap:.5rem}
+  .exp-left{min-width:0;flex:1 1 auto}
+  .exp-date{align-self:flex-start;font-size:.66rem;flex-shrink:0}
+  .exp-role{font-size:.9rem}
+  .exp-company{font-size:.74rem}
+  .exp-points{gap:.4rem;margin-top:.6rem}
+  .exp-points li{font-size:.82rem;line-height:1.6}
+  .exp-promo{font-size:.55rem;margin-bottom:.25rem}
 
   /* PROJECTS */
   .proj-title{font-size:1.05rem}
+  .pl{gap:.75rem}
 
-  /* SKILLS / TAGS */
+  /* GRIDS */
   .sobre-cards{grid-template-columns:1fr}
   .sobre-layout{grid-template-columns:1fr}
   .exp-layout{grid-template-columns:1fr}
   .form-layout{grid-template-columns:1fr}
 
+  /* EDUCATION */
+  .edu-card{padding:.85rem 1rem;gap:.7rem}
+  .edu-inst{font-size:.82rem}
+  .edu-course{font-size:.74rem}
+  .form-panel{padding:1.5rem}
+
   /* CONTACT */
-  .contact-panel{padding:2rem 1.25rem}
-  .cr{flex-direction:column;align-items:center}
-  .cr .btn-w,.cr .btn-o{width:100%;max-width:320px;justify-content:center}
+  .contact-panel{padding:2rem 1.5rem}
+  .cr{flex-direction:column;align-items:stretch;gap:.65rem}
+  .cr .btn-w,.cr .btn-o{width:100%;justify-content:center;padding:.8rem 1.4rem}
 
   /* FOOTER */
   footer{flex-direction:column;gap:.6rem;text-align:center;padding:1.5rem 1.25rem}
@@ -246,7 +264,7 @@ body.panel-open nav{right:480px}
 .panel-label{font-family:var(--title);font-size:.58rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:1.1rem}
 
 /* ── LAYOUT ── */
-.sw{max-width:1100px;margin:0 auto;padding:6rem 3rem}
+.sw{max-width:1100px;margin:0 auto;padding:6rem 3rem;position:relative;z-index:1}
 .ey{font-family:var(--title);font-size:.58rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:1rem}
 .hd{font-family:var(--title);font-size:clamp(2rem,3.5vw,3rem);font-weight:800;letter-spacing:-.04em;margin-bottom:2.5rem;line-height:1}
 .sec-num{display:none}
@@ -556,6 +574,11 @@ body.panel-open #fb-setup-banner{right:480px}
 <body>
 
 <!-- NAV -->
+<!-- Photo layer — position:fixed, visible behind ALL sections on all devices -->
+<div class="hero-photo-layer">
+  <img src="assets/victor-hero.jpg" alt="Victor Germano" onerror="this.style.display='none'">
+</div>
+
 <nav id="main-nav">
   <a href="#" class="nav-logo" id="nav-logo">
     <div class="logo-mark">
@@ -600,11 +623,6 @@ body.panel-open #fb-setup-banner{right:480px}
 
 <!-- HERO -->
 <section id="hero">
-
-  <!-- Fixed photo — stays still, content scrolls over it -->
-  <div class="hero-photo-layer">
-    <img src="assets/victor-hero.jpg" alt="Victor Germano" onerror="this.style.display='none'">
-  </div>
 
   <!-- Gradient overlay — seamless fade into black at bottom -->
   <div class="hero-overlay"></div>
