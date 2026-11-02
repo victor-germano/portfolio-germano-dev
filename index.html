@@ -178,6 +178,7 @@ body.panel-open nav{right:480px}
   /* NAV */
   nav{padding:.85rem 1.25rem}
   .nav-links{display:none}
+  .nav-cta{display:none}
   .nav-right{gap:.65rem}
   .logo-text{display:none}
 
@@ -185,18 +186,8 @@ body.panel-open nav{right:480px}
   .sw{padding:4rem 1.25rem}
 
   /* HERO */
-  #hero{padding:0 1.25rem 5rem;min-height:100svh}
-  .hero-inner{flex-direction:column-reverse;gap:1.75rem;align-items:center;text-align:center}
-  .hero-content{max-width:100%}
-  .hero-sub{margin-left:auto;margin-right:auto}
-  .hero-actions{justify-content:center}
-  .hero-quick-nav{justify-content:center}
-  .hero-badge{margin-left:auto;margin-right:auto}
-  h1{font-size:clamp(2.2rem,9vw,3.4rem)}
-  .polaroid-wrap{width:100%}
-  .polaroid{display:block;width:100%;border-radius:12px}
-  .polaroid img{width:100%;height:auto;object-fit:initial}
-  .hero-scroll{left:1.25rem;bottom:1.25rem}
+  #hero{min-height:100svh}
+  .hero-body{padding-top:6rem}
 
   /* SECTION DIVIDERS — remove visual noise on mobile */
   #sobre{border-top:none;border-bottom:none;border-radius:0}
@@ -213,11 +204,7 @@ body.panel-open nav{right:480px}
   .exp-role{font-size:.92rem}
   .exp-points li{font-size:.8rem}
 
-  /* EDUCATION */
-  .edu-grid{grid-template-columns:1fr}
-
   /* PROJECTS */
-  .proj{grid-template-columns:2rem 1fr auto;gap:0 1rem}
   .proj-title{font-size:1.05rem}
 
   /* SKILLS / TAGS */
@@ -227,6 +214,7 @@ body.panel-open nav{right:480px}
   .form-layout{grid-template-columns:1fr}
 
   /* CONTACT */
+  .contact-panel{padding:2rem 1.25rem}
   .cr{flex-direction:column;align-items:center}
   .cr .btn-w,.cr .btn-o{width:100%;max-width:320px;justify-content:center}
 
@@ -501,8 +489,6 @@ body.panel-open #fab-group{right:496px}
 
 /* ── RESPONSIVE (admin / demo panel overrides) ── */
 @media(max-width:768px){
-  /* hero — garante padding inferior para nunca encostar no #sobre */
-  #hero{padding-bottom:5rem}
   /* sobre — remove bordas horizontais que cortam o conteúdo */
   #sobre{border-top:none!important;border-bottom:none!important}
   /* admin panel — fullscreen no mobile */
