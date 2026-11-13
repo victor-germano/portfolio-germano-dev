@@ -1385,9 +1385,14 @@ document.addEventListener('DOMContentLoaded', async () => {
   bindGlobal();
   initParallax();
   initFadeObserver();
-  // Depois atualiza com dados reais do Supabase
+  // Depois atualiza com dados reais do Firebase
   await loadData();
   render(); renderCourses(); renderSkills(); renderPrompt(); renderTools();
+  initFadeObserver();
+  // Fallback: garante visibilidade após 1.5s caso IO não dispare
+  setTimeout(() => {
+    document.querySelectorAll('.fade-el:not(.visible)').forEach(el => el.classList.add('visible'));
+  }, 1500);
 });
 
 function clone(x){ return JSON.parse(JSON.stringify(x)); }
@@ -1469,9 +1474,9 @@ function initFadeObserver(){
         obs.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.05 });
 
-  document.querySelectorAll('.fade-el').forEach(el => obs.observe(el));
+  document.querySelectorAll('.fade-el:not(.visible)').forEach(el => obs.observe(el));
 }
 
 /* ══════════════════════════════════════
