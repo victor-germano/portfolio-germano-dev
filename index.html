@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Victor Germano — Desenvolvedor & Designer</title>
+<title>Victor Germano — Software Engineer & Designer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <!-- Firebase: nenhum SDK necessário, usamos REST API puro -->
@@ -131,6 +131,9 @@ body.panel-open nav{right:480px}
   .hero-stats-row{gap:1.8rem}
   .hero-scroll{display:none}
 }
+
+/* ── SECTION SCROLL OFFSET (fixed nav clearance) ── */
+#sobre,#experiencia,#projetos,#contato{scroll-margin-top:4rem}
 
 /* ── EXPERIENCE SECTION ── */
 #experiencia .sw{padding-top:6rem}
@@ -291,7 +294,7 @@ body.panel-open nav{right:480px}
 .sec-num{display:none}
 
 /* ── PROJECTS GRID (panel cards) ── */
-.pl{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem}
+.pl{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem;align-items:start}
 .proj{background:rgba(8,8,8,.88);border:1px solid rgba(255,255,255,.09);padding:1.6rem;display:flex;flex-direction:column;gap:0;transition:border-color .2s,background .2s}
 .proj.admin-mode{cursor:default}
 .proj.admin-mode:hover{border-color:rgba(74,222,128,.2)}
@@ -659,7 +662,7 @@ body.panel-open #fb-setup-banner{right:480px}
   <!-- Main body — no floating cards, info as clean text rows -->
   <div class="hero-body">
 
-    <div class="hero-eyebrow">Engenheiro de Software · Sistemas Enterprise · IA & Automação</div>
+    <div class="hero-eyebrow">Software Engineer · Enterprise Systems · AI & Automation</div>
 
     <div class="hero-name">
       <div class="hero-fn">VICTOR</div>
@@ -1219,7 +1222,7 @@ window.scrollTo(0, 0);
 ══════════════════════════════════════ */
 const PASS = 'Careca1711@';
 const FIREBASE_URL = 'https://portfolio-germano-dev-default-rtdb.firebaseio.com';
-const DATA_VERSION = 28;
+const DATA_VERSION = 29;
 
 /* ── Firebase REST helpers ── */
 async function fbGet(){
