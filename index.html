@@ -735,12 +735,12 @@ body.panel-open #fb-setup-banner{right:480px}
 <!-- ABOUT -->
 <div id="sobre">
   <div class="sw">
-    <div class="ey fade-el">About</div>
-    <div class="hd fade-el delay-1">Who I am</div>
+    <div class="ey">About</div>
+    <div class="hd">Who I am</div>
     <div class="sobre-layout">
 
       <!-- Bloco 1: Bio -->
-      <div class="form-block fade-el">
+      <div class="form-block">
         <div class="sobre-bio">
           <p>Software Engineer specializing in <strong>enterprise backend systems</strong>, autonomous AI pipelines, and production APIs. Designed and delivered <strong>Grupo Roveri's</strong> internal MDM/EMM — approved end-to-end by management, development, and cybersecurity teams.</p>
           <p>I build systems that solve real problems: from <strong>fiscal agents with atomic idempotency</strong> to SAST platforms with AST analysis across 8 languages. 10+ projects in production.</p>
@@ -755,7 +755,7 @@ body.panel-open #fb-setup-banner{right:480px}
       </div>
 
       <!-- Bloco 2: Especialidades -->
-      <div class="form-block fade-el delay-1">
+      <div class="form-block">
         <div class="panel-label" style="margin-bottom:1.25rem">Specialties</div>
         <div class="sobre-cards">
           <div class="sobre-card">
@@ -780,11 +780,11 @@ body.panel-open #fb-setup-banner{right:480px}
 <!-- EXPERIENCE -->
 <div id="experiencia">
   <div class="sw">
-    <div class="ey fade-el">Career</div>
-    <div class="hd fade-el delay-1">Professional Experience</div>
+    <div class="ey">Career</div>
+    <div class="hd">Professional Experience</div>
     <div class="exp-layout">
       <!-- Bloco 1: Posições -->
-      <div class="form-block fade-el">
+      <div class="form-block">
         <div class="panel-label" style="margin-bottom:1.25rem">Positions</div>
         <div class="exp-panel">
           <div class="exp-timeline">
@@ -876,7 +876,7 @@ body.panel-open #fb-setup-banner{right:480px}
       </div>
 
       <!-- Bloco 2: Resumo -->
-      <div class="form-block fade-el delay-1">
+      <div class="form-block">
         <div class="exp-resumo-row">
           <div class="exp-panel exp-resumo-stats">
             <div class="panel-label">Numbers</div>
@@ -917,8 +917,8 @@ body.panel-open #fb-setup-banner{right:480px}
 
 <!-- PROJECTS -->
 <div class="sw" id="projetos">
-  <div class="sec-num fade-el">03 — Portfolio</div>
-  <div class="hd fade-el delay-1">Selected Projects</div>
+  <div class="sec-num">03 — Portfolio</div>
+  <div class="hd">Selected Projects</div>
   <div class="pl" id="proj-list"></div>
   <p id="proj-empty" style="color:var(--gray);font-size:.86rem;display:none">Nenhum projeto ainda.</p>
 
@@ -948,9 +948,9 @@ body.panel-open #fb-setup-banner{right:480px}
 <!-- CONTACT -->
 <div id="contato">
   <div class="sw">
-    <div class="ey fade-el" style="text-align:center">Contact</div>
-    <div class="hd fade-el delay-1" style="text-align:center">Let's build<br>something.</div>
-    <div class="contact-panel fade-el delay-2">
+    <div class="ey" style="text-align:center">Contact</div>
+    <div class="hd" style="text-align:center">Let's build<br>something.</div>
+    <div class="contact-panel">
       <p class="cs">Available for enterprise projects, technical collaborations, and new opportunities. Reach out and let's build something with real impact.</p>
       <div class="cr">
         <a href="https://www.linkedin.com/in/victor-germano-65787b2b1" target="_blank" class="btn-w">LinkedIn ↗</a>
@@ -1389,10 +1389,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   await loadData();
   render(); renderCourses(); renderSkills(); renderPrompt(); renderTools();
   initFadeObserver();
-  // Fallback: garante visibilidade após 1.5s caso IO não dispare
-  setTimeout(() => {
-    document.querySelectorAll('.fade-el:not(.visible)').forEach(el => el.classList.add('visible'));
-  }, 1500);
 });
 
 function clone(x){ return JSON.parse(JSON.stringify(x)); }
