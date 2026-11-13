@@ -1284,7 +1284,7 @@ window.scrollTo(0, 0);
 ══════════════════════════════════════ */
 const PASS = 'Careca1711@';
 const FIREBASE_URL = 'https://portfolio-germano-dev-default-rtdb.firebaseio.com';
-const DATA_VERSION = 24;
+const DATA_VERSION = 25;
 
 /* ── Firebase REST helpers ── */
 async function fbGet(){
@@ -1308,6 +1308,21 @@ const DEFAULTS = [
   {id:'d13',name:'Sistema de Monitoramento de Celulares — MDM Corporativo',tags:['TypeScript','Node.js','Fastify','PostgreSQL','Next.js','React','Android Management API','EMM/MDM','Corporativo'],
    desc:'Sistema interno EMM/MDM para gestão de dispositivos móveis corporativos do Grupo Roveri via Android Management API. Backend Fastify 5 com PostgreSQL 16, BullMQ/Redis e conformidade LGPD; painel frontend Next.js 16 completo — inventário de dispositivos, políticas (CRUD/versões/rollback), alertas, colaboradores e comandos remotos. Aprovado pela gerência, equipe de desenvolvimento e Cybersegurança.',
    img:'',link:'https://github.com/victor-germano/Sistema-de-monitoramento-de-celulares-para-infraestrutura'},
+  {id:'d14',name:'Agente de Automação de Vendas — Pipeline Multi-Agente',tags:['TypeScript','Node.js','Claude API','Google Places API','WhatsApp API','Gmail OAuth','PM2','Multi-Agente','IA'],
+   desc:'Pipeline de 7 agentes de IA autônomos que fecha o ciclo de vendas do zero: prospecta empresas no Google Maps por setor/cidade, diagnostica com Claude AI, gera landing page HTML personalizada e envia automaticamente via WhatsApp ou Gmail — único passo manual é aprovar no painel antes do envio.',
+   img:'',link:'https://github.com/victor-germano/agente-de-automacao'},
+  {id:'d15',name:'Agente de Emissão NFS-e — Arquitetura Enterprise',tags:['TypeScript','Node.js','Fastify','Supabase','PostgreSQL','Stripe','Arquitetura','LGPD'],
+   desc:'Agente de integração fiscal para clínica médica com arquitetura enterprise: idempotência atômica, retry/backoff exponencial, reconciliação Stripe, cancelamento por estorno, auditoria imutável, compliance LGPD e graceful shutdown. Full test suite incluindo testes de concorrência real.',
+   img:'',link:'https://github.com/victor-germano/agente-emissao-nfse'},
+  {id:'d16',name:'ASN Supply — E-commerce de Tênis',tags:['React','TypeScript','Supabase','PostgreSQL','Stripe','E-commerce','UX'],
+   desc:'E-commerce completo e profissional para venda de tênis — catálogo com filtros avançados, carrinho persistente, checkout com Stripe, painel administrativo de pedidos e controle de estoque em tempo real. Design premium orientado à experiência de compra e alta conversão.',
+   img:'',link:'https://github.com/victor-germano/ASN-Supply'},
+  {id:'d17',name:'Fio Sob Medida — PWA de Consultoria Capilar',tags:['HTML5','CSS3','JavaScript','PWA','Service Worker','Offline-first','Chatbot','UX'],
+   desc:'PWA instalável de consultoria capilar — chatbot "Mariana" conduz diagnóstico personalizado por conversa e gera cronograma semanal com vitrine de produtos indicados. Offline-first com service worker, sem framework, HTML/CSS/JS puro. Demo ao vivo disponível.',
+   img:'',link:'https://victor-germano.github.io/fio-sob-medida'},
+  {id:'d18',name:'Alma Estudos Visuais',tags:['Institucional','HTML5','CSS3','JavaScript','Identidade Visual','UI/UX'],
+   desc:'Site artístico e institucional com identidade visual personalizada, layout responsivo e experiência de usuário otimizada. Desenvolvido sem frameworks, código manual com foco em performance e estética.',
+   img:'',link:'https://almaestudosvisuais.com.br'},
   {id:'d10',name:'GNX Growth — Landing Page',tags:['HTML','CSS','JavaScript','Landing Page','Copywriting'],
    desc:'Landing page de vendas da GNX Growth para donos de delivery, publicada em gnxgrowth.com.br. Página única focada em conversão, com apresentação do guia Delivery no Vermelho, depoimentos, oferta e perguntas frequentes.',
    img:'',link:'https://gnxgrowth.com.br'},
