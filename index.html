@@ -65,6 +65,13 @@ body.panel-open nav{right:480px}
 #admin-badge::before{content:'';width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.6);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
 
+/* ── HAMBURGER (mobile nav) ── */
+.nav-hamburger{display:none;flex-direction:column;gap:4.5px;background:none;border:none;cursor:pointer;padding:.45rem .3rem;flex-shrink:0}
+.nav-hamburger span{display:block;width:20px;height:1.5px;background:#fff;transition:transform .22s,opacity .18s}
+body.nav-open .nav-hamburger span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+body.nav-open .nav-hamburger span:nth-child(2){opacity:0}
+body.nav-open .nav-hamburger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
 /* ── HERO (full-bleed fixed parallax) ── */
 #hero{min-height:100vh;position:relative;display:flex;align-items:flex-end;border-bottom:none}
 
@@ -133,10 +140,10 @@ body.panel-open nav{right:480px}
 }
 
 /* ── SECTION SCROLL OFFSET (fixed nav clearance) ── */
-#sobre,#experiencia,#projetos,#contato{scroll-margin-top:4rem}
+#sobre,#experiencia,#projetos,#contato{scroll-margin-top:4.5rem}
 
 /* ── EXPERIENCE SECTION ── */
-#experiencia .sw{padding-top:6rem}
+#experiencia .sw{padding-top:4rem}
 #experiencia .hd{margin-bottom:1.5rem}
 .exp-resumo-row{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
 .exp-resumo-stats,.exp-resumo-focus{margin:0}
@@ -189,9 +196,12 @@ body.panel-open nav{right:480px}
   .nav-cta{display:none}
   .nav-right{gap:.65rem}
   .logo-text{display:none}
+  .nav-hamburger{display:flex}
+  body.nav-open .nav-links{display:flex;flex-direction:column;position:fixed;top:56px;left:0;right:0;background:rgba(0,0,0,.97);border-bottom:1px solid rgba(255,255,255,.08);padding:1.5rem 1.75rem;gap:1.1rem;z-index:99}
+  body.nav-open .nav-links a{font-size:.88rem;letter-spacing:.06em}
 
   /* LAYOUT */
-  .sw{padding:5rem 1.5rem}
+  .sw{padding:3.5rem 1.5rem}
 
   /* HERO */
   #hero{min-height:100svh}
@@ -205,7 +215,7 @@ body.panel-open nav{right:480px}
   .ey{margin-bottom:.65rem}
 
   /* EXPERIENCE */
-  #experiencia .sw{padding-top:4rem}
+  #experiencia .sw{padding-top:3.5rem}
   #experiencia .hd{border-left:none;padding-left:0}
   #experiencia .ey{padding-left:0}
   .exp-panel{padding:1.5rem}
@@ -288,13 +298,14 @@ body.panel-open nav{right:480px}
 .panel-label{font-family:var(--title);font-size:.58rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:1.1rem}
 
 /* ── LAYOUT ── */
-.sw{max-width:1100px;margin:0 auto;padding:6rem 3rem}
+.sw{max-width:1100px;margin:0 auto;padding:4rem 3rem}
 .ey{font-family:var(--title);font-size:.58rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:1rem}
 .hd{font-family:var(--title);font-size:clamp(2rem,3.5vw,3rem);font-weight:800;letter-spacing:-.04em;margin-bottom:2.5rem;line-height:1}
 .sec-num{display:none}
 
 /* ── PROJECTS GRID (panel cards) ── */
 .pl{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem;align-items:start}
+@media(min-width:900px){.pl .proj:first-child{grid-column:span 2}}
 .proj{background:rgba(8,8,8,.88);border:1px solid rgba(255,255,255,.09);padding:1.6rem;display:flex;flex-direction:column;gap:0;transition:border-color .2s,background .2s}
 .proj.admin-mode{cursor:default}
 .proj.admin-mode:hover{border-color:rgba(74,222,128,.2)}
@@ -630,6 +641,9 @@ body.panel-open #fb-setup-banner{right:480px}
     </ul>
     <span id="admin-badge">Admin</span>
     <a href="#contato" class="nav-cta">Get in touch</a>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open navigation">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
@@ -1222,7 +1236,7 @@ window.scrollTo(0, 0);
 ══════════════════════════════════════ */
 const PASS = 'Careca1711@';
 const FIREBASE_URL = 'https://portfolio-germano-dev-default-rtdb.firebaseio.com';
-const DATA_VERSION = 29;
+const DATA_VERSION = 30;
 
 /* ── Firebase REST helpers ── */
 async function fbGet(){
@@ -1243,6 +1257,7 @@ async function fbSet(data){
 }
 
 const DEFAULTS = [
+  /* ── Enterprise & AI (with case study) ── */
   {id:'d13',name:'Corporate MDM System — Grupo Roveri',tags:['TypeScript','Node.js','Fastify 5','PostgreSQL 16','Redis','BullMQ','Next.js','React','Android Management API','EMM/MDM'],
    desc:'Internal EMM/MDM system for corporate mobile device management at Grupo Roveri via Android Management API. Fastify 5 backend with PostgreSQL 16, BullMQ/Redis, and LGPD compliance; full Next.js 16 admin panel — device inventory, policies (CRUD/versions/rollback), alerts, collaborators, and remote commands.',
    cs:{problem:'Grupo Roveri had 200+ corporate devices with no organizational context — no mapping between devices, employees, departments, or cost centers. Existing third-party SaaS (Miradore) could not model the company\'s internal structure.',solution:'Built internal EMM/MDM on Android Management API: full enrollment flow, remote commands (lock/wipe/reboot), policy CRUD with version history and rollback, BullMQ async queues for safe policy writes, RBAC, and an immutable audit trail.',impact:'Replaced Miradore dependency entirely. Approved end-to-end by management, development team, and cybersecurity. Automated enrollment replaced a fully manual provisioning process.'},
@@ -1255,30 +1270,14 @@ const DEFAULTS = [
    desc:'Enterprise fiscal integration agent for a medical clinic: atomic idempotency, exponential retry/backoff, Stripe webhook reconciliation, automatic cancellation on chargeback, immutable LGPD audit trail, and graceful shutdown. Full test suite including real concurrency tests.',
    cs:{problem:'Medical clinic issuing NFS-e invoices manually — no audit trail, no payment reconciliation, and risk of double-billing under concurrent webhook requests from Stripe.',solution:'Enterprise fiscal agent with atomic idempotency preventing duplicate emissions, exponential retry/backoff for SEFAZ outages, Stripe webhook reconciliation for automatic invoice cancellations on chargeback, and an immutable LGPD-compliant audit trail.',impact:'100% automated invoice emission pipeline. Concurrent test suite validates idempotency under real race conditions. Zero manual steps in the billing flow.'},
    img:'',link:'https://github.com/victor-germano/agente-emissao-nfse'},
-  {id:'d16',name:'ASN Supply — Sneaker E-commerce',tags:['React','TypeScript','Supabase','PostgreSQL','Stripe','E-commerce','UX'],
-   desc:'Full-stack e-commerce for sneaker retail — advanced product catalog with filters, persistent cart, Stripe checkout, admin order management panel, and real-time inventory control. Premium design focused on purchase experience and conversion.',
-   cs:{problem:'Sneaker retailer needed a complete stack from scratch: product catalog with filtering, cart persistence, payment processing, real-time inventory, and an admin panel to manage the full order lifecycle.',solution:'Built full e-commerce with Stripe checkout integration, Supabase-persisted cart, real-time inventory tracking, advanced product filters (brand, size, price), and a full admin panel for order management from placement to fulfillment.',impact:'Production-grade e-commerce with complete payment flow. Admin panel handles the full order lifecycle. Real-time inventory prevents overselling.'},
-   img:'',link:'https://github.com/victor-germano/ASN-Supply'},
-  {id:'d18',name:'Alma Estudos Visuais',tags:['Institutional','HTML5','CSS3','JavaScript','Visual Identity','UI/UX'],
-   desc:'Artist studio website with custom visual identity, responsive gallery layout, and CSS3 animations. Pure HTML/CSS/JS — no framework overhead, hand-crafted for performance and aesthetic precision.',
-   img:'',link:'https://almaestudosvisuais.com.br'},
-  {id:'d10',name:'GNX Growth — Sales Landing Page',tags:['HTML','CSS','JavaScript','Landing Page','Copywriting'],
-   desc:'High-conversion sales landing page for GNX Growth, published at gnxgrowth.com.br. Single-page focused on conversion — product presentation, testimonials, offer structure, and FAQ.',
-   img:'',link:'https://gnxgrowth.com.br'},
-  {id:'d11',name:'Solar Energy CRM — B2B Prospecting',tags:['React','TypeScript','Supabase','PostgreSQL','Vercel','CRM'],
-   desc:'B2B prospecting CRM for solar energy subscription sales to condominiums and property managers. Automatic CNPJ enrichment via Receita Federal API, 9-stage Kanban pipeline with automatic savings calculation, 1-click WhatsApp scripts, and PDF proposals with 1/3/5-year savings projections.',
-   cs:{problem:'B2B solar energy sales team tracking 50+ prospects in spreadsheets — no pipeline visibility, manual CNPJ lookups, no proposal automation, and no way to track stage progression.',solution:'CRM with 9-stage Kanban pipeline, automatic CNPJ enrichment via Receita Federal API, CSV/XLSX import with deduplication, 1-click WhatsApp script dispatch, and 1-click PDF proposal generation with 1/3/5-year savings projections.',impact:'Prospect-to-proposal fully automated. Sales reps go from lead qualification to signed PDF proposal without leaving the platform. Eliminated spreadsheet dependency entirely.'},
-   img:'',link:''},
-  {id:'d2',name:'Academia Agits',tags:['Institutional','UI/UX','Conversion'],
-   desc:'Institutional website for a gym focused on conversion and service presentation. Clear, objective experience oriented toward results.',
-   img:'',link:'https://academiaagits.com.br/'},
-  {id:'d12',name:'Tech N — Software House',tags:['Institutional','React','TypeScript','UI/UX','SEO'],
-   desc:'Institutional website for a custom software development house. Service presentation, solution portfolio, and brand positioning — responsive design with custom visual identity, conversion-oriented copywriting, and SEO optimization.',
-   img:'',link:'https://technsoftwares.com.br'},
   {id:'d8',name:'AI Agent — NF-e Issuer',tags:['Claude Code','Python','NF-e API','Automation'],
    desc:'AI agent that automates 100% of the NF-e (electronic invoice) emission process. Emission in under 3 seconds: automatic data validation, SEFAZ API integration, XML/PDF generation, and delivery to recipient. Built with Claude Code — eliminates manual scripting entirely.',
    cs:{problem:'NF-e emission requires XML generation, digital signature, SEFAZ transmission, and PDF delivery — historically a multi-step manual process prone to data entry errors and transmission failures.',solution:'AI agent handles the full emission pipeline in under 3 seconds: validates all data, generates SEFAZ-compliant XML, signs digitally, transmits, generates PDF, and delivers to recipient. Claude Code orchestrates every step.',impact:'100% automated NF-e emission. Applicable to any business segment — tech, healthcare, or any domain that needs to scale fiscal automation without human error.'},
    img:'',link:'https://github.com/victor-germano/agente-de-emissao-NF-e'},
+  {id:'d11',name:'Solar Energy CRM — B2B Prospecting',tags:['React','TypeScript','Supabase','PostgreSQL','Vercel','CRM'],
+   desc:'B2B prospecting CRM for solar energy subscription sales to condominiums and property managers. Automatic CNPJ enrichment via Receita Federal API, 9-stage Kanban pipeline with automatic savings calculation, 1-click WhatsApp scripts, and PDF proposals with 1/3/5-year savings projections.',
+   cs:{problem:'B2B solar energy sales team tracking 50+ prospects in spreadsheets — no pipeline visibility, manual CNPJ lookups, no proposal automation, and no way to track stage progression.',solution:'CRM with 9-stage Kanban pipeline, automatic CNPJ enrichment via Receita Federal API, CSV/XLSX import with deduplication, 1-click WhatsApp script dispatch, and 1-click PDF proposal generation with 1/3/5-year savings projections.',impact:'Prospect-to-proposal fully automated. Sales reps go from lead qualification to signed PDF proposal without leaving the platform. Eliminated spreadsheet dependency entirely.'},
+   img:'',link:''},
   {id:'d6',name:'Jarvis — AI Voice Assistant',tags:['Python','Claude API','Voice','AI'],
    desc:'Personal bidirectional voice assistant inspired by J.A.R.V.I.S. Listens to voice commands, reasons with Claude, responds in ~1 second. Integrated with VS Code, Spotify, Google Calendar, Gmail, and GitHub. Persistent memory across sessions and automatic routing between AI models by task type.',
    cs:{problem:'Development workflows required constant context switching between code editor, music, calendar, email, and GitHub — no unified voice interface that understood engineering context.',solution:'Bidirectional voice assistant with ~1s end-to-end latency. Full integrations with VS Code, Spotify, Google Calendar, Gmail, and GitHub. Persistent session memory eliminates repeated context-setting. Automatic AI model routing selects the right model for each task type.',impact:'Full development assistant accessible entirely by voice. Session memory means the assistant knows your current context without re-explaining every time.'},
@@ -1286,7 +1285,24 @@ const DEFAULTS = [
   {id:'d9',name:'Code Vulnerability Scanner — SAST',tags:['Python','Claude API','Security','OWASP'],
    desc:'Static analysis security platform that inspects source code and detects critical vulnerabilities — SQL Injection, XSS, insecure auth, sensitive data exposure, and other OWASP patterns. 38 detection rules built on real AST parsing across 8 languages. Generates severity-graded reports (critical/high/medium/low) with remediation suggestions per finding.',
    cs:{problem:'Manual security code review is slow, inconsistent, and fails to scale across a multi-language codebase. Regex-based scanners produce high false-positive rates that reduce trust.',solution:'SAST platform with 38 detection rules built on real AST parsing (not regex) across 8 languages. Runs as a Docker Compose stack, standalone CLI, or CI pipeline step. Each finding includes severity level, affected line, and actionable remediation suggestion.',impact:'Automated detection of OWASP Top 10 vulnerabilities. AST-based analysis eliminates the false positives common in regex-only scanners. Exportable reports ready for security audits.'},
-   img:'',link:'https://github.com/victor-germano/Verificador-de-vulnerabilidade-de-codigo-'}
+   img:'',link:'https://github.com/victor-germano/Verificador-de-vulnerabilidade-de-codigo-'},
+  {id:'d16',name:'ASN Supply — Sneaker E-commerce',tags:['React','TypeScript','Supabase','PostgreSQL','Stripe','E-commerce','UX'],
+   desc:'Full-stack e-commerce for sneaker retail — advanced product catalog with filters, persistent cart, Stripe checkout, admin order management panel, and real-time inventory control. Premium design focused on purchase experience and conversion.',
+   cs:{problem:'Sneaker retailer needed a complete stack from scratch: product catalog with filtering, cart persistence, payment processing, real-time inventory, and an admin panel to manage the full order lifecycle.',solution:'Built full e-commerce with Stripe checkout integration, Supabase-persisted cart, real-time inventory tracking, advanced product filters (brand, size, price), and a full admin panel for order management from placement to fulfillment.',impact:'Production-grade e-commerce with complete payment flow. Admin panel handles the full order lifecycle. Real-time inventory prevents overselling.'},
+   img:'',link:'https://github.com/victor-germano/ASN-Supply'},
+  /* ── Web / Institutional (no case study) ── */
+  {id:'d18',name:'Alma Estudos Visuais',tags:['Institutional','HTML5','CSS3','JavaScript','Visual Identity','UI/UX'],
+   desc:'Artist studio website with custom visual identity, responsive gallery layout, and CSS3 animations. Pure HTML/CSS/JS — no framework overhead, hand-crafted for performance and aesthetic precision.',
+   img:'',link:'https://almaestudosvisuais.com.br'},
+  {id:'d12',name:'Tech N — Software House',tags:['Institutional','React','TypeScript','UI/UX','SEO'],
+   desc:'Institutional website for a custom software development house. Service presentation, solution portfolio, and brand positioning — responsive design with custom visual identity, conversion-oriented copywriting, and SEO optimization.',
+   img:'',link:'https://technsoftwares.com.br'},
+  {id:'d2',name:'Academia Agits',tags:['Institutional','UI/UX','Conversion'],
+   desc:'Institutional website for a gym focused on conversion and service presentation. Clear, objective experience oriented toward results.',
+   img:'',link:'https://academiaagits.com.br/'},
+  {id:'d10',name:'GNX Growth — Sales Landing Page',tags:['HTML','CSS','JavaScript','Landing Page','Copywriting'],
+   desc:'High-conversion sales landing page for GNX Growth, published at gnxgrowth.com.br. Single-page focused on conversion — product presentation, testimonials, offer structure, and FAQ.',
+   img:'',link:'https://gnxgrowth.com.br'}
 ];
 
 const DEFAULT_COURSES = [
@@ -1623,6 +1639,13 @@ function bindGlobal(){
     e.preventDefault();
     admin ? logoutAdmin() : openOv('ov-login');
   });
+  const hamburger = document.getElementById('nav-hamburger');
+  if (hamburger) {
+    hamburger.addEventListener('click', () => document.body.classList.toggle('nav-open'));
+    document.querySelectorAll('.nav-links a').forEach(a =>
+      a.addEventListener('click', () => document.body.classList.remove('nav-open'))
+    );
+  }
   document.getElementById('login-btn').addEventListener('click', doLogin);
   document.getElementById('pw').addEventListener('keydown', e => { if(e.key==='Enter') doLogin(); });
   document.querySelectorAll('.ov').forEach(o => {
