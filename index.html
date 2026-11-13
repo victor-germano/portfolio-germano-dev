@@ -586,6 +586,12 @@ body.panel-open #fb-setup-banner{right:480px}
 .exp-tags{display:flex;gap:.3rem;flex-wrap:wrap;margin-top:.75rem}
 .exp-tag{font-family:var(--title);font-size:.55rem;font-weight:600;letter-spacing:.07em;padding:.12rem .45rem;text-transform:uppercase;background:transparent;color:var(--gray);border:1px solid var(--border)}
 
+/* ── CASE STUDY ── */
+.proj-cs{margin-top:.85rem;padding-top:.85rem;border-top:1px solid rgba(255,255,255,.06);display:flex;flex-direction:column;gap:.55rem}
+.proj-cs-row{display:grid;grid-template-columns:5.5rem 1fr;gap:.5rem}
+.proj-cs-label{font-family:var(--title);font-size:.52rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);padding-top:.18rem}
+.proj-cs-val{font-family:var(--body);font-size:.78rem;font-weight:300;color:rgba(255,255,255,.52);line-height:1.6}
+
 /* ── FORMAÇÃO SECTION ── */
 #formacao{border-top:none;border-bottom:none}
 .form-layout{display:flex;flex-direction:column;gap:0}
@@ -614,14 +620,13 @@ body.panel-open #fb-setup-banner{right:480px}
   </a>
   <div class="nav-right">
     <ul class="nav-links">
-      <li><a href="#sobre">Sobre</a></li>
-      <li><a href="#experiencia">Experiência</a></li>
-      <li><a href="#projetos">Projetos</a></li>
-      <li><a href="#formacao">Formação</a></li>
-      <li><a href="#contato">Contato</a></li>
+      <li><a href="#sobre">About</a></li>
+      <li><a href="#experiencia">Experience</a></li>
+      <li><a href="#projetos">Projects</a></li>
+      <li><a href="#contato">Contact</a></li>
     </ul>
     <span id="admin-badge">Admin</span>
-    <a href="#contato" class="nav-cta">Entrar em contato</a>
+    <a href="#contato" class="nav-cta">Get in touch</a>
   </div>
 </nav>
 
@@ -663,40 +668,40 @@ body.panel-open #fb-setup-banner{right:480px}
 
     <div class="hero-info-row">
       <div class="hero-info-item">
-        <span class="hii-label">Posição atual</span>
+        <span class="hii-label">Current Role</span>
         <span class="hii-value">ControlDesk Jr · Grupo Roveri</span>
       </div>
       <div class="hero-info-sep"></div>
       <div class="hero-info-item">
-        <span class="hii-label">Formação</span>
-        <span class="hii-value">Eng. Software · Cruzeiro do Sul</span>
+        <span class="hii-label">Education</span>
+        <span class="hii-value">Software Eng. · Cruzeiro do Sul</span>
       </div>
       <div class="hero-info-sep"></div>
       <div class="hero-info-item">
-        <span class="hii-label">Localização</span>
+        <span class="hii-label">Location</span>
         <span class="hii-value">São Paulo, SP</span>
       </div>
     </div>
 
     <div class="hero-cta-row">
-      <a href="#projetos" class="btn-w">Ver projetos →</a>
-      <a href="https://wa.me/5511953570476" target="_blank" class="btn-o">Conversar</a>
+      <a href="#projetos" class="btn-w">View projects →</a>
+      <a href="#contato" class="btn-o">Contact</a>
     </div>
 
     <div class="hero-stats-row">
       <div class="hsr-item">
         <div class="hsr-num">10+</div>
-        <div class="hsr-label">Projetos</div>
+        <div class="hsr-label">Projects</div>
       </div>
       <div class="hsr-sep"></div>
       <div class="hsr-item">
         <div class="hsr-num">3+</div>
-        <div class="hsr-label">Anos</div>
+        <div class="hsr-label">Years</div>
       </div>
       <div class="hsr-sep"></div>
       <div class="hsr-item">
         <div class="hsr-num">SP</div>
-        <div class="hsr-label">Brasil</div>
+        <div class="hsr-label">Brazil</div>
       </div>
     </div>
 
@@ -713,40 +718,40 @@ body.panel-open #fb-setup-banner{right:480px}
 <!-- ABOUT -->
 <div id="sobre">
   <div class="sw">
-    <div class="ey fade-el">Sobre mim</div>
-    <div class="hd fade-el delay-1">Quem eu sou</div>
+    <div class="ey fade-el">About</div>
+    <div class="hd fade-el delay-1">Who I am</div>
     <div class="sobre-layout">
 
       <!-- Bloco 1: Bio -->
       <div class="form-block fade-el">
         <div class="sobre-bio">
-          <p><strong>Victor Germano</strong>, Engenheiro de Software com foco em <strong>sistemas enterprise</strong>, pipelines de IA autônomos e backends de produção. Responsável pelo sistema MDM/EMM corporativo do <strong>Grupo Roveri</strong> — aprovado pela gerência, desenvolvimento e Cybersegurança.</p>
-          <p>Construo sistemas que resolvem problemas reais: de <strong>agentes fiscais com idempotência atômica</strong> a plataformas SAST com análise de código em múltiplas linguagens. 10+ projetos em produção.</p>
+          <p>Software Engineer specializing in <strong>enterprise backend systems</strong>, autonomous AI pipelines, and production APIs. Designed and delivered <strong>Grupo Roveri's</strong> internal MDM/EMM — approved end-to-end by management, development, and cybersecurity teams.</p>
+          <p>I build systems that solve real problems: from <strong>fiscal agents with atomic idempotency</strong> to SAST platforms with AST analysis across 8 languages. 10+ projects in production.</p>
         </div>
-        <div class="ey" style="margin-top:2.5rem;margin-bottom:.75rem">Princípios de engenharia</div>
+        <div class="ey" style="margin-top:2.5rem;margin-bottom:.75rem">Engineering principles</div>
         <ul class="princ-list">
-          <li class="princ-item">Código limpo, testado e mantível — arquitetura que escala, não só "funciona"</li>
-          <li class="princ-item">IA como componente de engenharia, integrada ao sistema, não como enfeite</li>
-          <li class="princ-item">Impacto mensurável: sistemas aprovados por Cybersegurança, SLA cumprido em produção</li>
-          <li class="princ-item">Aprendizado contínuo — tecnologia muda rápido, eu mudo mais rápido</li>
+          <li class="princ-item">Clean, tested, maintainable code — architecture that scales, not just "works"</li>
+          <li class="princ-item">AI as an engineering component, embedded in the system — not decoration</li>
+          <li class="princ-item">Measurable impact: Cybersecurity-approved systems, SLA compliance in production</li>
+          <li class="princ-item">Continuous learning — technology moves fast, I move faster</li>
         </ul>
       </div>
 
       <!-- Bloco 2: Especialidades -->
       <div class="form-block fade-el delay-1">
-        <div class="panel-label" style="margin-bottom:1.25rem">Especialidades</div>
+        <div class="panel-label" style="margin-bottom:1.25rem">Specialties</div>
         <div class="sobre-cards">
           <div class="sobre-card">
-            <div class="tgl">IA &amp; Agentes Autônomos</div>
-            <p style="font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.75;margin-top:.5rem">Pipelines multi-agente com Claude AI — do zero à produção. Pipeline de vendas com 7 agentes orquestrados, agente fiscal NFS-e enterprise, assistente de voz com ~1s de latência e plataforma SAST com análise AST em 8 linguagens.</p>
+            <div class="tgl">AI &amp; Autonomous Agents</div>
+            <p style="font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.75;margin-top:.5rem">Multi-agent pipelines with Claude AI — from zero to production. 7-agent sales automation pipeline, enterprise NFS-e fiscal agent, ~1s-latency voice assistant, and a SAST platform with real AST parsing across 8 languages.</p>
           </div>
           <div class="sobre-card">
-            <div class="tgl">Automação &amp; Integrações</div>
-            <p style="font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.75;margin-top:.5rem">Integração com APIs enterprise (Stripe, SEFAZ, Google Maps, WhatsApp, Gmail OAuth) via N8N e Make. Fluxos idempotentes com retry/backoff, reconciliação e auditoria — eliminando processos manuais com SLA garantido.</p>
+            <div class="tgl">Automation &amp; Integrations</div>
+            <p style="font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.75;margin-top:.5rem">Enterprise API integrations (Stripe, SEFAZ, Google Maps, WhatsApp, Gmail OAuth) via N8N and Make. Idempotent flows with retry/backoff, reconciliation, and audit trails — eliminating manual processes with guaranteed SLA.</p>
           </div>
           <div class="sobre-card">
-            <div class="tgl">Backends &amp; Sistemas Enterprise</div>
-            <p style="font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.75;margin-top:.5rem">Backends de produção com Node.js/TypeScript, Fastify 5, PostgreSQL 16 e Redis. Padrões enterprise: BullMQ, auditoria LGPD, idempotência atômica, graceful shutdown e contratos OpenAPI gerados a partir de Zod.</p>
+            <div class="tgl">Backends &amp; Enterprise Systems</div>
+            <p style="font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.75;margin-top:.5rem">Production backends with Node.js/TypeScript, Fastify 5, PostgreSQL 16, and Redis. Enterprise patterns: BullMQ job queues, LGPD audit trails, atomic idempotency, graceful shutdown, and OpenAPI contracts generated from Zod schemas.</p>
           </div>
         </div>
       </div>
@@ -758,12 +763,12 @@ body.panel-open #fb-setup-banner{right:480px}
 <!-- EXPERIENCE -->
 <div id="experiencia">
   <div class="sw">
-    <div class="ey fade-el">Trajetória</div>
-    <div class="hd fade-el delay-1">Experiência Profissional</div>
+    <div class="ey fade-el">Career</div>
+    <div class="hd fade-el delay-1">Professional Experience</div>
     <div class="exp-layout">
       <!-- Bloco 1: Posições -->
       <div class="form-block fade-el">
-        <div class="panel-label" style="margin-bottom:1.25rem">Posições</div>
+        <div class="panel-label" style="margin-bottom:1.25rem">Positions</div>
         <div class="exp-panel">
           <div class="exp-timeline">
 
@@ -778,13 +783,13 @@ body.panel-open #fb-setup-banner{right:480px}
                     <div class="exp-company">Grupo Roveri · São Paulo, SP</div>
                   </div>
                 </div>
-                <div class="exp-date">Set 2026 — Presente</div>
+                <div class="exp-date">Sep 2026 — Present</div>
               </div>
-              <div class="exp-promo">⬆ Promoção interna</div>
+              <div class="exp-promo">⬆ Internal promotion</div>
               <ul class="exp-points">
-                <li>Monitoramento e controle centralizado de infraestrutura de T.I, garantindo disponibilidade contínua de sistemas.</li>
-                <li>Resposta ágil a incidentes com análise de causa-raiz e acionamento de equipes responsáveis.</li>
-                <li>Gestão de alertas e dashboards operacionais em ambiente corporativo de alta criticidade.</li>
+                <li>Centralized monitoring and control of IT infrastructure, ensuring continuous system availability across all business units.</li>
+                <li>Rapid incident response with root-cause analysis and escalation to responsible teams.</li>
+                <li>Alert management and operational dashboards in a high-criticality corporate environment.</li>
               </ul>
               <div class="exp-tags">
                 <span class="exp-tag">T.I</span>
@@ -802,22 +807,22 @@ body.panel-open #fb-setup-banner{right:480px}
                     <img class="exp-logo" src="https://logo.clearbit.com/gruporoveri.com.br" alt="Grupo Roveri" onerror="this.parentElement.outerHTML='<div class=exp-logo-init>GR</div>'">
                   </div>
                   <div class="exp-info">
-                    <div class="exp-role">Suporte Técnico de T.I — Helpdesk</div>
+                    <div class="exp-role">IT Technical Support — Helpdesk</div>
                     <div class="exp-company">Grupo Roveri · São Paulo, SP</div>
                   </div>
                 </div>
-                <div class="exp-date">Out 2024 — Set 2026</div>
+                <div class="exp-date">Oct 2024 — Sep 2026</div>
               </div>
               <ul class="exp-points">
-                <li>Atendimento e resolução de chamados técnicos de hardware, software e redes em ambiente corporativo com SLA definido, reduzindo tempo de inatividade dos usuários.</li>
-                <li>Suporte de primeiro e segundo nível com taxa de resolução no primeiro atendimento acima de 80%, garantindo continuidade operacional.</li>
-                <li>Documentação de procedimentos e padronização de fluxos de suporte.</li>
+                <li>Handled and resolved hardware, software, and network tickets in a corporate environment with defined SLAs, reducing user downtime.</li>
+                <li>First and second-level support with an 80%+ first-contact resolution rate, ensuring operational continuity.</li>
+                <li>Documented procedures and standardized support workflows.</li>
               </ul>
               <div class="exp-tags">
-                <span class="exp-tag">Suporte L1/L2</span>
+                <span class="exp-tag">Support L1/L2</span>
                 <span class="exp-tag">Hardware</span>
                 <span class="exp-tag">Software</span>
-                <span class="exp-tag">Redes</span>
+                <span class="exp-tag">Networks</span>
                 <span class="exp-tag">SLA</span>
                 <span class="exp-tag">Windows</span>
               </div>
@@ -830,22 +835,22 @@ body.panel-open #fb-setup-banner{right:480px}
                     <img class="exp-logo" src="https://logo.clearbit.com/poupatempo.sp.gov.br" alt="Poupatempo" onerror="this.parentElement.outerHTML='<div class=exp-logo-init>PC</div>'">
                   </div>
                   <div class="exp-info">
-                    <div class="exp-role">Auxiliar de T.I</div>
+                    <div class="exp-role">IT Support Assistant</div>
                     <div class="exp-company">Poupatempo do Caminhão · São Paulo, SP</div>
                   </div>
                 </div>
-                <div class="exp-date">Mai 2024 — Ago 2024</div>
+                <div class="exp-date">May 2024 — Aug 2024</div>
               </div>
               <ul class="exp-points">
-                <li>Suporte técnico a 50+ usuários/dia com manutenção preventiva e corretiva de equipamentos em ambiente de alta demanda.</li>
-                <li>Diagnóstico e resolução de falhas de hardware, software e infraestrutura de redes com foco em reestabelecimento rápido do serviço.</li>
+                <li>Technical support for 50+ users/day with preventive and corrective equipment maintenance in a high-demand environment.</li>
+                <li>Diagnosed and resolved hardware, software, and network failures with focus on rapid service restoration.</li>
               </ul>
               <div class="exp-tags">
-                <span class="exp-tag">Suporte T.I</span>
-                <span class="exp-tag">Manutenção</span>
+                <span class="exp-tag">IT Support</span>
+                <span class="exp-tag">Maintenance</span>
                 <span class="exp-tag">Hardware</span>
-                <span class="exp-tag">Redes</span>
-                <span class="exp-tag">Alta Demanda</span>
+                <span class="exp-tag">Networks</span>
+                <span class="exp-tag">High Volume</span>
               </div>
             </div>
 
@@ -857,33 +862,33 @@ body.panel-open #fb-setup-banner{right:480px}
       <div class="form-block fade-el delay-1">
         <div class="exp-resumo-row">
           <div class="exp-panel exp-resumo-stats">
-            <div class="panel-label">Números</div>
+            <div class="panel-label">Numbers</div>
             <div style="display:flex;gap:2.5rem;align-items:flex-start;flex-wrap:wrap">
               <div>
                 <div style="font-family:var(--title);font-size:2.5rem;font-weight:800;color:#fff;letter-spacing:-.04em;line-height:1">3+</div>
-                <div style="font-family:var(--title);font-size:.55rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:.3rem">Anos de Experiência</div>
+                <div style="font-family:var(--title);font-size:.55rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:.3rem">Years of Experience</div>
               </div>
               <div>
                 <div style="font-family:var(--title);font-size:2.5rem;font-weight:800;color:#fff;letter-spacing:-.04em;line-height:1">3</div>
-                <div style="font-family:var(--title);font-size:.55rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:.3rem">Empresas</div>
+                <div style="font-family:var(--title);font-size:.55rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:.3rem">Companies</div>
               </div>
               <div>
-                <div style="font-family:var(--title);font-size:1rem;font-weight:700;color:#fff">São Paulo, Brasil</div>
-                <div style="font-family:var(--title);font-size:.55rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:.3rem">Localização</div>
+                <div style="font-family:var(--title);font-size:1rem;font-weight:700;color:#fff">São Paulo, Brazil</div>
+                <div style="font-family:var(--title);font-size:.55rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:.3rem">Location</div>
               </div>
             </div>
           </div>
           <div class="exp-panel exp-resumo-focus">
-            <div class="panel-label">Foco Técnico</div>
+            <div class="panel-label">Technical Focus</div>
             <div class="ts" style="gap:.4rem">
-              <span class="tg-tag">T.I Corporativo</span>
-              <span class="tg-tag">Infraestrutura</span>
-              <span class="tg-tag">Automação</span>
-              <span class="tg-tag">Suporte N1/N2</span>
-              <span class="tg-tag">Monitoramento</span>
-              <span class="tg-tag">Gestão de Incidentes</span>
+              <span class="tg-tag">Corporate IT</span>
+              <span class="tg-tag">Infrastructure</span>
+              <span class="tg-tag">Automation</span>
+              <span class="tg-tag">Support L1/L2</span>
+              <span class="tg-tag">Monitoring</span>
+              <span class="tg-tag">Incident Management</span>
               <span class="tg-tag">Dashboards</span>
-              <span class="tg-tag">Redes</span>
+              <span class="tg-tag">Networks</span>
             </div>
           </div>
         </div>
@@ -895,8 +900,8 @@ body.panel-open #fb-setup-banner{right:480px}
 
 <!-- PROJECTS -->
 <div class="sw" id="projetos">
-  <div class="sec-num fade-el">03 — Portfólio</div>
-  <div class="hd fade-el delay-1">Projetos Selecionados</div>
+  <div class="sec-num fade-el">03 — Portfolio</div>
+  <div class="hd fade-el delay-1">Selected Projects</div>
   <div class="pl" id="proj-list"></div>
   <p id="proj-empty" style="color:var(--gray);font-size:.86rem;display:none">Nenhum projeto ainda.</p>
 
@@ -911,98 +916,28 @@ body.panel-open #fb-setup-banner{right:480px}
       <div class="saas-tags">
         <span class="saas-tag">SaaS</span>
         <span class="saas-tag">Growth</span>
-        <span class="saas-tag">Marketing Digital</span>
+        <span class="saas-tag">Digital Marketing</span>
       </div>
       <div class="saas-title">GNX Growth</div>
-      <p class="saas-desc">Plataforma SaaS de growth marketing desenvolvida para o mercado brasileiro. Solução completa para gestão e aceleração de crescimento de negócios digitais.</p>
+      <p class="saas-desc">Growth marketing SaaS platform for the Brazilian market. Complete solution for managing and accelerating digital business growth.</p>
     </div>
     <div class="saas-right">
       <svg class="saas-arrow" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
-      <span class="saas-badge">Produto lançado</span>
+      <span class="saas-badge">Live product</span>
     </div>
   </a>
-</div>
-
-<!-- FORMAÇÃO -->
-<div id="formacao">
-  <div class="sw">
-    <div class="ey fade-el">Formação</div>
-    <div class="hd fade-el delay-1">Educação, Skills &amp; Cursos</div>
-    <div class="form-layout">
-
-      <!-- Bloco 1: Educação -->
-      <div class="form-block fade-el">
-        <div class="panel-label" style="margin-bottom:1.25rem">Educação</div>
-        <div class="edu-grid">
-          <div class="edu-card">
-            <img class="edu-logo" src="https://logo.clearbit.com/unicsul.edu.br" alt="Cruzeiro do Sul" onerror="this.style.display='none'">
-            <div class="edu-card-body">
-              <div class="edu-inst">Universidade Cruzeiro do Sul</div>
-              <div class="edu-course">Bacharelado em Engenharia de Software</div>
-              <span class="edu-status">Cursando</span>
-            </div>
-          </div>
-          <div class="edu-card">
-            <div class="edu-logos-row">
-              <img class="edu-logo-sm" src="https://logo.clearbit.com/senai.br" alt="SENAI" onerror="this.style.display='none'">
-              <img class="edu-logo-sm" src="https://logo.clearbit.com/anthropic.com" alt="Anthropic" onerror="this.style.display='none'">
-              <img class="edu-logo-sm" src="https://logo.clearbit.com/microsoft.com" alt="Microsoft" onerror="this.style.display='none'">
-            </div>
-            <div class="edu-card-body">
-              <div class="edu-inst">SENAI · Anthropic · Microsoft</div>
-              <div class="edu-course">33 cursos em T.I, IA e Desenvolvimento</div>
-              <span class="edu-status">Contínuo</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bloco 2: Cursos & Certificações -->
-      <div class="form-block fade-el delay-1">
-        <div class="panel-label" style="margin-bottom:1.25rem">Cursos &amp; Certificações</div>
-        <div class="form-panel">
-          <div class="tgl" style="margin-bottom:1rem">
-            <span id="curso-count" style="font-weight:400;font-size:12px;color:var(--white-mid);letter-spacing:0;text-transform:none"></span>
-          </div>
-          <ul class="cl" id="curso-list"></ul>
-          <p id="curso-empty" style="color:var(--gray);font-size:.82rem;display:none">Nenhum curso adicionado ainda.</p>
-        </div>
-      </div>
-
-      <!-- Bloco 3: Habilidades Técnicas -->
-      <div class="form-block fade-el delay-2">
-        <div class="panel-label" style="margin-bottom:1.25rem">Habilidades Técnicas</div>
-        <div class="sobre-cards">
-          <div class="sobre-card">
-            <div class="tg"><div class="tgl">Tech Skills</div><div class="ts" id="skills-list"></div></div>
-          </div>
-          <div class="sobre-card">
-            <div class="tg"><div class="tgl">Engenharia de Prompt &amp; IA</div><div class="ts" id="prompt-list"></div></div>
-          </div>
-          <div class="sobre-card">
-            <div class="tg"><div class="tgl">Ferramentas</div><div class="ts" id="tools-list"></div></div>
-          </div>
-          <div class="sobre-card">
-            <div class="tg"><div class="tgl">Soft Skills</div><div class="ts"><span class="tg-tag">Comunicativo</span><span class="tg-tag">Adaptabilidade</span><span class="tg-tag">Pensamento criativo</span><span class="tg-tag">Falar em público</span><span class="tg-tag">Gestão de tempo</span><span class="tg-tag">Autoconfiança</span></div></div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
 </div>
 
 <!-- CONTACT -->
 <div id="contato">
   <div class="sw">
-    <div class="ey fade-el" style="text-align:center">Contato</div>
-    <div class="hd fade-el delay-1" style="text-align:center">Vamos criar algo<br>incrível?</div>
+    <div class="ey fade-el" style="text-align:center">Contact</div>
+    <div class="hd fade-el delay-1" style="text-align:center">Let's build<br>something.</div>
     <div class="contact-panel fade-el delay-2">
-      <p class="cs">Disponível para projetos enterprise, colaborações técnicas e novas oportunidades. Entre em contato e vamos construir algo com impacto real.</p>
+      <p class="cs">Available for enterprise projects, technical collaborations, and new opportunities. Reach out and let's build something with real impact.</p>
       <div class="cr">
-        <a href="https://wa.me/5511953570476?text=Ol%C3%A1!%20Tudo%20bem%3F%20Vi%20seus%20projetos%20e%20fiquei%20interessado%20no%20seu%20trabalho." target="_blank" class="btn-w">WhatsApp</a>
-        <a href="https://www.linkedin.com/in/victor-germano-65787b2b1" target="_blank" class="btn-o">Conectar no LinkedIn ↗</a>
-        <a href="https://instagram.com/germanoo.dev" target="_blank" class="btn-o">@germanoo.dev</a>
+        <a href="https://www.linkedin.com/in/victor-germano-65787b2b1" target="_blank" class="btn-w">LinkedIn ↗</a>
+        <a href="mailto:dev.germanoo@gmail.com" class="btn-o">dev.germanoo@gmail.com</a>
       </div>
     </div>
   </div>
@@ -1010,13 +945,13 @@ body.panel-open #fb-setup-banner{right:480px}
 
 <!-- FOOTER -->
 <footer>
-  <span>© 2026 — Germano Dev</span>
+  <span>© 2026 — Victor Germano</span>
   <div class="fr">
-    <a href="https://instagram.com/germanoo.dev" target="_blank">@germanoo.dev</a>
+    <a href="https://www.linkedin.com/in/victor-germano-65787b2b1" target="_blank">LinkedIn</a>
     <span style="color:#1e1e1e">·</span>
     <a href="https://github.com/victor-germano" target="_blank">GitHub</a>
     <span style="color:#1e1e1e">·</span>
-    <span>São Paulo, Brasil</span>
+    <span>São Paulo, Brazil</span>
   </div>
 </footer>
 
@@ -1176,9 +1111,9 @@ body.panel-open #fb-setup-banner{right:480px}
 
     <!-- Pane 1 -->
     <div class="demo-pane active" id="demo-pane-1">
-      <div class="demo-eyebrow">Portfólio Profissional</div>
-      <h2 class="demo-title">Olá. Sou Victor Germano.</h2>
-      <p class="demo-text">Desenvolvedor e designer especializado em criar experiências digitais memoráveis. Este portfólio exibe projetos reais, habilidades e trajetória — tudo construído com atenção ao detalhe.</p>
+      <div class="demo-eyebrow">Professional Portfolio</div>
+      <h2 class="demo-title">Hi. I'm Victor Germano.</h2>
+      <p class="demo-text">Software Engineer specializing in enterprise systems, autonomous AI agents, and production backends. This portfolio shows real projects, real decisions, and measurable outcomes.</p>
       <div class="demo-stats">
         <div class="demo-stat">
           <span class="stat-num">10+</span>
@@ -1200,9 +1135,9 @@ body.panel-open #fb-setup-banner{right:480px}
 
     <!-- Pane 2 -->
     <div class="demo-pane" id="demo-pane-2">
-      <div class="demo-eyebrow">Projetos em destaque</div>
-      <h2 class="demo-title">Trabalho real.<br>Resultado real.</h2>
-      <p class="demo-text">Cada projeto é construído do zero — sem templates genéricos. Do design à entrega, com foco em performance e identidade visual.</p>
+      <div class="demo-eyebrow">Featured projects</div>
+      <h2 class="demo-title">Real work.<br>Real impact.</h2>
+      <p class="demo-text">Every project is built from scratch — no generic templates. From architecture decisions to production deployment, with focus on correctness and performance.</p>
       <div class="demo-proj-list">
         <div class="demo-proj-item">
           <div class="demo-proj-name">MDM Corporativo — Grupo Roveri</div>
@@ -1225,30 +1160,30 @@ body.panel-open #fb-setup-banner{right:480px}
 
     <!-- Pane 3 -->
     <div class="demo-pane" id="demo-pane-3">
-      <div class="demo-eyebrow">Por que me contratar?</div>
-      <h2 class="demo-title">Sim.<br>Aqui está o porquê.</h2>
+      <div class="demo-eyebrow">Why work with me?</div>
+      <h2 class="demo-title">Yes.<br>Here's why.</h2>
       <div class="demo-reasons">
         <div class="demo-reason">
           <span class="reason-icon">◆</span>
-          <span>Código limpo e manual, sem templates genéricos</span>
+          <span>Enterprise-grade code — idempotency, audit trails, graceful shutdown, OpenAPI contracts</span>
         </div>
         <div class="demo-reason">
           <span class="reason-icon">◆</span>
-          <span>Design profissional com identidade visual única para cada projeto</span>
+          <span>AI as an engineering discipline — 7-agent pipelines, MCP integrations, autonomous fiscal agents</span>
         </div>
         <div class="demo-reason">
           <span class="reason-icon">◆</span>
-          <span>Integração com IA para soluções mais inteligentes e eficientes</span>
+          <span>Approved by management, development, and cybersecurity — not just shipped, vetted</span>
         </div>
         <div class="demo-reason">
           <span class="reason-icon">◆</span>
-          <span>Disponível agora para freelas, colaborações e novos projetos</span>
+          <span>Available for enterprise projects, technical collaborations, and new opportunities</span>
         </div>
       </div>
       <div class="demo-nav">
-        <button class="demo-back" onclick="demoGo(2)">← Voltar</button>
-        <a href="https://wa.me/5511953570476?text=Ol%C3%A1!%20Vi%20a%20demo%20do%20seu%20portf%C3%B3lio%20e%20quero%20conversar." target="_blank" class="demo-cta" onclick="closeOv('ov-demo')">
-          Entrar em contato
+        <button class="demo-back" onclick="demoGo(2)">← Back</button>
+        <a href="https://www.linkedin.com/in/victor-germano-65787b2b1" target="_blank" class="demo-cta" onclick="closeOv('ov-demo')">
+          Connect on LinkedIn
           <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.3" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
@@ -1284,7 +1219,7 @@ window.scrollTo(0, 0);
 ══════════════════════════════════════ */
 const PASS = 'Careca1711@';
 const FIREBASE_URL = 'https://portfolio-germano-dev-default-rtdb.firebaseio.com';
-const DATA_VERSION = 27;
+const DATA_VERSION = 28;
 
 /* ── Firebase REST helpers ── */
 async function fbGet(){
@@ -1305,41 +1240,49 @@ async function fbSet(data){
 }
 
 const DEFAULTS = [
-  {id:'d13',name:'Sistema de Monitoramento de Celulares — MDM Corporativo',tags:['TypeScript','Node.js','Fastify','PostgreSQL','Next.js','React','Android Management API','EMM/MDM','Corporativo'],
-   desc:'Sistema interno EMM/MDM para gestão de dispositivos móveis corporativos do Grupo Roveri via Android Management API. Backend Fastify 5 com PostgreSQL 16, BullMQ/Redis e conformidade LGPD; painel frontend Next.js 16 completo — inventário de dispositivos, políticas (CRUD/versões/rollback), alertas, colaboradores e comandos remotos. Aprovado pela gerência, equipe de desenvolvimento e Cybersegurança.',
+  {id:'d13',name:'Corporate MDM System — Grupo Roveri',tags:['TypeScript','Node.js','Fastify 5','PostgreSQL 16','Redis','BullMQ','Next.js','React','Android Management API','EMM/MDM'],
+   desc:'Internal EMM/MDM system for corporate mobile device management at Grupo Roveri via Android Management API. Fastify 5 backend with PostgreSQL 16, BullMQ/Redis, and LGPD compliance; full Next.js 16 admin panel — device inventory, policies (CRUD/versions/rollback), alerts, collaborators, and remote commands.',
+   cs:{problem:'Grupo Roveri had 200+ corporate devices with no organizational context — no mapping between devices, employees, departments, or cost centers. Existing third-party SaaS (Miradore) could not model the company\'s internal structure.',solution:'Built internal EMM/MDM on Android Management API: full enrollment flow, remote commands (lock/wipe/reboot), policy CRUD with version history and rollback, BullMQ async queues for safe policy writes, RBAC, and an immutable audit trail.',impact:'Replaced Miradore dependency entirely. Approved end-to-end by management, development team, and cybersecurity. Automated enrollment replaced a fully manual provisioning process.'},
    img:'',link:'https://github.com/victor-germano/Sistema-de-monitoramento-de-celulares-para-infraestrutura'},
-  {id:'d14',name:'Agente de Automação de Vendas — Pipeline Multi-Agente',tags:['TypeScript','Node.js','Claude API','Google Places API','WhatsApp API','Gmail OAuth','PM2','Multi-Agente','IA'],
-   desc:'Pipeline de 7 agentes de IA autônomos que fecha o ciclo de vendas do zero: prospecta empresas no Google Maps por setor/cidade, diagnostica com Claude AI, gera landing page HTML personalizada e envia automaticamente via WhatsApp ou Gmail — único passo manual é aprovar no painel antes do envio.',
+  {id:'d14',name:'AI Sales Automation — Multi-Agent Pipeline',tags:['TypeScript','Node.js','Claude AI','Google Places API','WhatsApp API','Gmail OAuth','PM2','Multi-Agent','Autonomous'],
+   desc:'7-agent autonomous pipeline that closes the full sales cycle: prospects companies on Google Maps by sector/city, runs AI diagnosis with Claude, generates a personalized HTML landing page, and delivers automatically via WhatsApp or Gmail. Single human approval gate before send.',
+   cs:{problem:'Sales prospecting was 100% manual: finding leads by geography and sector, writing personalized outreach for each, and delivering through multiple channels individually.',solution:'7 autonomous agents: Google Maps prospector → AI diagnostician (Claude) → HTML landing page generator → automated deployment → WhatsApp/Gmail delivery. One human approval step before final send.',impact:'Full prospect-to-delivery cycle automated. Sales team receives a ready-to-send package with zero manual research, writing, or formatting.'},
    img:'',link:'https://github.com/victor-germano/agente-de-automacao'},
-  {id:'d15',name:'Agente de Emissão NFS-e — Arquitetura Enterprise',tags:['TypeScript','Node.js','Fastify','Supabase','PostgreSQL','Stripe','Arquitetura','LGPD'],
-   desc:'Agente de integração fiscal para clínica médica com arquitetura enterprise: idempotência atômica, retry/backoff exponencial, reconciliação Stripe, cancelamento por estorno, auditoria imutável, compliance LGPD e graceful shutdown. Full test suite incluindo testes de concorrência real.',
+  {id:'d15',name:'NFS-e Emission Agent — Enterprise Architecture',tags:['TypeScript','Node.js','Fastify','Supabase','PostgreSQL','Stripe','Idempotency','LGPD'],
+   desc:'Enterprise fiscal integration agent for a medical clinic: atomic idempotency, exponential retry/backoff, Stripe webhook reconciliation, automatic cancellation on chargeback, immutable LGPD audit trail, and graceful shutdown. Full test suite including real concurrency tests.',
+   cs:{problem:'Medical clinic issuing NFS-e invoices manually — no audit trail, no payment reconciliation, and risk of double-billing under concurrent webhook requests from Stripe.',solution:'Enterprise fiscal agent with atomic idempotency preventing duplicate emissions, exponential retry/backoff for SEFAZ outages, Stripe webhook reconciliation for automatic invoice cancellations on chargeback, and an immutable LGPD-compliant audit trail.',impact:'100% automated invoice emission pipeline. Concurrent test suite validates idempotency under real race conditions. Zero manual steps in the billing flow.'},
    img:'',link:'https://github.com/victor-germano/agente-emissao-nfse'},
-  {id:'d16',name:'ASN Supply — E-commerce de Tênis',tags:['React','TypeScript','Supabase','PostgreSQL','Stripe','E-commerce','UX'],
-   desc:'E-commerce completo e profissional para venda de tênis — catálogo com filtros avançados, carrinho persistente, checkout com Stripe, painel administrativo de pedidos e controle de estoque em tempo real. Design premium orientado à experiência de compra e alta conversão.',
+  {id:'d16',name:'ASN Supply — Sneaker E-commerce',tags:['React','TypeScript','Supabase','PostgreSQL','Stripe','E-commerce','UX'],
+   desc:'Full-stack e-commerce for sneaker retail — advanced product catalog with filters, persistent cart, Stripe checkout, admin order management panel, and real-time inventory control. Premium design focused on purchase experience and conversion.',
+   cs:{problem:'Sneaker retailer needed a complete stack from scratch: product catalog with filtering, cart persistence, payment processing, real-time inventory, and an admin panel to manage the full order lifecycle.',solution:'Built full e-commerce with Stripe checkout integration, Supabase-persisted cart, real-time inventory tracking, advanced product filters (brand, size, price), and a full admin panel for order management from placement to fulfillment.',impact:'Production-grade e-commerce with complete payment flow. Admin panel handles the full order lifecycle. Real-time inventory prevents overselling.'},
    img:'',link:'https://github.com/victor-germano/ASN-Supply'},
-  {id:'d18',name:'Alma Estudos Visuais',tags:['Institucional','HTML5','CSS3','JavaScript','Identidade Visual','UI/UX'],
-   desc:'Site artístico e institucional com identidade visual personalizada, layout responsivo e experiência de usuário otimizada. Desenvolvido sem frameworks, código manual com foco em performance e estética.',
+  {id:'d18',name:'Alma Estudos Visuais',tags:['Institutional','HTML5','CSS3','JavaScript','Visual Identity','UI/UX'],
+   desc:'Artist studio website with custom visual identity, responsive gallery layout, and CSS3 animations. Pure HTML/CSS/JS — no framework overhead, hand-crafted for performance and aesthetic precision.',
    img:'',link:'https://almaestudosvisuais.com.br'},
-  {id:'d10',name:'GNX Growth — Landing Page',tags:['HTML','CSS','JavaScript','Landing Page','Copywriting'],
-   desc:'Landing page de vendas da GNX Growth para donos de delivery, publicada em gnxgrowth.com.br. Página única focada em conversão, com apresentação do guia Delivery no Vermelho, depoimentos, oferta e perguntas frequentes.',
+  {id:'d10',name:'GNX Growth — Sales Landing Page',tags:['HTML','CSS','JavaScript','Landing Page','Copywriting'],
+   desc:'High-conversion sales landing page for GNX Growth, published at gnxgrowth.com.br. Single-page focused on conversion — product presentation, testimonials, offer structure, and FAQ.',
    img:'',link:'https://gnxgrowth.com.br'},
-  {id:'d11',name:'CRM Energia Solar — Prospecção B2B',tags:['React','TypeScript','Supabase','PostgreSQL','Vercel','CRM'],
-   desc:'CRM de prospecção B2B para venda de energia por assinatura a condomínios e administradoras, construído com React, TypeScript e Supabase (PostgreSQL), com deploy na Vercel. Enriquecimento automático de CNPJ via Receita Federal com importação CSV/XLSX anti-duplicidade, pipeline Kanban de 9 etapas com cálculo automático de economia ao anexar a fatura, disparo de scripts comerciais via WhatsApp em 1 clique e geração de proposta em PDF com projeção de economia em 1/3/5 anos.',
+  {id:'d11',name:'Solar Energy CRM — B2B Prospecting',tags:['React','TypeScript','Supabase','PostgreSQL','Vercel','CRM'],
+   desc:'B2B prospecting CRM for solar energy subscription sales to condominiums and property managers. Automatic CNPJ enrichment via Receita Federal API, 9-stage Kanban pipeline with automatic savings calculation, 1-click WhatsApp scripts, and PDF proposals with 1/3/5-year savings projections.',
+   cs:{problem:'B2B solar energy sales team tracking 50+ prospects in spreadsheets — no pipeline visibility, manual CNPJ lookups, no proposal automation, and no way to track stage progression.',solution:'CRM with 9-stage Kanban pipeline, automatic CNPJ enrichment via Receita Federal API, CSV/XLSX import with deduplication, 1-click WhatsApp script dispatch, and 1-click PDF proposal generation with 1/3/5-year savings projections.',impact:'Prospect-to-proposal fully automated. Sales reps go from lead qualification to signed PDF proposal without leaving the platform. Eliminated spreadsheet dependency entirely.'},
    img:'',link:''},
-  {id:'d2',name:'Academia Agits',tags:['Institucional','UI/UX','Conversão'],
-   desc:'Site institucional para academia com foco em conversão e apresentação de serviços. Experiência clara, objetiva e orientada a resultados.',
+  {id:'d2',name:'Academia Agits',tags:['Institutional','UI/UX','Conversion'],
+   desc:'Institutional website for a gym focused on conversion and service presentation. Clear, objective experience oriented toward results.',
    img:'',link:'https://academiaagits.com.br/'},
-  {id:'d12',name:'Tech N — Software House',tags:['Institucional','React','TypeScript','UI/UX','SEO'],
-   desc:'Site institucional desenvolvido para software house especializada em desenvolvimento de sistemas sob medida. Apresentação de serviços, portfólio de soluções e posicionamento de marca — design responsivo com identidade visual própria, copywriting orientado a conversão e otimização para SEO.',
+  {id:'d12',name:'Tech N — Software House',tags:['Institutional','React','TypeScript','UI/UX','SEO'],
+   desc:'Institutional website for a custom software development house. Service presentation, solution portfolio, and brand positioning — responsive design with custom visual identity, conversion-oriented copywriting, and SEO optimization.',
    img:'',link:'https://technsoftwares.com.br'},
-  {id:'d8',name:'Agente de IA — Emissor NF-e',tags:['Claude Code','Python','API NF-e','Automação'],
-   desc:'Agente de IA que automatiza 100% o processo de emissão de nota fiscal eletrônica (NF-e). Emissão em até 3 segundos, validação automática de dados, integração com API SEFAZ, geração de XML/PDF e envio ao destinatário. Desenvolvido com Claude Code — elimina N8N, Python manual e Node.js. Aplicável a empresas de tecnologia, medicina e qualquer segmento que precise escalar emissão fiscal sem erros humanos.',
+  {id:'d8',name:'AI Agent — NF-e Issuer',tags:['Claude Code','Python','NF-e API','Automation'],
+   desc:'AI agent that automates 100% of the NF-e (electronic invoice) emission process. Emission in under 3 seconds: automatic data validation, SEFAZ API integration, XML/PDF generation, and delivery to recipient. Built with Claude Code — eliminates manual scripting entirely.',
+   cs:{problem:'NF-e emission requires XML generation, digital signature, SEFAZ transmission, and PDF delivery — historically a multi-step manual process prone to data entry errors and transmission failures.',solution:'AI agent handles the full emission pipeline in under 3 seconds: validates all data, generates SEFAZ-compliant XML, signs digitally, transmits, generates PDF, and delivers to recipient. Claude Code orchestrates every step.',impact:'100% automated NF-e emission. Applicable to any business segment — tech, healthcare, or any domain that needs to scale fiscal automation without human error.'},
    img:'',link:'https://github.com/victor-germano/agente-de-emissao-NF-e'},
-  {id:'d6',name:'Jarvis — Assistente de IA por Voz',tags:['Python','Claude API','Voz','IA'],
-   desc:'Assistente pessoal com voz bidirecional inspirado no J.A.R.V.I.S. do Homem de Ferro. Ouve comandos de voz, raciocina com Claude e responde em ~1 segundo. Integrado ao VS Code, Spotify, Google Calendar, Gmail e GitHub. Memória persistente entre sessões e roteamento automático entre modelos de IA.',
+  {id:'d6',name:'Jarvis — AI Voice Assistant',tags:['Python','Claude API','Voice','AI'],
+   desc:'Personal bidirectional voice assistant inspired by J.A.R.V.I.S. Listens to voice commands, reasons with Claude, responds in ~1 second. Integrated with VS Code, Spotify, Google Calendar, Gmail, and GitHub. Persistent memory across sessions and automatic routing between AI models by task type.',
+   cs:{problem:'Development workflows required constant context switching between code editor, music, calendar, email, and GitHub — no unified voice interface that understood engineering context.',solution:'Bidirectional voice assistant with ~1s end-to-end latency. Full integrations with VS Code, Spotify, Google Calendar, Gmail, and GitHub. Persistent session memory eliminates repeated context-setting. Automatic AI model routing selects the right model for each task type.',impact:'Full development assistant accessible entirely by voice. Session memory means the assistant knows your current context without re-explaining every time.'},
    img:'',link:'https://github.com/victor-germano/Programador-por-voz---Jarvis'},
-  {id:'d9',name:'Verificador de Vulnerabilidade de Código',tags:['Python','Claude API','Segurança','OWASP'],
-   desc:'Ferramenta de análise de segurança que usa a Claude API (Anthropic) para inspecionar código-fonte e detecta vulnerabilidades críticas — SQL Injection, XSS, autenticação insegura, exposição de dados sensíveis e outros padrões OWASP. Gera relatório detalhado com nível de severidade (crítico, alto, médio, baixo) e sugestões de correção para cada vulnerabilidade encontrada. Suporta múltiplas linguagens de programação.',
+  {id:'d9',name:'Code Vulnerability Scanner — SAST',tags:['Python','Claude API','Security','OWASP'],
+   desc:'Static analysis security platform that inspects source code and detects critical vulnerabilities — SQL Injection, XSS, insecure auth, sensitive data exposure, and other OWASP patterns. 38 detection rules built on real AST parsing across 8 languages. Generates severity-graded reports (critical/high/medium/low) with remediation suggestions per finding.',
+   cs:{problem:'Manual security code review is slow, inconsistent, and fails to scale across a multi-language codebase. Regex-based scanners produce high false-positive rates that reduce trust.',solution:'SAST platform with 38 detection rules built on real AST parsing (not regex) across 8 languages. Runs as a Docker Compose stack, standalone CLI, or CI pipeline step. Each finding includes severity level, affected line, and actionable remediation suggestion.',impact:'Automated detection of OWASP Top 10 vulnerabilities. AST-based analysis eliminates the false positives common in regex-only scanners. Exportable reports ready for security audits.'},
    img:'',link:'https://github.com/victor-germano/Verificador-de-vulnerabilidade-de-codigo-'}
 ];
 
@@ -1538,6 +1481,11 @@ function render(){
   projs.forEach((p,i) => {
     const num  = String(i+1).padStart(2,'0');
     const tags = (p.tags||[]).map(t=>`<span class="proj-tag">${x(t)}</span>`).join('');
+    const cs   = p.cs ? `<div class="proj-cs">
+      <div class="proj-cs-row"><span class="proj-cs-label">Problem</span><span class="proj-cs-val">${x(p.cs.problem)}</span></div>
+      <div class="proj-cs-row"><span class="proj-cs-label">Solution</span><span class="proj-cs-val">${x(p.cs.solution)}</span></div>
+      <div class="proj-cs-row"><span class="proj-cs-label">Impact</span><span class="proj-cs-val">${x(p.cs.impact)}</span></div>
+    </div>` : '';
 
     const el = document.createElement('div');
     el.className = `proj ${admin?'admin-mode':'normal-mode'} fade-el`;
@@ -1549,8 +1497,9 @@ function render(){
         <div class="proj-tags">${tags}</div>
         <div class="proj-title">${x(p.name)}</div>
         <p class="proj-desc">${x(p.desc)}</p>
+        ${cs}
         <div class="proj-footer">
-          ${p.link && !admin ? `<a class="proj-link" href="${p.link}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Ver projeto <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg></a>` : '<span></span>'}
+          ${p.link && !admin ? `<a class="proj-link" href="${p.link}" target="_blank" rel="noopener" onclick="event.stopPropagation()">View project <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg></a>` : '<span></span>'}
           <div class="proj-adm-btns${admin?' on':''}">
             <button class="ab edit-btn" data-id="${p.id}">✏️ Editar</button>
             <button class="ab del-btn"  data-id="${p.id}">🗑 Excluir</button>
