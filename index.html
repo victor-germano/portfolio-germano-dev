@@ -1284,7 +1284,7 @@ window.scrollTo(0, 0);
 ══════════════════════════════════════ */
 const PASS = 'Careca1711@';
 const FIREBASE_URL = 'https://portfolio-germano-dev-default-rtdb.firebaseio.com';
-const DATA_VERSION = 23;
+const DATA_VERSION = 24;
 
 /* ── Firebase REST helpers ── */
 async function fbGet(){
@@ -1305,6 +1305,9 @@ async function fbSet(data){
 }
 
 const DEFAULTS = [
+  {id:'d13',name:'Sistema de Monitoramento de Celulares — MDM Corporativo',tags:['TypeScript','Node.js','Fastify','PostgreSQL','Next.js','React','Android Management API','EMM/MDM','Corporativo'],
+   desc:'Sistema interno EMM/MDM para gestão de dispositivos móveis corporativos do Grupo Roveri via Android Management API. Backend Fastify 5 com PostgreSQL 16, BullMQ/Redis e conformidade LGPD; painel frontend Next.js 16 completo — inventário de dispositivos, políticas (CRUD/versões/rollback), alertas, colaboradores e comandos remotos. Aprovado pela gerência, equipe de desenvolvimento e Cybersegurança.',
+   img:'',link:'https://github.com/victor-germano/Sistema-de-monitoramento-de-celulares-para-infraestrutura'},
   {id:'d10',name:'GNX Growth — Landing Page',tags:['HTML','CSS','JavaScript','Landing Page','Copywriting'],
    desc:'Landing page de vendas da GNX Growth para donos de delivery, publicada em gnxgrowth.com.br. Página única focada em conversão, com apresentação do guia Delivery no Vermelho, depoimentos, oferta e perguntas frequentes.',
    img:'',link:'https://gnxgrowth.com.br'},
