@@ -142,6 +142,9 @@ body.nav-open .nav-hamburger span:nth-child(3){transform:translateY(-6px) rotate
 /* ── SECTION SCROLL OFFSET (fixed nav clearance) ── */
 #sobre,#experiencia,#projetos,#contato{scroll-margin-top:4.5rem}
 
+/* ── POST-HERO SECTIONS: cover fixed background photo ── */
+#sobre,#experiencia,#projetos,#contato,footer{position:relative;z-index:1;background:#000}
+
 /* ── EXPERIENCE SECTION ── */
 #experiencia .sw{padding-top:4rem}
 #experiencia .hd{margin-bottom:1.5rem}
@@ -916,7 +919,8 @@ body.panel-open #fb-setup-banner{right:480px}
 </div>
 
 <!-- PROJECTS -->
-<div class="sw" id="projetos">
+<div id="projetos">
+  <div class="sw">
   <div class="sec-num">03 — Portfolio</div>
   <div class="hd">Selected Projects</div>
   <div class="pl" id="proj-list"></div>
@@ -943,6 +947,7 @@ body.panel-open #fb-setup-banner{right:480px}
       <span class="saas-badge">Live product</span>
     </div>
   </a>
+  </div>
 </div>
 
 <!-- CONTACT -->
